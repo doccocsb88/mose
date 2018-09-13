@@ -1,0 +1,1 @@
+../../../HTKDragAndDropCollectionViewLayout/HTKDragAndDropCollectionViewLayout/HTKDraggableCollectionViewCell.h

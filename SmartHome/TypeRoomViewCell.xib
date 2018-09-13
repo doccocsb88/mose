@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="G9C-2A-T5g" customClass="TypeRoomViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="140" height="137"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="140" height="137"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GQ0-pW-Wj0">
+                        <rect key="frame" x="1.5" y="0.0" width="137" height="137"/>
+                        <subviews>
+                            <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EcC-TN-mOY">
+                                <rect key="frame" x="0.0" y="0.0" width="137" height="137"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_room_thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="DnT-Wr-j1W">
+                                <rect key="frame" x="17.5" y="15" width="102" height="102"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DnT-Wr-j1W" secondAttribute="height" multiplier="1:1" id="yo1-fc-11T"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHi-Bv-V06">
+                                <rect key="frame" x="49.5" y="118" width="39" height="19"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RYO-3o-89n">
+                                <rect key="frame" x="117" y="10" width="10" height="10"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="FHT-1c-bO6"/>
+                                    <constraint firstAttribute="width" constant="10" id="rII-mf-cmp"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="DnT-Wr-j1W" secondAttribute="bottom" constant="20" id="70Z-ob-MSl"/>
+                            <constraint firstItem="RYO-3o-89n" firstAttribute="top" secondItem="GQ0-pW-Wj0" secondAttribute="top" constant="10" id="7AC-NS-vV1"/>
+                            <constraint firstAttribute="width" secondItem="GQ0-pW-Wj0" secondAttribute="height" multiplier="1:1" id="9So-YJ-AyA"/>
+                            <constraint firstItem="DnT-Wr-j1W" firstAttribute="top" secondItem="GQ0-pW-Wj0" secondAttribute="top" constant="15" id="D0J-9r-JMm"/>
+                            <constraint firstAttribute="trailing" secondItem="EcC-TN-mOY" secondAttribute="trailing" id="L7P-sX-2Zu"/>
+                            <constraint firstItem="EcC-TN-mOY" firstAttribute="top" secondItem="GQ0-pW-Wj0" secondAttribute="top" id="M7W-TK-ziV"/>
+                            <constraint firstAttribute="trailing" secondItem="RYO-3o-89n" secondAttribute="trailing" constant="10" id="YrU-lJ-UYC"/>
+                            <constraint firstItem="EcC-TN-mOY" firstAttribute="leading" secondItem="GQ0-pW-Wj0" secondAttribute="leading" id="ZAw-M8-U4B"/>
+                            <constraint firstAttribute="bottom" secondItem="EcC-TN-mOY" secondAttribute="bottom" id="dDe-BT-bMu"/>
+                            <constraint firstItem="fHi-Bv-V06" firstAttribute="centerX" secondItem="GQ0-pW-Wj0" secondAttribute="centerX" id="h2L-zn-bQI"/>
+                            <constraint firstItem="DnT-Wr-j1W" firstAttribute="centerX" secondItem="GQ0-pW-Wj0" secondAttribute="centerX" id="q8p-8J-7af"/>
+                            <constraint firstAttribute="bottom" secondItem="fHi-Bv-V06" secondAttribute="bottom" id="rPE-cb-Url"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="GQ0-pW-Wj0" firstAttribute="centerX" secondItem="G9C-2A-T5g" secondAttribute="centerX" id="VCc-ad-8Fw"/>
+                <constraint firstItem="GQ0-pW-Wj0" firstAttribute="top" secondItem="G9C-2A-T5g" secondAttribute="top" id="VO0-iQ-Cl9"/>
+                <constraint firstAttribute="bottom" secondItem="GQ0-pW-Wj0" secondAttribute="bottom" id="kDB-aE-7HO"/>
+                <constraint firstAttribute="trailing" secondItem="GQ0-pW-Wj0" secondAttribute="trailing" id="mIa-mu-c9O"/>
+                <constraint firstItem="GQ0-pW-Wj0" firstAttribute="leading" secondItem="G9C-2A-T5g" secondAttribute="leading" id="nPN-ae-XJi"/>
+            </constraints>
+            <size key="customSize" width="140" height="137"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="mIa-mu-c9O"/>
+                    <exclude reference="nPN-ae-XJi"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="containerView" destination="GQ0-pW-Wj0" id="7fR-eE-fJL"/>
+                <outlet property="nameLabel" destination="fHi-Bv-V06" id="TBn-ph-frC"/>
+                <outlet property="roomStatusView" destination="RYO-3o-89n" id="hgX-jc-Alo"/>
+                <outlet property="thumbnail" destination="DnT-Wr-j1W" id="k5B-kl-Ovp"/>
+            </connections>
+            <point key="canvasLocation" x="37" y="20.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ic_room_thumbnail" width="64" height="64"/>
+    </resources>
+</document>

@@ -1,0 +1,13 @@
+ [{"id":"1", "name": "Bếp", "parentid": "", "image": "State1" },
+  {"id":"2", "name": "Cổng", "parentid": "", "image": "State2" },
+  {"id":"3", "name": "Garage", "parentid": "", "image": "State3" },
+  {"id":"4", "name": "Em bé", "parentid": "", "image": "State4" },
+  {"id":"5", "name": "Làm việc", "parentid": "", "image": "State3" },
+  {"id":"6", "name": "Kho", "parentid": "", "image": "State3" },
+  {"id":"7", "name": "Phòng thờ", "parentid": "", "image": "State3" },
+  {"id":"8", "name": "Phòng khách", "parentid": "", "image": "State3" },
+
+  {"id":"9", "name": "Phòng ngủ", "parentid": "", "image": "State3" },
+  {"id":"10", "name": "Phòng tắm", "parentid": "", "image": "State3" },
+  {"id":"11", "name": "Sân vườn", "parentid": "", "image": "State3" },
+  ]

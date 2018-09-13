@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="lightOnOffViewCell" id="m5a-YS-kJb" customClass="LightStateViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m5a-YS-kJb" id="Glf-9O-Qd5">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="110.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NZL-Zo-dOW">
+                        <rect key="frame" x="10" y="5" width="355" height="100"/>
+                        <subviews>
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vcx-bU-aLe">
+                                <rect key="frame" x="0.0" y="0.0" width="355" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_device_bg" translatesAutoresizingMaskIntoConstraints="NO" id="JMc-2x-SaQ">
+                                <rect key="frame" x="0.0" y="0.0" width="355" height="100"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downlight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBm-V9-D9j">
+                                <rect key="frame" x="70" y="40" width="76" height="20"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYx-P5-pBK">
+                                <rect key="frame" x="10" y="25" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="OiU-2G-zZA"/>
+                                    <constraint firstAttribute="height" constant="50" id="onE-BS-eNa"/>
+                                </constraints>
+                                <state key="normal" image="ic_light"/>
+                                <connections>
+                                    <action selector="pressedControl:" destination="m5a-YS-kJb" eventType="touchUpInside" id="Wsf-7X-Uno"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z83-l1-gg7">
+                                <rect key="frame" x="250" y="30" width="85" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="4vm-Ae-vjf"/>
+                                    <constraint firstAttribute="width" secondItem="Z83-l1-gg7" secondAttribute="height" multiplier="256:151" id="7FM-eM-AmP"/>
+                                    <constraint firstAttribute="height" constant="50" id="GnM-Dx-bre"/>
+                                </constraints>
+                                <state key="normal" image="ic_light_on"/>
+                                <state key="selected" image="ic_light_off"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="4vm-Ae-vjf"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="pressedButton:" destination="m5a-YS-kJb" eventType="touchUpInside" id="zPQ-jq-iEt"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqz-CL-czt">
+                                <rect key="frame" x="19" y="16" width="33" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vcx-bU-aLe" firstAttribute="leading" secondItem="NZL-Zo-dOW" secondAttribute="leading" id="IJ0-om-pl1"/>
+                            <constraint firstAttribute="trailing" secondItem="vcx-bU-aLe" secondAttribute="trailing" id="Lg9-pk-8PU"/>
+                            <constraint firstAttribute="trailing" secondItem="Z83-l1-gg7" secondAttribute="trailing" constant="20" id="Pyv-GS-GFD"/>
+                            <constraint firstItem="Z83-l1-gg7" firstAttribute="centerY" secondItem="NZL-Zo-dOW" secondAttribute="centerY" constant="5" id="SKi-yR-If4"/>
+                            <constraint firstAttribute="bottom" secondItem="vcx-bU-aLe" secondAttribute="bottom" id="aEV-LZ-beN"/>
+                            <constraint firstItem="JMc-2x-SaQ" firstAttribute="centerX" secondItem="vcx-bU-aLe" secondAttribute="centerX" id="awE-sY-WNH"/>
+                            <constraint firstItem="JMc-2x-SaQ" firstAttribute="height" secondItem="vcx-bU-aLe" secondAttribute="height" id="bf9-ZY-b9O"/>
+                            <constraint firstItem="JMc-2x-SaQ" firstAttribute="width" secondItem="vcx-bU-aLe" secondAttribute="width" id="eoZ-Jl-QN1"/>
+                            <constraint firstItem="cYx-P5-pBK" firstAttribute="leading" secondItem="NZL-Zo-dOW" secondAttribute="leading" constant="10" id="g3v-TP-48c"/>
+                            <constraint firstItem="cYx-P5-pBK" firstAttribute="centerY" secondItem="NZL-Zo-dOW" secondAttribute="centerY" id="l7S-ux-6DW"/>
+                            <constraint firstItem="JMc-2x-SaQ" firstAttribute="centerY" secondItem="vcx-bU-aLe" secondAttribute="centerY" id="nNl-hf-pgE"/>
+                            <constraint firstItem="vcx-bU-aLe" firstAttribute="top" secondItem="NZL-Zo-dOW" secondAttribute="top" id="ow2-dN-Pgh"/>
+                            <constraint firstItem="RBm-V9-D9j" firstAttribute="leading" secondItem="cYx-P5-pBK" secondAttribute="trailing" constant="10" id="wLi-bw-crT"/>
+                            <constraint firstItem="RBm-V9-D9j" firstAttribute="centerY" secondItem="NZL-Zo-dOW" secondAttribute="centerY" id="xsz-hf-IcA"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="NZL-Zo-dOW" firstAttribute="top" secondItem="Glf-9O-Qd5" secondAttribute="top" constant="5" id="ELv-hF-nbw"/>
+                    <constraint firstItem="NZL-Zo-dOW" firstAttribute="leading" secondItem="Glf-9O-Qd5" secondAttribute="leading" constant="10" id="Gz3-Mn-Cjd"/>
+                    <constraint firstAttribute="trailing" secondItem="NZL-Zo-dOW" secondAttribute="trailing" constant="10" id="VeJ-A1-wSm"/>
+                    <constraint firstAttribute="bottom" secondItem="NZL-Zo-dOW" secondAttribute="bottom" constant="5" id="lHT-Fu-u0w"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="_backgroundView" destination="vcx-bU-aLe" id="k1B-of-SUn"/>
+                <outlet property="cantainerLightView" destination="NZL-Zo-dOW" id="SGz-RJ-CQl"/>
+                <outlet property="lbDeviceName" destination="RBm-V9-D9j" id="jSK-lh-oEm"/>
+                <outlet property="onOffButton" destination="Z83-l1-gg7" id="dre-ku-MLf"/>
+                <outlet property="thumbnail" destination="cYx-P5-pBK" id="bnJ-jx-av1"/>
+                <outlet property="valueLabel" destination="iqz-CL-czt" id="WN9-Z3-sla"/>
+            </connections>
+            <point key="canvasLocation" x="32.5" y="53.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_device_bg" width="338" height="85"/>
+        <image name="ic_light" width="84" height="128"/>
+        <image name="ic_light_off" width="128" height="75"/>
+        <image name="ic_light_on" width="128" height="75"/>
+    </resources>
+</document>

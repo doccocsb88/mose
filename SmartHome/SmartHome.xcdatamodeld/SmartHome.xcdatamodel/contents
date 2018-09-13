@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="Controller" representedClassName="Controller" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="Device" representedClassName="Device" syncable="YES">
+        <attribute name="chanelInfo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="control" optional="YES" attributeType="Boolean" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="requestId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="topic" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="room" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Room" inverseName="devices" inverseEntity="Room" syncable="YES"/>
+    </entity>
+    <entity name="Room" representedClassName="Room" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="parentid" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="devices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Device" inverseName="room" inverseEntity="Device" syncable="YES"/>
+        <relationship name="sceneDetail" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SceneDetail" syncable="YES"/>
+    </entity>
+    <entity name="Scene" representedClassName="Scene" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="sceneDetail" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SceneDetail" inverseName="scene" inverseEntity="SceneDetail" syncable="YES"/>
+    </entity>
+    <entity name="SceneDetail" representedClassName="SceneDetail" syncable="YES">
+        <attribute name="chanels" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="device" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Device" syncable="YES"/>
+        <relationship name="scene" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Scene" inverseName="sceneDetail" inverseEntity="Scene" syncable="YES"/>
+    </entity>
+    <entity name="SHTimer" representedClassName="SHTimer" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deviceId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="enable" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="requestId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="t2" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="t3" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="t4" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="t5" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="t6" optional="YES" attributeType="Boolean" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="t7" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="t8" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="timer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="topic" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Controller" positionX="-54" positionY="135" width="128" height="135"/>
+        <element name="Device" positionX="-63" positionY="9" width="128" height="255"/>
+        <element name="Room" positionX="-63" positionY="-18" width="128" height="180"/>
+        <element name="Scene" positionX="-54" positionY="45" width="128" height="135"/>
+        <element name="SceneDetail" positionX="-45" positionY="72" width="128" height="165"/>
+        <element name="SHTimer" positionX="-54" positionY="90" width="128" height="315"/>
+    </elements>
+</model>
