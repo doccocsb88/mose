@@ -1320,8 +1320,8 @@
                   symbolName = "__29-[MQTTService requestStatus:]_block_invoke"
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macintoshhd/Documents/Project/SmartHone-ios/SmartHome/MQTTService.m"
-                  timestampString = "558543492.161014"
+                  urlString = "file:///Users/macintoshhd/Documents/Project/Smarthome/ios/SmartHome/MQTTService.m"
+                  timestampString = "558624355.56168"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "251"
@@ -1335,8 +1335,8 @@
                   symbolName = "__copy_helper_block_.305"
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macintoshhd/Documents/Project/SmartHone-ios/SmartHome/MQTTService.m"
-                  timestampString = "558543492.162552"
+                  urlString = "file:///Users/macintoshhd/Documents/Project/Smarthome/ios/SmartHome/MQTTService.m"
+                  timestampString = "558624355.563514"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "246"
@@ -1363,11 +1363,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RequestPopupViewController.m"
-            timestampString = "558440267.721668"
+            timestampString = "558624228.142032"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "-showQRCodeReaderScreen"
             landmarkType = "7">
          </BreakpointContent>
@@ -1379,11 +1379,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/WellComeViewController.m"
-            timestampString = "558440267.721719"
+            timestampString = "558623559.612025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "-showQRCodeReaderScreen"
             landmarkType = "7">
          </BreakpointContent>
@@ -1522,8 +1522,8 @@
                   symbolName = "-[FirebaseHelper deleteRoom:]"
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macintoshhd/Documents/Project/SmartHone-ios/SmartHome/FirebaseHelper.m"
-                  timestampString = "558543492.180426"
+                  urlString = "file:///Users/macintoshhd/Documents/Project/Smarthome/ios/SmartHome/FirebaseHelper.m"
+                  timestampString = "558624355.61687"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "625"
@@ -1537,8 +1537,8 @@
                   symbolName = "__29-[FirebaseHelper deleteRoom:]_block_invoke"
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macintoshhd/Documents/Project/SmartHone-ios/SmartHome/FirebaseHelper.m"
-                  timestampString = "558543492.1819789"
+                  urlString = "file:///Users/macintoshhd/Documents/Project/Smarthome/ios/SmartHome/FirebaseHelper.m"
+                  timestampString = "558624355.624561"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "626"
@@ -1552,8 +1552,8 @@
                   symbolName = "__destroy_helper_block_.664"
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macintoshhd/Documents/Project/SmartHone-ios/SmartHome/FirebaseHelper.m"
-                  timestampString = "558543492.183556"
+                  urlString = "file:///Users/macintoshhd/Documents/Project/Smarthome/ios/SmartHome/FirebaseHelper.m"
+                  timestampString = "558624355.628727"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "625"
@@ -1570,7 +1570,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/LoginViewController.m"
-            timestampString = "558545880.11436"
+            timestampString = "558622548.3390141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "109"
@@ -1586,7 +1586,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/LoginViewController.m"
-            timestampString = "558545880.1144201"
+            timestampString = "558622548.339066"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "210"
@@ -1602,7 +1602,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/LoginViewController.m"
-            timestampString = "558545880.114464"
+            timestampString = "558622548.339107"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "220"
@@ -1618,7 +1618,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/LoginViewController.m"
-            timestampString = "558545880.114507"
+            timestampString = "558622548.3391449"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "224"
@@ -1666,11 +1666,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RequestPopupViewController.m"
-            timestampString = "558440267.724646"
+            timestampString = "558624228.1426001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "-showQRCodeReaderScreen"
             landmarkType = "7">
             <Locations>
@@ -1681,42 +1681,42 @@
                   symbolName = "__52-[RequestPopupViewController showQRCodeReaderScreen]_block_invoke_2"
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macintoshhd/Documents/Project/SmartHone-ios/SmartHome/RequestPopupViewController.m"
-                  timestampString = "558543492.191687"
+                  urlString = "file:///Users/macintoshhd/Documents/Project/Smarthome/ios/SmartHome/RequestPopupViewController.m"
+                  timestampString = "558624355.6479909"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "121"
-                  endingLineNumber = "121"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
                   offsetFromSymbolStart = "304">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__52-[RequestPopupViewController showQRCodeReaderScreen]_block_invoke.274"
+                  symbolName = "__52-[RequestPopupViewController showQRCodeReaderScreen]_block_invoke.276"
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macintoshhd/Documents/Project/SmartHone-ios/SmartHome/RequestPopupViewController.m"
-                  timestampString = "558543492.19326"
+                  urlString = "file:///Users/macintoshhd/Documents/Project/Smarthome/ios/SmartHome/RequestPopupViewController.m"
+                  timestampString = "558624355.651914"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "122"
-                  endingLineNumber = "122"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
                   offsetFromSymbolStart = "24">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.290"
+                  symbolName = "__destroy_helper_block_.292"
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macintoshhd/Documents/Project/SmartHone-ios/SmartHome/RequestPopupViewController.m"
-                  timestampString = "558543492.1949919"
+                  urlString = "file:///Users/macintoshhd/Documents/Project/Smarthome/ios/SmartHome/RequestPopupViewController.m"
+                  timestampString = "558624355.6581481"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "121"
-                  endingLineNumber = "121"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
                   offsetFromSymbolStart = "16">
                </Location>
             </Locations>
@@ -1729,7 +1729,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/LoginViewController.m"
-            timestampString = "558545880.1146851"
+            timestampString = "558622548.339262"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "240"
@@ -1745,7 +1745,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/LoginViewController.m"
-            timestampString = "558545880.114754"
+            timestampString = "558622548.339299"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "232"
@@ -1760,8 +1760,8 @@
                   symbolName = "-[LoginViewController safariViewController:didCompleteInitialLoad:]"
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macintoshhd/Documents/Project/SmartHone-ios/SmartHome/LoginViewController.m"
-                  timestampString = "558543492.202971"
+                  urlString = "file:///Users/macintoshhd/Documents/Project/Smarthome/ios/SmartHome/LoginViewController.m"
+                  timestampString = "558624355.681994"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "232"
@@ -1775,8 +1775,8 @@
                   symbolName = "__67-[LoginViewController safariViewController:didCompleteInitialLoad:]_block_invoke"
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macintoshhd/Documents/Project/SmartHone-ios/SmartHome/LoginViewController.m"
-                  timestampString = "558543492.20459"
+                  urlString = "file:///Users/macintoshhd/Documents/Project/Smarthome/ios/SmartHome/LoginViewController.m"
+                  timestampString = "558624355.698598"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "233"
@@ -1952,7 +1952,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/LoginViewController.m"
-            timestampString = "558545880.115159"
+            timestampString = "558622548.339417"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
@@ -1968,7 +1968,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/LoginViewController.m"
-            timestampString = "558545880.1152101"
+            timestampString = "558622548.339469"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "93"
@@ -1984,7 +1984,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/LoginViewController.m"
-            timestampString = "558545880.115249"
+            timestampString = "558622548.339509"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "135"
@@ -2294,6 +2294,213 @@
             startingLineNumber = "508"
             endingLineNumber = "508"
             landmarkName = "-checkFinishedProcess"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartHome/RequestPopupViewController.m"
+            timestampString = "558624228.143042"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-initQRCode"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartHome/RequestPopupViewController.m"
+            timestampString = "558624228.143217"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "-initQRCode"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartHome/RequestPopupViewController.m"
+            timestampString = "558624228.1433769"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "-initQRCode"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartHome/RequestPopupViewController.m"
+            timestampString = "558624228.143535"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "-showQRCodeReaderScreen"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartHome/RequestPopupViewController.m"
+            timestampString = "558624228.143695"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "-showQRCodeReaderScreen"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartHome/CameraPermissionViewController.m"
+            timestampString = "558624354.758561"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "-tappedAcceptButton:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartHome/CameraPermissionViewController.m"
+            timestampString = "558624354.759113"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "-tappedAcceptButton:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartHome/RequestPopupViewController.m"
+            timestampString = "558624298.277904"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "-checkCameraPermission"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartHome/RequestPopupViewController.m"
+            timestampString = "558624311.419896"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "-checkCameraPermission"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[RequestPopupViewController checkCameraPermission]"
+                  moduleName = "SmartHome"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macintoshhd/Documents/Project/Smarthome/ios/SmartHome/RequestPopupViewController.m"
+                  timestampString = "558624356.043596"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "199"
+                  endingLineNumber = "199"
+                  offsetFromSymbolStart = "292">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__51-[RequestPopupViewController checkCameraPermission]_block_invoke"
+                  moduleName = "SmartHome"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macintoshhd/Documents/Project/Smarthome/ios/SmartHome/RequestPopupViewController.m"
+                  timestampString = "558624356.0467139"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "201"
+                  endingLineNumber = "201"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.343"
+                  moduleName = "SmartHome"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macintoshhd/Documents/Project/Smarthome/ios/SmartHome/RequestPopupViewController.m"
+                  timestampString = "558624356.050456"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "199"
+                  endingLineNumber = "199"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartHome/CameraPermissionViewController.m"
+            timestampString = "558624354.759474"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "-tappedAcceptButton:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

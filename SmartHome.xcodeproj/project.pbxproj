@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0EA35894214AA46700997681 /* MessagesUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EA35893214AA46700997681 /* MessagesUtils.m */; };
+		0EB093E8214BDC0700AB63D1 /* CameraPermissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB093E6214BDC0700AB63D1 /* CameraPermissionViewController.m */; };
+		0EB093E9214BDC0700AB63D1 /* CameraPermissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EB093E7214BDC0700AB63D1 /* CameraPermissionViewController.xib */; };
 		0EE4BABE2149207700B70B49 /* FacebookTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4BABC2149207700B70B49 /* FacebookTestViewController.m */; };
 		0EE4BABF2149207700B70B49 /* FacebookTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EE4BABD2149207700B70B49 /* FacebookTestViewController.xib */; };
 		1807C6C0205E6F3B0086E45A /* SHTimer+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807C6BF205E6F3B0086E45A /* SHTimer+CoreDataProperties.m */; };
@@ -128,6 +130,9 @@
 		0E89DE0B21456B0400322D64 /* SmartHome.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmartHome.entitlements; sourceTree = "<group>"; };
 		0EA35892214AA46700997681 /* MessagesUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessagesUtils.h; sourceTree = "<group>"; };
 		0EA35893214AA46700997681 /* MessagesUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessagesUtils.m; sourceTree = "<group>"; };
+		0EB093E5214BDC0700AB63D1 /* CameraPermissionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraPermissionViewController.h; sourceTree = "<group>"; };
+		0EB093E6214BDC0700AB63D1 /* CameraPermissionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraPermissionViewController.m; sourceTree = "<group>"; };
+		0EB093E7214BDC0700AB63D1 /* CameraPermissionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraPermissionViewController.xib; sourceTree = "<group>"; };
 		0EE4BABB2149207700B70B49 /* FacebookTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FacebookTestViewController.h; sourceTree = "<group>"; };
 		0EE4BABC2149207700B70B49 /* FacebookTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FacebookTestViewController.m; sourceTree = "<group>"; };
 		0EE4BABD2149207700B70B49 /* FacebookTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FacebookTestViewController.xib; sourceTree = "<group>"; };
@@ -799,6 +804,9 @@
 				0EE4BABB2149207700B70B49 /* FacebookTestViewController.h */,
 				0EE4BABC2149207700B70B49 /* FacebookTestViewController.m */,
 				0EE4BABD2149207700B70B49 /* FacebookTestViewController.xib */,
+				0EB093E5214BDC0700AB63D1 /* CameraPermissionViewController.h */,
+				0EB093E6214BDC0700AB63D1 /* CameraPermissionViewController.m */,
+				0EB093E7214BDC0700AB63D1 /* CameraPermissionViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -923,6 +931,7 @@
 			files = (
 				18E318702009FDBE002015BA /* LoginViewController.xib in Resources */,
 				18EFAD781E756F8900637669 /* LaunchScreen.storyboard in Resources */,
+				0EB093E9214BDC0700AB63D1 /* CameraPermissionViewController.xib in Resources */,
 				0EE4BABF2149207700B70B49 /* FacebookTestViewController.xib in Resources */,
 				183F555B2003278600B072A9 /* MemberListViewController.xib in Resources */,
 				18EC41752061632C00388B1A /* ControlViewCell.xib in Resources */,
@@ -1025,6 +1034,7 @@
 				18E4E6F91E8D5036001CCED3 /* BaseTabbarViewController.m in Sources */,
 				181885D21E9019D500F5609D /* ESPDatumCode.m in Sources */,
 				0EA35894214AA46700997681 /* MessagesUtils.m in Sources */,
+				0EB093E8214BDC0700AB63D1 /* CameraPermissionViewController.m in Sources */,
 				18CC8B951E7E4207007FD291 /* PageContentViewController.m in Sources */,
 				183F55622003285D00B072A9 /* MemberViewCell.m in Sources */,
 				185E78701E95FB680048B450 /* SceneDetailViewController.m in Sources */,

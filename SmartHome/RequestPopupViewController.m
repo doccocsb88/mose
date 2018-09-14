@@ -13,6 +13,7 @@
 #import <STPopup/STPopup.h>
 #import "FirebaseHelper.h"
 #import "User.h"
+#import "CameraPermissionViewController.h"
 @interface RequestPopupViewController ()<QRCodeReaderDelegate>
 {
     QRCodeReader *reader;
@@ -60,9 +61,11 @@
     [self.cancelButton addTarget:self action:@selector(cancelDidTap) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.cancelButton];
 
-    [self initQRCode];
 }
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
 
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -78,14 +81,18 @@
 }
 */
 -(void)initQRCode{
-    reader = [QRCodeReader readerWithMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
-    
-    // Instantiate the view controller
-    vc = [QRCodeReaderViewController readerWithCancelButtonTitle:@"Cancel" codeReader:reader startScanningAtLoad:YES showSwitchCameraButton:YES showTorchButton:YES];
+    if (reader == nil) {
+        reader = [QRCodeReader readerWithMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
+        
+        // Instantiate the view controller
+        vc = [QRCodeReaderViewController readerWithCancelButtonTitle:@"Cancel" codeReader:reader startScanningAtLoad:YES showSwitchCameraButton:YES showTorchButton:YES];
+
+    }
 }
 
 -(void)showQRCodeReaderScreen{
-    
+    [self initQRCode];
+
     __weak RequestPopupViewController *weakSelf = self;
     
     vc.modalPresentationStyle = UIModalPresentationFormSheet;
@@ -164,12 +171,7 @@
 }
 - (void)nextBtnDidTap
 {
-    [[FirebaseHelper sharedInstance] clearData:^(BOOL exist) {
-
-    }];
-    [[CoredataHelper sharedInstance] clearData];
-    [[User sharedInstance] clearData];
-    [self showQRCodeReaderScreen];
+    [self checkCameraPermission];
 
 }
 
@@ -177,5 +179,75 @@
     [self dismissViewControllerAnimated:true completion:^{
         
     }];
+}
+-(void)showCameraPermissionView{
+    
+}
+-(void)checkCameraPermission{
+    NSString *mediaType = AVMediaTypeVideo;
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+    if(authStatus == AVAuthorizationStatusAuthorized) {
+        // do your logic
+        [self showQRCodeReaderScreen];
+
+    } else if(authStatus == AVAuthorizationStatusDenied){
+        // denied
+        __weak RequestPopupViewController *wself = self;
+        CameraPermissionViewController *vc = [[CameraPermissionViewController alloc] initWithNibName:@"CameraPermissionViewController" bundle:nil];
+        vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        vc.isDenie = true;
+        vc.completion = ^(BOOL finished) {
+            
+            [[FirebaseHelper sharedInstance] clearData:^(BOOL exist) {
+                
+            }];
+            [[CoredataHelper sharedInstance] clearData];
+            [[User sharedInstance] clearData];
+            [AVCaptureDevice requestAccessForMediaType:mediaType completionHandler:^(BOOL granted) {
+                if(granted){
+                    NSLog(@"Granted access to %@", mediaType);
+                    [wself showQRCodeReaderScreen];
+                    
+                } else {
+                    NSLog(@"Not granted access to %@", mediaType);
+                }
+            }];
+            
+            
+        };
+        [self presentViewController:vc animated:true completion:nil];
+
+    } else if(authStatus == AVAuthorizationStatusRestricted){
+        // restricted, normally won't happen
+    } else if(authStatus == AVAuthorizationStatusNotDetermined){
+        // not determined?!
+        __weak RequestPopupViewController *wself = self;
+        CameraPermissionViewController *vc = [[CameraPermissionViewController alloc] initWithNibName:@"CameraPermissionViewController" bundle:nil];
+        vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        vc.completion = ^(BOOL finished) {
+            
+                [[FirebaseHelper sharedInstance] clearData:^(BOOL exist) {
+                    
+                }];
+                [[CoredataHelper sharedInstance] clearData];
+                [[User sharedInstance] clearData];
+                [AVCaptureDevice requestAccessForMediaType:mediaType completionHandler:^(BOOL granted) {
+                    if(granted){
+                        NSLog(@"Granted access to %@", mediaType);
+                        [wself showQRCodeReaderScreen];
+
+                    } else {
+                        NSLog(@"Not granted access to %@", mediaType);
+                    }
+                }];
+
+            
+        };
+        [self presentViewController:vc animated:true completion:nil];
+
+    } else {
+        // impossible, unknown authorization status
+    }
+
 }
 @end

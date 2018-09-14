@@ -40,7 +40,6 @@
 //    .build();
 //
 //    final GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-    [self initQRCode];
     [self setupUI];
     [self logoutFacebook];
 }

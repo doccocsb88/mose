@@ -1,15 +1,15 @@
 //
-//  WellComeViewController.h
+//  CameraPermissionViewController.h
 //  SmartHome
 //
-//  Created by Apple on 1/13/18.
+//  Created by Macintosh HD on 9/14/18.
 //  Copyright © 2018 Apple. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
-@interface WellComeViewController : BaseViewController
-@property (nonatomic, assign) Boolean isNew;
+@interface CameraPermissionViewController : UIViewController
+@property (assign, nonatomic) BOOL isDenie;
 @property (nonatomic, copy, ) void (^completion)(BOOL finished);
--(void)showQRCodeReaderScreen;
+
 @end
