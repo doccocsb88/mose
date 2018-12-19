@@ -294,13 +294,16 @@ static MQTTService *instance = nil;
         msg = [NSString stringWithFormat:@"id='%@' cmd='GETSTATUS'",mqttId];
     }else if(device.type == DeviceTypeLightOnOff){
         msg = [NSString stringWithFormat:@"id='%@' cmd='GETSTATUS'",mqttId];
+    }else{
+        NSLog(@"publicRequestStatus : wtf");
+
     }
-    NSLog(@"MQTTService : %@",device.requestId);
+    NSLog(@"publicRequestStatus 1: %@",mqttId);
     
-    if ([device.requestId containsString:@"WT3"]) {
-        NSLog(@"MQTTService testOfflineWifi : %@",mqttId);
+    if ([mqttId containsString:@"WT3"]) {
+        NSLog(@"publicRequestStatus testOfflineWifi : %@",mqttId);
     }
-    NSLog(@"publicRequestStatus %@",msg);
+    NSLog(@"publicRequestStatus 2: %@",msg);
 
     [self cancelCheckPublishTimerByMqttId:mqttId];
     NSTimer *successTimer = [NSTimer scheduledTimerWithTimeInterval:CHECK_PUBLISH_TIME target:self selector:@selector(checkPublishSucess:) userInfo:@{@"mqttId":mqttId,@"topic":topic,@"message":msg,@"type":[NSString stringWithFormat:@"%ld",device.type],@"count":[NSString stringWithFormat:@"%d",3]} repeats:NO];
@@ -448,7 +451,7 @@ static MQTTService *instance = nil;
 }
 
 -(void)checkPublishSucess:(NSTimer *)timer{
-    NSLog(@"checkPublishSucess");
+    NSLog(@"checkPublishSucess timer");
     NSDictionary *userInfo = timer.userInfo;
     if (userInfo) {
         NSString *mqttId = [userInfo objectForKey:@"mqttId"];
@@ -823,10 +826,11 @@ static MQTTService *instance = nil;
 
 -(void)cancelCheckPublishTimerByMqttId:(NSString *)mqttid{
     NSTimer *timer = [_sucessTimerArr objectForKey:mqttid];
+    NSLog(@"checkPublishSucess : cancelCheckPublish %@",mqttid);
+
     if (timer != NULL) {
         [timer invalidate];
         [_sucessTimerArr removeObjectForKey:mqttid];
-        NSLog(@"checkPublishSucess : cancelCheckPublish %@",mqttid);
 
     }
 }
