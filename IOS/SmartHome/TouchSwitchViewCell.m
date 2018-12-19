@@ -240,10 +240,14 @@
         }else{
 //            self.device.value = self.value;
             if(self.isLoading == false){
-                [[MQTTService sharedInstance] publishControl:self.device.requestId topic:self.device.topic message:[self.device switchChancelMessage:(int)tag status:cmd] type:self.device.type count:0];
-                if (self.controlHandler) {
-                    self.controlHandler();
-                }
+                [[MQTTService sharedInstance] publishControl:self.device.requestId topic:self.device.topic message:[self.device switchChancelMessage:(int)tag status:cmd] type:self.device.type count:0 complete:^(BOOL finished) {
+                    if (finished) {
+                        if (self.controlHandler) {
+                            self.controlHandler();
+                        }
+                    }
+                }];
+                
             }else{
                 NSLog(@"dang loading");
             }

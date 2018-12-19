@@ -712,7 +712,9 @@
                 if (device.id == deviceId) {
                     device.value = value;
                     [self showLoadingView];
-                    [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:[NSString stringWithFormat:@"%f",value] type:device.type count:1] ;
+                    [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:[NSString stringWithFormat:@"%f",value] type:device.type count:1 complete:^(BOOL finished) {
+                        
+                    }] ;
                     [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(hideLoadingView) userInfo:nil repeats:false];
                     break;
                 }
@@ -747,19 +749,25 @@
                         [self showLoadingView];
                         self.isProcessing = true;
                         
-                        [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"CLOSE" type:device.type count:1];
+                        [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"CLOSE" type:device.type count:1 complete:^(BOOL finished) {
+                            
+                        }];
                     }else if (value == ButtonTypeStop){
                         [self showLoadingView];
                         self.isProcessing = true;
                         
                         
-                        [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"STOP" type:device.type count:1];
+                        [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"STOP" type:device.type count:1 complete:^(BOOL finished) {
+                            
+                        }];
                         
                     }else if (value == ButtonTypeOpen){
                         [self showLoadingView];
                         self.isProcessing = true;
                         
-                        [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"OPEN" type:device.type count:1];
+                        [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"OPEN" type:device.type count:1 complete:^(BOOL finished) {
+                            
+                        }];
                         
                     }
                     [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(hideLoadingView) userInfo:nil repeats:false];

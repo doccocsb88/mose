@@ -191,18 +191,24 @@
             NSInteger value = detail.status;
             if (device.type == DeviceTypeLightOnOff) {
                 if (value == ButtonTypeClose) {
-                    [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"OPEN" type:device.type count:3];
+                    [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"OPEN" type:device.type count:3 complete:^(BOOL finished) {
+                        
+                    }];
                 }else if (value == ButtonTypeStop){
                     //                [self showLoadingView];
                     
                     
-                    [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"STOP" type:device.type count:3];
+                    [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"STOP" type:device.type count:3 complete:^(BOOL finished) {
+                        
+                    }];
                     
                 }else if (value == ButtonTypeOpen){
                     //            [self showLoadingView];
                     //            self.isProcessing = true;
                     
-                    [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"CLOSE" type:device.type count:3];
+                    [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"CLOSE" type:device.type count:3 complete:^(BOOL finished) {
+                        
+                    }];
                     
                 }
                 
@@ -226,18 +232,24 @@
             }else{
                 //curtain
                 if (value == ButtonTypeClose) {
-                    [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"CLOSE" type:device.type count:3];
+                    [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"CLOSE" type:device.type count:3 complete:^(BOOL finished) {
+                        
+                    }];
                 }else if (value == ButtonTypeStop){
                     //                [self showLoadingView];
                     
                     
-                    [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"STOP" type:device.type count:3];
+                    [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"STOP" type:device.type count:3 complete:^(BOOL finished) {
+                        
+                    }];
                     
                 }else if (value == ButtonTypeOpen){
                     //            [self showLoadingView];
                     //            self.isProcessing = true;
                     
-                    [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"OPEN" type:device.type count:3];
+                    [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"OPEN" type:device.type count:3 complete:^(BOOL finished) {
+                        
+                    }];
                     
                 }
             }
@@ -460,7 +472,9 @@
     NSInteger type = [[userInfo objectForKey:@"type"] integerValue];
     NSLog(@"tw : 2 : %@",message);
     [[MQTTService sharedInstance] clearPublishTopic:topic];
-    [[MQTTService sharedInstance] publishControl:requestId topic:topic message:message  type:type count:3];
+    [[MQTTService sharedInstance] publishControl:requestId topic:topic message:message  type:type count:3 complete:^(BOOL finished) {
+        
+    }];
     
 }
 

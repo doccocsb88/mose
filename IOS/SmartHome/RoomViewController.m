@@ -488,6 +488,7 @@
 #pragma mark
 
 -(void)pressedLeft:(UIButton *)button{
+    [self hideLoadingView];
     [self.navigationController popViewControllerAnimated:true];
 }
 
@@ -660,7 +661,9 @@
             device.value = value;
             [self showLoadingView];
             NSString *msg = [NSString stringWithFormat:@"id='%@' cmd='OPEN' value='%d'",device.requestId,(NSInteger)value];
-            [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic  message:msg type:device.type count:1];
+            [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic  message:msg type:device.type count:1 complete:^(BOOL finished) {
+                
+            }];
             break;
         }
     }
@@ -679,19 +682,25 @@
                 [self showLoadingView];
                 self.isProcessing = true;
 
-                [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"CLOSE" type:device.type count:1];
+                [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"CLOSE" type:device.type count:1 complete:^(BOOL finished) {
+                    
+                }];
             }else if (value == ButtonTypeStop){
                 [self showLoadingView];
                 self.isProcessing = true;
 
 
-                [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"STOP" type:device.type count:1];
+                [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"STOP" type:device.type count:1 complete:^(BOOL finished) {
+                    
+                }];
 
             }else if (value == ButtonTypeOpen){
                 [self showLoadingView];
                 self.isProcessing = true;
 
-                [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"OPEN" type:device.type count:1];
+                [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"OPEN" type:device.type count:1 complete:^(BOOL finished) {
+                    
+                }];
 
             }
             break;

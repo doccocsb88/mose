@@ -338,7 +338,9 @@
                         
                         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                             
-                            [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:[device switchChancelMessage:(int)i status:false] type:device.type count:0];
+                            [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:[device switchChancelMessage:(int)i status:false] type:device.type count:0 complete:^(BOOL finished) {
+                                
+                            }];
                         });
                         index ++;
                     }
@@ -347,7 +349,9 @@
                     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
                     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                         //code to be executed on the main queue after delay
-                        [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"CLOSE" type:device.type count:1];
+                        [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"CLOSE" type:device.type count:1 complete:^(BOOL finished) {
+                            
+                        }];
                     });
                     index ++;
                 }
@@ -383,7 +387,9 @@
                             
                             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                                 
-                                [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:[device switchChancelMessage:(int)i status:true] type:device.type count:0];
+                                [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:[device switchChancelMessage:(int)i status:true] type:device.type count:0 complete:^(BOOL finished) {
+                                    
+                                }];
                             });
                             index ++;
                         }
@@ -393,7 +399,9 @@
                     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, index * 0.5 * NSEC_PER_SEC);
                     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                         
-                        [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"OPEN" type:device.type count:1];
+                        [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"OPEN" type:device.type count:1 complete:^(BOOL finished) {
+                            
+                        }];
                     });
                     index ++;
 
