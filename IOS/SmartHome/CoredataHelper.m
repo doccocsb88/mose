@@ -590,6 +590,26 @@
     return [arr firstObject];
     
 }
+-(Device *)getDeviceByTopic:(NSString *)topic{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Device" inManagedObjectContext:self.context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    //
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"topic==%@", topic];
+    [request setPredicate:predicate];
+    
+    
+    // Fetch the records and handle an error
+    NSError *error;
+    NSArray *arr  = [self.context executeFetchRequest:request error:&error];
+    if (!arr) {
+        // This is a serious error
+        // Handle accordingly
+        return nil;
+    }
+    return [arr firstObject];
+    
+}
 -(Device *)getDeviceByMqttId:(NSString *)mqttId{
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Device" inManagedObjectContext:self.context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];

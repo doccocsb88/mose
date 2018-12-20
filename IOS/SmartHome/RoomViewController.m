@@ -313,7 +313,7 @@
             if([self willShowLoadingView]){
                 [self showLoadingView];
             }
-            [[MQTTService sharedInstance] setListDevices:dataArray];
+            [[MQTTService sharedInstance] subcribeDevices:dataArray];
         }
     }
     

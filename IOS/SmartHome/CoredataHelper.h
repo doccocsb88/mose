@@ -43,6 +43,7 @@
 -(NSInteger )countDevice;
 -(void)deleteDevice:(Device *)device;
 -(void)deleteDetail:(SceneDetail *)detail;
+-(Device *)getDeviceByTopic:(NSString *)topic;
 -(Device *)getDeviceByTopic:(NSString *)topic type:(NSInteger)type;
 -(Device *)getDeviceById:(NSInteger )id;
 -(Device *)getDeviceBycode:(NSString *)code;

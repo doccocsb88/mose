@@ -150,6 +150,9 @@
 -(void)requestAllDeviceStatus{
     int index  = 0;
     if (_timerArray) {
+        for (NSTimer *timer in _timerArray) {
+            [timer invalidate];
+        }
         [_timerArray removeAllObjects];
 
     }else{
@@ -169,9 +172,11 @@
 
 -(void)requestStatusDeviceInRoom:(NSTimer *)timer{
     NSArray *devices = timer.userInfo;
-    NSLog(@"requestStatusDeviceInRoom : %ld",devices.count);
+    long currentTime = (long)(NSTimeInterval)([[NSDate date] timeIntervalSince1970]);
+    long second = currentTime ;
+    NSLog(@"requestStatusDeviceInRoom : %ld -- %ld",devices.count,second);
 
-    [[MQTTService sharedInstance] setListDevices:devices];
+    [[MQTTService sharedInstance] subcribeDevices:devices];
     
     
 }
@@ -561,6 +566,7 @@
     for (NSTimer *timer in _timerArray) {
         [timer invalidate];
     }
+    [_timerArray removeAllObjects];
     [[MQTTService sharedInstance] disconect];
 }
 -(void)appWillTerminate:(NSNotification*)note

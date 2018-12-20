@@ -790,7 +790,7 @@
                 [allDevice addObject:device];
             }
         }
-        [[MQTTService sharedInstance] setListDevices:allDevice];
+        [[MQTTService sharedInstance] subcribeDevices:allDevice];
     }
    
     
@@ -818,7 +818,7 @@
 -(void)requestStatusDeviceInRoom:(NSTimer *)timer{
     NSArray *devices = timer.userInfo;
     NSLog(@"requestStatusDeviceInRoom : %ld",devices.count);
-    [[MQTTService sharedInstance] setListDevices:devices];
+    [[MQTTService sharedInstance] subcribeDevices:devices];
     
     
 }

@@ -41,7 +41,7 @@
 @property (weak, nonatomic) id<MQTTServiceDelegate> delegate;
 @property (strong, nonatomic) MQTTSession *session;
 @property (strong, nonatomic) NSMutableArray *dataArray;
-@property (strong, nonatomic) NSMutableArray *publishedTopic;
+//@property (strong, nonatomic) NSMutableArray *publishedTopic;
 @property (strong, nonatomic) NSMutableArray *publishingTopic;
 @property (assign, nonatomic) NSInteger curroomId;;
 
@@ -49,7 +49,7 @@
 -(void)conect;
 -(BOOL)isConnected;
 -(void)removeListDevices:(NSArray *)devices;
--(void)setListDevices:(NSArray *)devices;
+-(void)subcribeDevices:(NSArray *)devices;
 -(void)subscribeToTopic:(Device *)device;
 -(void)publishControl:(NSString *)mqttId topic:(NSString *)topic message:(NSString *)message type:(NSInteger)type count:(int)count complete:(void(^)(BOOL finished))complete;
 -(void)publicRequestStatus:(Device *)device;
