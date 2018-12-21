@@ -51,6 +51,7 @@
 -(void)removeListDevices:(NSArray *)devices;
 -(void)subcribeDevices:(NSArray *)devices;
 -(void)subscribeToTopic:(Device *)device;
+//-(void)subscribeToTopic:(Device *)device;
 -(void)publishControl:(NSString *)mqttId topic:(NSString *)topic message:(NSString *)message type:(NSInteger)type count:(int)count complete:(void(^)(BOOL finished))complete;
 -(void)publicRequestStatus:(Device *)device;
 -(void)requestStatusTimer:(NSArray *)arrTimer;

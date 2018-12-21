@@ -12,6 +12,11 @@
 +(NSString *)getMqttIdFromMessage:(NSString *)mqttMessage{
     NSArray *tmp = [mqttMessage componentsSeparatedByString:@"'"];
     if(tmp != NULL && tmp.count > 1){
+        if([tmp[1] containsString:@"/"]){
+            //touchswitch
+            NSString *topic = [tmp[1] componentsSeparatedByString:@"/"].firstObject;
+            return topic;
+        }
         return tmp[1];
     }
     return NULL;

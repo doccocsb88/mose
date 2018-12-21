@@ -176,7 +176,7 @@
     long second = currentTime ;
     NSLog(@"requestStatusDeviceInRoom : %ld -- %ld",devices.count,second);
 
-    [[MQTTService sharedInstance] subcribeDevices:devices];
+  //  [[MQTTService sharedInstance] subcribeDevices:devices];
     
     
 }
