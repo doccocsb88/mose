@@ -26,7 +26,7 @@ static MQTTService *instance = nil;
 }
 @property (assign, nonatomic) NSInteger countProcess;
 @property (strong, nonatomic) NSMutableDictionary *sucessTimerArr;
-@property (strong, nonatomic) NSMutableArray *subscribeToTopics;
+@property (strong, nonatomic) NSMutableDictionary *subscribeToTopics;
 
 @end
 @implementation MQTTService
@@ -75,7 +75,7 @@ static MQTTService *instance = nil;
         //
         self.publishingTopic = [[NSMutableArray alloc] init];
         self.sucessTimerArr = [[NSMutableDictionary alloc] init];
-        self.subscribeToTopics = [[NSMutableArray alloc] init];
+        self.subscribeToTopics = [[NSMutableDictionary alloc] init];
         _isInit = true;
         //        [_session disconnect];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"kMqttConnectToServer" object:nil userInfo:@{@"result":@"0"}];
@@ -123,13 +123,11 @@ static MQTTService *instance = nil;
     }
     [wself.dataArray addObjectsFromArray:arr];
     delayInSeconds = 0;
-    for (Device *device in arr) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    for (Device *device in devices) {
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             // throw your call to other functions in here
            [wself subscribeToTopic:device];
-
-        });
-
+       
         delayInSeconds += 0.25;
     }
     
@@ -146,7 +144,16 @@ static MQTTService *instance = nil;
     if (device.isSubcrible == false) {
         if (topic && topic.length > 0) {
             wsekf.countProcess ++;
+            NSTimer *subscribeTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(checkSubcribeSucess:) userInfo:@{@"mqttId":device.requestId} repeats:false];
+            //        });
+            [self.subscribeToTopics setObject:subscribeTimer forKey:device.requestId];
+            //
             [_session subscribeToTopic:topic atLevel:MQTTQosLevelAtMostOnce subscribeHandler:^(NSError *error, NSArray<NSNumber *> *gQoss){
+                NSTimer *subcribeTimer = [wsekf.subscribeToTopics objectForKey:device.requestId];
+                if (subcribeTimer) {
+                    [subcribeTimer invalidate];
+                    [wsekf.subscribeToTopics removeObjectForKey:device.requestId];
+                }
                 if (error) {
                     NSLog(@"Subscription failed %@ %@",topic, error.localizedDescription);
                 } else {
@@ -156,15 +163,15 @@ static MQTTService *instance = nil;
                     [wsekf checkFinishedProcess];
                     device.isSubcrible = TRUE;
                     delayInSeconds  = index * REQUEST_STATUS_TIME;
-                    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-                    dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+//                    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+//                    dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
                         //code to be executed on the main queue after delay
                         if (device.isGetStatus == false) {
                             NSLog(@"publicRequestStatus a");
                             [wsekf publicRequestStatus:device];
                             
                         }
-                    });
+//                    });
                     
                 }
             }];
@@ -233,14 +240,18 @@ static MQTTService *instance = nil;
 }
 -(void)publicRequestStatus:(Device *)device{
     
+    
     __weak MQTTService *wSelf = self;
-    NSString *msg = @"";
+    NSString *message= @"";
     NSString *topic = device.topic;
     NSString *mqttId = device.requestId;
+    if ([self.publishingTopic containsObject:mqttId]) {
+        return;
+    }
     if (device.type == DeviceTypeCurtain || device.type == DeviceTypeTouchSwitch) {
-        msg = [NSString stringWithFormat:@"id='%@' cmd='GETSTATUS'",mqttId];
+        message = [NSString stringWithFormat:@"id='%@' cmd='GETSTATUS'",mqttId];
     }else if(device.type == DeviceTypeLightOnOff){
-        msg = [NSString stringWithFormat:@"id='%@' cmd='GETSTATUS'",mqttId];
+        message = [NSString stringWithFormat:@"id='%@' cmd='GETSTATUS'",mqttId];
     }else{
         NSLog(@"publicRequestStatus : wtf");
         
@@ -250,19 +261,19 @@ static MQTTService *instance = nil;
     if ([mqttId containsString:@"WT3"]) {
         NSLog(@"publicRequestStatus testOfflineWifi : %@",mqttId);
     }
-    NSLog(@"publicRequestStatus 2: %@",msg);
+    NSLog(@"publicRequestStatus 2: %@",message);
     
-    [self cancelCheckPublishTimerByMqttId:mqttId];
-    [self.publishingTopic addObject:mqttId];
+//    [self.publishingTopic addObject:mqttId];
+//    [self cancelCheckPublishTimerByMqttId:mqttId];
+//    
+//    NSTimer *sucessTimer = [NSTimer scheduledTimerWithTimeInterval:CHECK_PUBLISH_TIME target:self selector:@selector(checkPublishSucess:) userInfo:@{@"mqttId":mqttId,@"topic":topic,@"message":message,@"type":[NSString stringWithFormat:@"%ld",device.type],@"count":[NSString stringWithFormat:@"%d",SEND_REQUEST_COUNT]} repeats:NO];
+//    NSLog(@"tw : 3 %@",message);
 
-    NSDictionary *userInfo = @{@"mqttId":mqttId,@"topic":topic,@"message":msg,@"type":[NSString stringWithFormat:@"%ld",device.type],@"count":[NSString stringWithFormat:@"%d",SEND_REQUEST_COUNT - 1]};
-    NSTimer *successTimer = [NSTimer scheduledTimerWithTimeInterval:CHECK_PUBLISH_TIME target:self selector:@selector(checkPublishSucess:) userInfo:userInfo repeats:NO];
-    [_sucessTimerArr setObject:successTimer forKey:mqttId];
+    //[_sucessTimerArr setObject:sucessTimer forKey:mqttId];
     
     //
-    
-    [_session publishData:[msg dataUsingEncoding:NSUTF8StringEncoding] onTopic:topic retain:false qos:MQTTQosLevelAtMostOnce publishHandler:^(NSError *error) {
-        wSelf.countProcess--;
+    [_session publishData:[message dataUsingEncoding:NSUTF8StringEncoding] onTopic:topic retain:NO qos:0 publishHandler:^(NSError *error) {
+        wSelf.countProcess --;
         [wSelf checkFinishedProcess];
     }];
     
@@ -294,8 +305,8 @@ static MQTTService *instance = nil;
     }else if (type == DeviceTypeTouchSwitch){
         NSArray *info = [message componentsSeparatedByString:@"'"];
         NSString *mqttId = info[1];
-        NSLog(@"tw : 2 :2 %@",mqttId);
-        if (info.count > 1 && [mqttId containsString:@"WT"] == true && [mqttId containsString:@"/"] == true) {
+        NSLog(@"tw : 2 :2 %@",requestId);
+        if ([mqttId containsString:@"WT"] == true && [mqttId containsString:@"/"] == true) {
             if ([self.publishingTopic containsObject:mqttId] == false) {
                 [self.publishingTopic addObject:mqttId];
                 [self cancelCheckPublishTimerByMqttId:mqttId];
@@ -408,7 +419,28 @@ static MQTTService *instance = nil;
     }];
     
 }
-
+-(void)checkSubcribeSucess:(NSTimer *)timer{
+    NSDictionary *userInfo = timer.userInfo;
+    if (userInfo) {
+        NSString *mqttId = [userInfo objectForKey:@"mqttId"];
+        if (mqttId != nil) {
+            Device *getStatusDevice = [[ CoredataHelper sharedInstance] getDeviceByMqttId:mqttId];
+            if (getStatusDevice) {
+                getStatusDevice.isOnline = false;
+                getStatusDevice.isSubcrible = true;
+                [[CoredataHelper sharedInstance] save];
+                NSLog(@"checkSubcribeSucess %@",getStatusDevice.requestId);
+//                if (self.delegate && [self.delegate respondsToSelector:@selector(mqttPublishFail:)]) {
+//                    [self.delegate mqttPublishFail:mqttId];
+//                }
+                if (self.delegate && [self.delegate respondsToSelector:@selector(mqttPublishFail:)]) {
+                    [self.delegate mqttPublishFail:@""];
+                }
+            }
+            
+        }
+    }
+}
 -(void)checkPublishSucess:(NSTimer *)timer{
     NSLog(@"checkPublishSucess timer");
     NSDictionary *userInfo = timer.userInfo;
@@ -696,7 +728,12 @@ static MQTTService *instance = nil;
 
                     if (getStatusDevice) {
                         getStatusDevice.isGetStatus = true;
+                        getStatusDevice.isOnline = false;
+
                         [[CoredataHelper sharedInstance] save];
+                        if (self.delegate && [self.delegate respondsToSelector:@selector(mqttPublishFail:)]) {
+                            [self.delegate mqttPublishFail:@""];
+                        }
                     }
                     
                     

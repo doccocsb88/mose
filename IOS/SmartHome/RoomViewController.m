@@ -117,6 +117,8 @@
                     for (int i = 0; i < [dv numberOfSwitchChannel]; i++) {
                         int chanelIndex = i + 1;
                         NSString *requestId = [NSString stringWithFormat:@"%@/%d",dv.requestId,chanelIndex];
+                        BOOL isOnLine = dv.isOnline;
+                        NSLog(@"cc %d",isOnLine);
                         if ([[User sharedInstance].devices containsObject:requestId] ) {
                             [dataArray addObject:dv];
                             break;
@@ -894,18 +896,27 @@
 }
 -(void)mqttFinishedProcess{
     [self hideLoadingView];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
 }
 -(void)mqttRequested:(NSString *)mqttId{
     [self hideLoadingView];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
 }
 -(void)mqttPublishFail:(NSString *)mqttId{
-    self.isProcessing = false;
     
     [self hideLoadingView];
     if (mqttId != NULL && mqttId.length > 0) {
         [self showMessageView:nil message:@"Thiết bị không phản hồi" autoHide:YES complete:nil];
     }
-    [self.tableView reloadData];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
+    
 }
 -(void)mqttSetStateValueForDevice:(NSString *)topic value:(float)value{
     [self hideLoadingView];

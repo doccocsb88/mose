@@ -30,7 +30,7 @@
 -(void)awakeFromFetch{
     isOnline = true;
     isGetStatus = false;
-    NSLog(@"cleardata 2");
+    NSLog(@"cleardata 2 %@",self.requestId);
 
 }
 -(NSString *)getAddMessage{

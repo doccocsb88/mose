@@ -37,6 +37,7 @@
 @property (strong, nonatomic) NSMutableArray *timerArray;
 
 
+
 @end
 
 @implementation PageContentViewController
@@ -176,7 +177,7 @@
     long second = currentTime ;
     NSLog(@"requestStatusDeviceInRoom : %ld -- %ld",devices.count,second);
 
-  //  [[MQTTService sharedInstance] subcribeDevices:devices];
+    [[MQTTService sharedInstance] subcribeDevices:devices];
     
     
 }
