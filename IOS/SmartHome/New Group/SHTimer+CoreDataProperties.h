@@ -32,6 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *topic;
 @property (nonatomic, strong) NSString *code;
 @property (nonatomic, assign) NSInteger type;
+@property (nonatomic, strong) NSString *key;
+
 //@property (nonatomic, assign) NSInteger chanel;
 
 @end

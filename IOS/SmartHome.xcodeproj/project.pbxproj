@@ -78,6 +78,8 @@
 		18CC8B981E7E42C5007FD291 /* APPChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CC8B971E7E42C5007FD291 /* APPChildViewController.m */; };
 		18CC8B9B1E7E4986007FD291 /* TypeRoomViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CC8B9A1E7E4986007FD291 /* TypeRoomViewCell.m */; };
 		18CC8B9D1E7E499F007FD291 /* TypeRoomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CC8B9C1E7E499F007FD291 /* TypeRoomViewCell.xib */; };
+		18CE529621CDDF61002FBC7C /* TimerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CE529421CDDF61002FBC7C /* TimerViewCell.m */; };
+		18CE529721CDDF61002FBC7C /* TimerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CE529521CDDF61002FBC7C /* TimerViewCell.xib */; };
 		18D2FDE61F768BBE00B98CE1 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D2FDE51F768BBE00B98CE1 /* OpenGLES.framework */; };
 		18D2FDE81F768BC400B98CE1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D2FDE71F768BC400B98CE1 /* CoreGraphics.framework */; };
 		18D2FDEA1F768BC900B98CE1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D2FDE91F768BC900B98CE1 /* QuartzCore.framework */; };
@@ -254,6 +256,9 @@
 		18CC8B991E7E4986007FD291 /* TypeRoomViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeRoomViewCell.h; sourceTree = "<group>"; };
 		18CC8B9A1E7E4986007FD291 /* TypeRoomViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeRoomViewCell.m; sourceTree = "<group>"; };
 		18CC8B9C1E7E499F007FD291 /* TypeRoomViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TypeRoomViewCell.xib; sourceTree = "<group>"; };
+		18CE529321CDDF61002FBC7C /* TimerViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerViewCell.h; sourceTree = "<group>"; };
+		18CE529421CDDF61002FBC7C /* TimerViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerViewCell.m; sourceTree = "<group>"; };
+		18CE529521CDDF61002FBC7C /* TimerViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimerViewCell.xib; sourceTree = "<group>"; };
 		18D2FDE51F768BBE00B98CE1 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		18D2FDE71F768BC400B98CE1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		18D2FDE91F768BC900B98CE1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -510,6 +515,7 @@
 		184E5C5B2052EC740028B003 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
+				18CE529221CDDE5A002FBC7C /* View */,
 				182AEA5A205E6D21005A30E8 /* Model */,
 				184E5C5C2052EC880028B003 /* Controller */,
 			);
@@ -717,6 +723,16 @@
 				5F5B2C801F2466E60081CD4B /* ControlRoomPopup.m */,
 			);
 			name = Home;
+			sourceTree = "<group>";
+		};
+		18CE529221CDDE5A002FBC7C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18CE529321CDDF61002FBC7C /* TimerViewCell.h */,
+				18CE529421CDDF61002FBC7C /* TimerViewCell.m */,
+				18CE529521CDDF61002FBC7C /* TimerViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		18EFAD591E756F8900637669 = {
@@ -949,6 +965,7 @@
 				18CBD2C31E87B36C002635D8 /* LightOnOffViewCell.xib in Resources */,
 				181885D41E9019D500F5609D /* EspTouchDemo-Info.plist in Resources */,
 				88F01CA6208F290D0004FF9E /* GoogleService-Info.plist in Resources */,
+				18CE529721CDDF61002FBC7C /* TimerViewCell.xib in Resources */,
 				183F556C2003308000B072A9 /* MemberDetailViewController.xib in Resources */,
 				188E61DF204E78EE008DD7DD /* ChannelViewCell.xib in Resources */,
 				18C8DFD61E896CBC00DC5330 /* SmartHome.json in Resources */,
@@ -1035,6 +1052,7 @@
 				181885D21E9019D500F5609D /* ESPDatumCode.m in Sources */,
 				0EA35894214AA46700997681 /* MessagesUtils.m in Sources */,
 				0EB093E8214BDC0700AB63D1 /* CameraPermissionViewController.m in Sources */,
+				18CE529621CDDF61002FBC7C /* TimerViewCell.m in Sources */,
 				18CC8B951E7E4207007FD291 /* PageContentViewController.m in Sources */,
 				183F55622003285D00B072A9 /* MemberViewCell.m in Sources */,
 				185E78701E95FB680048B450 /* SceneDetailViewController.m in Sources */,

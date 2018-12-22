@@ -516,6 +516,41 @@
     
     return arr;
 }
+
+-(NSArray *)getListTimers{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SHTimer" inManagedObjectContext:self.context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    //
+
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    [request setSortDescriptors:sortDescriptors];
+    // Fetch the records and handle an error
+    NSError *error;
+    NSArray *arr  = [self.context executeFetchRequest:request error:&error];
+    
+    return arr;
+}
+
+-(NSArray *)getListTimerByRequestId:(NSString *)requestId{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SHTimer" inManagedObjectContext:self.context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    //
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"requestId == %@", requestId];
+    [request setPredicate:predicate];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    [request setSortDescriptors:sortDescriptors];
+    // Fetch the records and handle an error
+    NSError *error;
+    NSArray *arr  = [self.context executeFetchRequest:request error:&error];
+    
+    return arr;
+}
 -(NSInteger)countDevice{
     NSArray * arr = [self getListDevice];
     NSInteger max =  0;

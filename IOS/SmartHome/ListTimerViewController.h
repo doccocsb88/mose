@@ -12,6 +12,7 @@
 #import "CoredataHelper.h"
 #import "Device.h"
 #import "MQTTService.h"
+#import "TimerViewCell.h"
 @interface ListTimerViewController : BaseViewController <MQTTServiceDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) Device *device;

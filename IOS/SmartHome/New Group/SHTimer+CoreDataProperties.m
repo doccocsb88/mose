@@ -31,5 +31,6 @@
 @dynamic topic;
 @dynamic type;
 @dynamic code;
+@dynamic key;
 //@dynamic chanel;
 @end

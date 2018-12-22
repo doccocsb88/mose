@@ -40,6 +40,9 @@
 -(Room *)getRoomByCode:(NSString *)code;
 
 -(NSArray *)getListTimerByDeviceId:(NSInteger )deviceId;
+-(NSArray *)getListTimers;
+-(NSArray *)getListTimerByRequestId:(NSString *)requestId;
+
 -(NSInteger )countDevice;
 -(void)deleteDevice:(Device *)device;
 -(void)deleteDetail:(SceneDetail *)detail;

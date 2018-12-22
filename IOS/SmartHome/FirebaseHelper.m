@@ -384,10 +384,17 @@
                 NSDictionary *info = data.value;
                 NSLog(@"synData timers: %@",data.value);
                 NSInteger deviceId = [[info objectForKey:@"deviceId"] integerValue];
-                Device *device = [[CoredataHelper sharedInstance] getDeviceById:deviceId];
+//                Device *device = [[CoredataHelper sharedInstance] getDeviceById:deviceId];
                 NSString *code = @"";
                 if ([info objectForKey:@"timer_code"]) {
                     code = [info objectForKey:@"timer_code"];
+                }
+                NSString *requestId = [info objectForKey:@"requestId"];
+                NSString *topic = [info objectForKey:@"topic"];
+                int type = DeviceTypeUnknow;
+                if ([info objectForKey:@"type"] != nil){
+                    
+                    type= [[info objectForKey:@"type"] intValue];
                 }
                 SHTimer *timer = [[CoredataHelper sharedInstance] getTimerByCode:code];
                 BOOL hasTimer = NO;
@@ -396,11 +403,12 @@
                 }else{
                     timer = [[CoredataHelper sharedInstance] addTimer];
                     //                    self.timer.enable = YES;
-                    timer.requestId = device.requestId;
-                    timer.type = device.type;
-                    timer.topic = device.topic;
+                    timer.requestId = requestId;
+                    timer.type = type;
+                    timer.topic = topic;
                     timer.deviceId = deviceId;
                     timer.code = code;
+                    timer.key = data.key;
                 }
                 if ([info objectForKey:@"enable"]) {
                     timer.enable = [[info objectForKey:@"enable"] boolValue];
@@ -759,10 +767,15 @@
     NSDictionary *childUpdates = @{[NSString stringWithFormat:@"/users/%@/devices/%@", self.user.uid, key]: dic};
     [_ref updateChildValues:childUpdates];
 }
--(void)addTimer:(SHTimer *)timer deviceId:(NSInteger)deviceId{
+-(void)addTimer:(SHTimer *)timer deviceId:(NSInteger)deviceId complete:(void (^)(NSString *))complete{
     
-    NSString *key = [[[[self.ref child:@"users"] child:self.user.uid] child:@"timers"] childByAutoId].key;
     
+    NSString *key = @"";
+    if (timer.key && timer.key.length > 0) {
+        key = timer.key;
+    }else{
+        key = [[[[self.ref child:@"users"] child:[self getAccessNode]] child:@"timers"] childByAutoId].key;
+    }
     NSDictionary *dic = @{@"deviceId":[NSNumber numberWithInteger:deviceId],
                           @"enable":[NSNumber numberWithBool:timer.enable],
                           @"repeat":[NSNumber numberWithBool:timer.isRepeat],
@@ -773,8 +786,10 @@
                           @"requestId":timer.requestId,
                           @"timer_code":timer.code
                           };
-    NSDictionary *childUpdates = @{[NSString stringWithFormat:@"/users/%@/timers/%@", self.user.uid, key]: dic};
-    [_ref updateChildValues:childUpdates];
+    NSDictionary *childUpdates = @{[NSString stringWithFormat:@"/users/%@/timers/%@", [self getAccessNode], key]: dic};
+    [_ref updateChildValues:childUpdates withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+        complete(key);
+    }];
 }
 
 -(void)addDeviceToSystem:(NSString *)mqttId{

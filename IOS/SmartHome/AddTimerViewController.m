@@ -294,9 +294,12 @@
         }
     }
     [[CoredataHelper sharedInstance] save];
-    [[MQTTService sharedInstance] setTimer:self.timer];
-    [[FirebaseHelper sharedInstance] addTimer:self.timer deviceId:self.device.id];
-    [self.navigationController popViewControllerAnimated:YES];
+    [[FirebaseHelper sharedInstance] addTimer:self.timer deviceId:self.device.id complete:^(NSString *key) {
+        self.timer.key = key;
+        [[MQTTService sharedInstance] setTimer:self.timer];
+        [self.navigationController popViewControllerAnimated:YES];
+
+    }];
     
 }
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "ListTimerViewController.h"
-
 @interface ListTimerViewController () <UITableViewDelegate, UITableViewDataSource>
 {
     NSMutableArray *dataArray;
@@ -22,12 +21,16 @@
     self.tableView.delegate= self;
     self.tableView.dataSource = self;
     self.tableView.userInteractionEnabled = YES;
+    [self.tableView registerNib:[UINib nibWithNibName:@"TimerViewCell" bundle:nil] forCellReuseIdentifier:@"timerViewCell"];
 
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    NSArray *tmp = [[CoredataHelper sharedInstance] getListTimerByDeviceId:self.device.id] ;    // Do any additional setup after loading the view.
-    
+    NSArray *tmp = [[CoredataHelper sharedInstance] getListTimerByRequestId:self.device.requestId] ;    // Do any additional setup after loading the view.
+   // NSArray *allTimer = [[CoredataHelper sharedInstance] getListTimers];
+    for (SHTimer *timer in tmp) {
+        NSLog(@"Timer : %ld -- %@",timer.deviceId,timer.topic);
+    }
     if (self.chanel > 0) {
         dataArray = [NSMutableArray new];
         for (SHTimer *timer in tmp ) {
@@ -50,8 +53,17 @@
     if (self.device) {
         self.navigationItem.title = self.device.name;
     }
+    
 }
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if (dataArray && dataArray.count >= 10) {
+        [self.rightButton setHidden:true];
+    }else{
+        [self.rightButton setHidden:false];
 
+    }
+}
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     
@@ -104,27 +116,39 @@
     
     return 0;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.1;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return [UIView new];
+    
+}
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"timerViewCell" forIndexPath:indexPath];
+    TimerViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"timerViewCell" forIndexPath:indexPath];
     SHTimer *timer = [dataArray objectAtIndex:indexPath.row];
     timer.order = indexPath.row;
 //    timer.requestId = self.device.topic;
-    UIButton *enableButton = [cell viewWithTag:3];
-    if (enableButton) {
-        enableButton.tag = indexPath.row;
-        enableButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
-        enableButton.selected = !timer.enable;
-    }
-    UILabel *repeatLabel = [cell viewWithTag:2];
-    if (repeatLabel) {
-        repeatLabel.text = [NSString stringWithFormat:@"Lặp lại  : %@", [timer isRepeat] ? @"Có " : @"Không"];
-    }
-    UILabel *timerLabel = [cell viewWithTag:1];
-    if (timerLabel) {
-        timerLabel.text = [NSString stringWithFormat:@"%@ : %@",timer.timer,timer.status ? @"Mở" : @"Đóng"];
-    }
+
+    cell.onOffButton.tag = indexPath.row;
+    cell.onOffButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    [cell updateContent:timer];
+    __weak TimerViewCell *wCell = cell;
+    cell.pressedEnableHandle = ^{
+        if (timer.topic == nil || timer.topic.length == 0) {
+            timer.topic = self.device.topic;
+        }
+        if (timer) {
+            timer.enable = !timer.enable;
+            [[CoredataHelper sharedInstance] save];
+            [[MQTTService sharedInstance] setTimer:timer];
+            [wCell updateContent:timer];
+
+        }
+    };
     return cell;
 }
 

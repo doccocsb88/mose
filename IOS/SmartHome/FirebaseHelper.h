@@ -56,7 +56,7 @@ typedef void (^FirebaseCallback)(BOOL exist);
 -(void)addDevice:(Device *)device roomId:(NSInteger)roomId;
 -(void)updateDevice:(Device *)device roomId:(NSInteger)roomId;
 //
--(void)addTimer:(SHTimer *)timer deviceId:(NSInteger)deviceId;
+-(void)addTimer:(SHTimer *)timer deviceId:(NSInteger)deviceId complete:(void(^)(NSString *key))complete;
 -(void)addDeviceToSystem:(NSString *)mqttId;
 -(void)delleteDevice:(NSString *)mqttId;
 -(void)deleteDevidesInRoom:(NSString *)roomId;
