@@ -26,10 +26,7 @@
     self.statusButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.curtainValueSlider addTarget:self action:@selector(touchEnded:)
           forControlEvents:UIControlEventTouchUpInside];
-    self.curtainOpenButton.layer.cornerRadius = 3.0;
-    self.curtainOpenButton.layer.masksToBounds = YES;
-    self.curtainCloseButton.layer.cornerRadius = 3.0;
-    self.curtainCloseButton.layer.masksToBounds = YES;
+
     [self iniNavigator];
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -44,15 +41,9 @@
     }
     if (self.timer) {
         
-        if (self.timer.status) {
-            self.curtainCloseButton.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
-            self.curtainOpenButton.backgroundColor = [UIColor redColor];
-        }else{
-            self.curtainCloseButton.backgroundColor = [UIColor redColor];
-            self.curtainOpenButton.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
-        }
+        [self layoutCurtainView:self.timer.status value:self.timer.value];
+ 
         
-        self.curtainValueSlider.value = self.timer.value;
         self.statusButton.selected = !self.timer.status;
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         dateFormatter.dateFormat =  @"HH:mm";
@@ -110,8 +101,7 @@
         }
         [self.tableView reloadData];
     }else{
-        self.curtainCloseButton.selected =true;
-        self.curtainOpenButton.selected = false;
+     
         [self layoutCurtainView:true value:0.0];
     }
 }
@@ -191,6 +181,8 @@
 -(void)layoutCurtainView:(BOOL)status value:(CGFloat)value{
     self.curtainCloseButton.selected = !status;
     self.curtainOpenButton.selected = status;
+    self.curtainValueSlider.value = value;
+
 }
 - (IBAction)didSelectedDateTime:(id)sender {
     
@@ -208,7 +200,7 @@
 - (IBAction)pressedLightState:(id)sender {
     self.statusButton.selected = !self.statusButton.selected;
 }
-- (IBAction)pressedCurtain:(id)sender {
+- (IBAction)pressedCurtainClose:(id)sender {
     //
 
     [self layoutCurtainView:false value:self.curtainValueSlider.value];

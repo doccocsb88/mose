@@ -1078,7 +1078,7 @@
                                                     <state key="normal" image="button:OGU-zo-lad:image">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <state key="selected" image="3EB4611E-B157-4A2A-88BF-E74D635DCA33"/>
+                                                    <state key="selected" image="996E3B41-D924-4245-A0E9-D8760974FBBE"/>
                                                     <connections>
                                                         <action selector="pressedEnableTimer:" destination="Md3-rl-8Nd" eventType="touchUpInside" id="Z1J-kC-2CV"/>
                                                     </connections>
@@ -1191,7 +1191,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rèm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4c-BW-0CC">
                                         <rect key="frame" x="25" y="32" width="35" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Po3-aF-zod">
@@ -1228,29 +1228,29 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="pressedCurtain:" destination="FmS-rC-4Bj" eventType="touchUpInside" id="3FQ-QQ-og4"/>
+                                            <action selector="pressedCurtainOpen:" destination="FmS-rC-4Bj" eventType="touchUpInside" id="p6T-jg-bTD"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbo-xS-mDA">
                                         <rect key="frame" x="256.5" y="40" width="93.5" height="40"/>
-                                        <state key="normal" title="CLOSE" backgroundImage="right_b">
+                                        <state key="normal" title="CLOSE" backgroundImage="right_w">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" backgroundImage="right_b">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="pressedCurtainOpen:" destination="FmS-rC-4Bj" eventType="touchUpInside" id="FV9-8J-Af3"/>
+                                            <action selector="pressedCurtainClose:" destination="FmS-rC-4Bj" eventType="touchUpInside" id="gcT-zj-rEi"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MvT-MK-Apl">
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MvT-MK-Apl">
                                         <rect key="frame" x="163.5" y="40" width="93" height="40"/>
                                         <state key="normal" title="STOP" backgroundImage="midle_w">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Jbo-xS-mDA" firstAttribute="height" secondItem="mDJ-dY-aB4" secondAttribute="height" id="7nR-3A-Zyk"/>
                                     <constraint firstAttribute="bottom" secondItem="Jbo-xS-mDA" secondAttribute="bottom" constant="5" id="9WT-kE-HJg"/>
@@ -1336,8 +1336,8 @@
                         <viewLayoutGuide key="safeArea" id="fbV-1Y-01B"/>
                     </view>
                     <connections>
-                        <outlet property="curtainCloseButton" destination="mDJ-dY-aB4" id="l3b-qR-snS"/>
-                        <outlet property="curtainOpenButton" destination="Jbo-xS-mDA" id="Qhw-pL-nCs"/>
+                        <outlet property="curtainCloseButton" destination="Jbo-xS-mDA" id="z4w-8b-x9u"/>
+                        <outlet property="curtainOpenButton" destination="mDJ-dY-aB4" id="sdv-Br-8xj"/>
                         <outlet property="curtainStatusView" destination="9H9-y9-cPB" id="AaM-oa-mpG"/>
                         <outlet property="curtainValueSlider" destination="Po3-aF-zod" id="azf-U7-dVn"/>
                         <outlet property="lightStatusView" destination="FRM-hX-30i" id="maT-U9-P21"/>
@@ -1397,7 +1397,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="3EB4611E-B157-4A2A-88BF-E74D635DCA33" width="64" height="64">
+        <image name="996E3B41-D924-4245-A0E9-D8760974FBBE" width="64" height="64">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGVVZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEgcI
 ExQZHh8jJCsuMTtDR0tPUlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdz
@@ -2220,5 +2220,6 @@ F1wcXClcLFw5XD5cRlxJXE5cVlxZXGtcblxzAAAAAAAAAgEAAAAAAAAAWQAAAAAAAAAAAAAAAAAAXHU
         <image name="midle_w" width="70" height="30"/>
         <image name="nav-image-portrait" width="374" height="86"/>
         <image name="right_b" width="70" height="30"/>
+        <image name="right_w" width="70" height="30"/>
     </resources>
 </document>
