@@ -13,6 +13,7 @@
 @dynamic value;
 @dynamic status;
 @dynamic device;
+@dynamic sceneId;
 @dynamic code;
 @dynamic key;
 @dynamic chanels;

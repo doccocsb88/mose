@@ -413,7 +413,7 @@
 
     }];
     
-    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Xoá" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Xoá ngữ cảnh" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //        <#code#>
         if (self.selectedIndex < dataArray.count) {
             Scene *scene = [dataArray objectAtIndex:self.selectedIndex];

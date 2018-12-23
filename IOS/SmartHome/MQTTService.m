@@ -263,13 +263,13 @@ static MQTTService *instance = nil;
     }
     NSLog(@"publicRequestStatus 2: %@",message);
     
-//    [self.publishingTopic addObject:mqttId];
-//    [self cancelCheckPublishTimerByMqttId:mqttId];
-//    
-//    NSTimer *sucessTimer = [NSTimer scheduledTimerWithTimeInterval:CHECK_PUBLISH_TIME target:self selector:@selector(checkPublishSucess:) userInfo:@{@"mqttId":mqttId,@"topic":topic,@"message":message,@"type":[NSString stringWithFormat:@"%ld",device.type],@"count":[NSString stringWithFormat:@"%d",SEND_REQUEST_COUNT]} repeats:NO];
-//    NSLog(@"tw : 3 %@",message);
+    [self.publishingTopic addObject:mqttId];
+    [self cancelCheckPublishTimerByMqttId:mqttId];
+    
+    NSTimer *sucessTimer = [NSTimer scheduledTimerWithTimeInterval:CHECK_PUBLISH_TIME target:self selector:@selector(checkPublishSucess:) userInfo:@{@"mqttId":mqttId,@"topic":topic,@"message":message,@"type":[NSString stringWithFormat:@"%ld",device.type],@"count":[NSString stringWithFormat:@"%d",SEND_REQUEST_COUNT]} repeats:NO];
+    NSLog(@"tw : 3 %@",message);
 
-    //[_sucessTimerArr setObject:sucessTimer forKey:mqttId];
+    [_sucessTimerArr setObject:sucessTimer forKey:mqttId];
     
     //
     [_session publishData:[message dataUsingEncoding:NSUTF8StringEncoding] onTopic:topic retain:NO qos:0 publishHandler:^(NSError *error) {
@@ -430,9 +430,7 @@ static MQTTService *instance = nil;
                 getStatusDevice.isSubcrible = true;
                 [[CoredataHelper sharedInstance] save];
                 NSLog(@"checkSubcribeSucess %@",getStatusDevice.requestId);
-//                if (self.delegate && [self.delegate respondsToSelector:@selector(mqttPublishFail:)]) {
-//                    [self.delegate mqttPublishFail:mqttId];
-//                }
+
                 if (self.delegate && [self.delegate respondsToSelector:@selector(mqttPublishFail:)]) {
                     [self.delegate mqttPublishFail:@""];
                 }

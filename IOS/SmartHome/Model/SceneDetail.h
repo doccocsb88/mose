@@ -12,6 +12,8 @@
 @property (assign, nonatomic) NSInteger id;
 @property (assign, nonatomic) NSInteger value;
 @property (assign, nonatomic) NSInteger status;
+@property (assign, nonatomic) NSInteger sceneId;
+
 @property (assign, nonatomic) NSString *code;
 @property (assign, nonatomic) NSString *key;
 

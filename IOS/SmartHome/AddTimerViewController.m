@@ -36,9 +36,11 @@
     [super viewWillAppear:animated];
     if (self.device.type == DeviceTypeCurtain) {
         self.lightStatusView.hidden = YES;
+        self.curtainStatusView.hidden = NO;
         
     }else{
         self.lightStatusView.hidden = NO;
+        self.curtainStatusView.hidden = YES;
     }
     if (self.timer) {
         
@@ -110,7 +112,7 @@
     }else{
         self.curtainCloseButton.selected =true;
         self.curtainOpenButton.selected = false;
-        [self layoutCurtainView:false value:0.0];
+        [self layoutCurtainView:true value:0.0];
     }
 }
 - (void)didReceiveMemoryWarning {
@@ -187,14 +189,8 @@
     return nil;
 }
 -(void)layoutCurtainView:(BOOL)status value:(CGFloat)value{
-    if (status) {
-        self.curtainCloseButton.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
-        self.curtainOpenButton.backgroundColor = [UIColor redColor];
-    }else{
-        self.curtainCloseButton.backgroundColor = [UIColor redColor];
-        self.curtainOpenButton.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
-    }
-
+    self.curtainCloseButton.selected = !status;
+    self.curtainOpenButton.selected = status;
 }
 - (IBAction)didSelectedDateTime:(id)sender {
     
@@ -214,19 +210,24 @@
 }
 - (IBAction)pressedCurtain:(id)sender {
     //
-    self.curtainOpenButton.selected = false;
-    self.curtainCloseButton.selected = true;
-    [self layoutCurtainView:false value:0.0];
+
+    [self layoutCurtainView:false value:self.curtainValueSlider.value];
     self.isSlide = false;
 
 }
 - (IBAction)pressedCurtainOpen:(id)sender {
-    self.curtainOpenButton.selected = true;
-    self.curtainCloseButton.selected = false;
-    [self layoutCurtainView:true value:0.0];
+
+    [self layoutCurtainView:true value:self.curtainValueSlider.value];
     self.isSlide = false;
     
 }
+- (IBAction)curtaintValueChanged:(id)sender {
+    
+    [self layoutCurtainView:self.curtainOpenButton.selected value:self.curtainValueSlider.value];
+    
+}
+
+
 -(void)touchEnded:(UISlider *)sender{
     self.isSlide = true;
 }

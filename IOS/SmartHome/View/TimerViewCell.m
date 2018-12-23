@@ -32,7 +32,7 @@
         self.timeLabel.text = [NSString stringWithFormat:@"%@ : %@",timer.timer,timer.status ? @"On" : @"Off"];
     }
     
-    UIColor *activeColor = [Helper colorFromHexString:@"#322c61"];
+    UIColor *activeColor = [Helper colorFromHexString:@"#008744"];
     _t2Label.backgroundColor = timer.t2 ? activeColor : [UIColor grayColor];
     _t2Label.textColor = timer.t2 ?  [UIColor whiteColor] : [UIColor darkGrayColor];
     
