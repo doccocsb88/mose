@@ -1074,7 +1074,7 @@
             }
             displayArray = [dataArray mutableCopy];
             //            self.addDevice = nil;
-            [[MQTTService sharedInstance] subscribeToTopic:device];
+            [[MQTTService sharedInstance] subscribeToTopic:device index:0];
             if(device.type != DeviceTypeLightOnOff){
                 [self.tableView reloadData];
             }
