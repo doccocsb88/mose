@@ -578,20 +578,28 @@
 //                    @"chanels":sceneDetail.chanels ? sceneDetail.chanels : @""
 
                     Device *device  = [[CoredataHelper sharedInstance] getDeviceById:deviceId];
-                    if(![[CoredataHelper sharedInstance] hasObject:@"SceneDetail" code:code]){
-                        SceneDetail *sceneDetail = [[CoredataHelper sharedInstance] addSceneDetailV2:detailId key:data.key value:deviceValue status:deviceStatus device:device code:code complete:^(SceneDetail *detail) {
+                    SceneDetail *sceneDetail = [[CoredataHelper sharedInstance] getSceneDetailByCode:code];
+
+                    if(sceneDetail == nil){
+                        sceneDetail = [[CoredataHelper sharedInstance] addSceneDetailV2:detailId key:data.key value:deviceValue status:deviceStatus device:device code:code complete:^(SceneDetail *detail) {
                             if (detail) {
                                 
                             }
                         }];
-                        Scene *scene =  [[CoredataHelper sharedInstance] getSceneById:sceneId];
-                        if(scene){
-                            if (sceneDetail != nil) {
-                                sceneDetail.chanels = chanels ? chanels :  @"";
-                                [scene addSceneDetailObject:sceneDetail];
-                            }
-                            
+                        
+                    }else{
+                        sceneDetail.status = deviceStatus;
+                        sceneDetail.value = deviceValue;
+                        
+                        
+                    }
+                    Scene *scene =  [[CoredataHelper sharedInstance] getSceneById:sceneId];
+                    if(scene){
+                        if (sceneDetail != nil) {
+                            sceneDetail.chanels = chanels ? chanels :  @"";
+                            [scene addSceneDetailObject:sceneDetail];
                         }
+                        
                     }
                 }
                 
@@ -690,7 +698,9 @@
                           @"scene_detail_code":sceneDetail.code,
                           @"chanels":sceneDetail.chanels ? sceneDetail.chanels : @""
                           };
-    NSDictionary *childUpdates = @{[NSString stringWithFormat:@"/users/%@/scene_details/%@", self.user.uid, sceneDetail.key]: dic};
+    
+    NSString *path = [NSString stringWithFormat:@"/users/%@/scene_details/%@", self.user.uid, sceneDetail.key];
+    NSDictionary *childUpdates = @{path: dic};
     [_ref updateChildValues:childUpdates];
 }
 -(void)deleteSceneDetail:(NSString *)code{

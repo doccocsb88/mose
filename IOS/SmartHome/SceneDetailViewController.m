@@ -22,11 +22,12 @@
     [self setupUI];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backtoPrevious) name:@"kFirebaseLogout" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backtoPrevious) name:@"kFirebaseRemoveSceneDetail" object:nil];
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:@"kFirebasedidFinishSynScene" object:nil];
 }
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"kFirebaseLogout" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"kFirebaseRemoveSceneDetail" object:nil];
-
+ [[NSNotificationCenter defaultCenter] removeObserver:self name:@"kFirebasedidFinishSynScene" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -230,7 +231,11 @@
         NSLog(@"gestureRecognizer.state = %ld", gestureRecognizer.state);
     }
 }
-
+-(void)reloadData{
+    self.selectedIndex = NSNotFound;
+    dataArray = [[self.scene getListSceneDetail] mutableCopy];
+    [self.tableView reloadData];
+}
 -(void)pressedLeft:(UIButton *)sender{
     [self.navigationController popViewControllerAnimated:true];
 }

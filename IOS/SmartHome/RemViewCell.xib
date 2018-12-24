@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14306.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14278.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -61,7 +59,7 @@
                                 <rect key="frame" x="120" y="0.0" width="480" height="199.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYk-Sb-FvU">
-                                        <rect key="frame" x="322" y="91" width="158" height="67.5"/>
+                                        <rect key="frame" x="321.5" y="91" width="158.5" height="67.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                         <state key="normal" title="Close" backgroundImage="right_w">
@@ -76,7 +74,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jl7-Ej-bal">
-                                        <rect key="frame" x="163.5" y="91.5" width="158.5" height="67.5"/>
+                                        <rect key="frame" x="163" y="91" width="158.5" height="67.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="jl7-Ej-bal" secondAttribute="height" multiplier="140:60" id="AIV-QX-ubF"/>
@@ -99,7 +97,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3F5-6S-z4P">
-                                        <rect key="frame" x="5" y="92" width="158.5" height="67.5"/>
+                                        <rect key="frame" x="5" y="91" width="158" height="67.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                         <state key="normal" title="Open" backgroundImage="left_w">
@@ -195,12 +193,12 @@
             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="_backgroundView" destination="e9d-Dj-D3z" id="lSY-Ll-VNs"/>
-                <outlet property="aButton" destination="CYk-Sb-FvU" id="2sJ-iv-zJB"/>
-                <outlet property="bButton" destination="jl7-Ej-bal" id="QTg-MD-thU"/>
-                <outlet property="cButton" destination="3F5-6S-z4P" id="pOB-SF-Mhj"/>
+                <outlet property="closeButton" destination="CYk-Sb-FvU" id="2sJ-iv-zJB"/>
                 <outlet property="containerCurtainView" destination="iHh-yl-Phx" id="XIH-Dg-FiY"/>
                 <outlet property="nameLabel" destination="igK-5B-Z3Z" id="wzZ-Hr-imt"/>
+                <outlet property="openButton" destination="3F5-6S-z4P" id="pOB-SF-Mhj"/>
                 <outlet property="slider" destination="2jj-CT-mqd" id="Iz4-5a-nKy"/>
+                <outlet property="stopButton" destination="jl7-Ej-bal" id="QTg-MD-thU"/>
                 <outlet property="thumbnail" destination="cXS-te-w3p" id="YQQ-nZ-Wgx"/>
             </connections>
             <point key="canvasLocation" x="159.5" y="-7"/>

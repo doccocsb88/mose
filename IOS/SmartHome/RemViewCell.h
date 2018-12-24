@@ -19,9 +19,9 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnail;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
-@property (weak, nonatomic) IBOutlet UIButton *aButton;//close
-@property (weak, nonatomic) IBOutlet UIButton *bButton;//top
-@property (weak, nonatomic) IBOutlet UIButton *cButton;//open
+@property (weak, nonatomic) IBOutlet UIButton *closeButton;//close
+@property (weak, nonatomic) IBOutlet UIButton *stopButton;//top
+@property (weak, nonatomic) IBOutlet UIButton *openButton;//open
 //@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 -(void)setContentView:(SceneDetail *)device;

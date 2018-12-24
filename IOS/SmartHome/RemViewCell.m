@@ -57,15 +57,15 @@
     //    if (self.isScene) {
     //        button.selected = !button.selected;
     //    }else{
-    if (button == self.aButton){
+    if (button == self.closeButton){
         if (self.delegate && [self.delegate respondsToSelector:@selector(didPressedButton:value:)]) {
             [self.delegate didPressedButton:self.device.id value:ButtonTypeClose];
         }
-    }else if (button == self.bButton){
+    }else if (button == self.stopButton){
         if (self.delegate && [self.delegate respondsToSelector:@selector(didPressedButton:value:)]) {
             [self.delegate didPressedButton:self.device.id value:ButtonTypeStop];
         }
-    }else if (button == self.cButton){
+    }else if (button == self.openButton){
         if (self.delegate && [self.delegate respondsToSelector:@selector(didPressedButton:value:)]) {
             [self.delegate didPressedButton:self.device.id value:ButtonTypeOpen];
         }
@@ -88,18 +88,20 @@
 //        self.aButton.userInteractionEnabled = isEnable;
 //        self.bButton.userInteractionEnabled = isEnable;
 //        self.cButton.userInteractionEnabled = isEnable;
+    
+    NSLog(@"RemViewCell %ld",detail.status);
     if (detail.status == ButtonTypeStop) {
-        self.aButton.selected = NO;
-        self.bButton.selected = YES;
-        self.cButton.selected = NO;
+        self.closeButton.selected = NO;
+        self.stopButton.selected = YES;
+        self.openButton.selected = NO;
     }else if (detail.status == ButtonTypeOpen) {
-        self.aButton.selected = NO;
-        self.bButton.selected = NO;
-        self.cButton.selected = YES;
+        self.closeButton.selected = NO;
+        self.stopButton.selected = NO;
+        self.openButton.selected = YES;
     }else{
-        self.aButton.selected = YES;
-        self.bButton.selected = NO;
-        self.cButton.selected = NO;
+        self.closeButton.selected = YES;
+        self.stopButton.selected = NO;
+        self.openButton.selected = NO;
     }
     [self setupValue];
     
@@ -122,19 +124,19 @@
     self.slider.tag = device.id;
     BOOL isEnable = (type == 0) && device.isOnline;
     self.slider.userInteractionEnabled = isEnable;
-    self.aButton.userInteractionEnabled = isEnable;
-    self.bButton.userInteractionEnabled = isEnable;
-    self.cButton.userInteractionEnabled = isEnable;
+    self.closeButton.userInteractionEnabled = isEnable;
+    self.stopButton.userInteractionEnabled = isEnable;
+    self.openButton.userInteractionEnabled = isEnable;
     self.nameLabel.text  = device.name;
     BOOL isOpen = device.value < 100 ? YES : NO;
     if (isOpen) {
-        self.aButton.selected = NO;
-        self.bButton.selected = NO;
-        self.cButton.selected = YES;
+        self.closeButton.selected = NO;
+        self.stopButton.selected = NO;
+        self.openButton.selected = YES;
     }else{
-        self.aButton.selected = YES;
-        self.bButton.selected = NO;
-        self.cButton.selected = NO;
+        self.closeButton.selected = YES;
+        self.stopButton.selected = NO;
+        self.openButton.selected = NO;
     }
     [self setupValue];
     if (self.visualEffectView) {
