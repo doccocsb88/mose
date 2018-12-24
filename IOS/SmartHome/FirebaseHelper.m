@@ -542,15 +542,21 @@
                     if([info objectForKey:@"id"]){
                         sceneId = [[info objectForKey:@"id"] integerValue];
                     }
-                    if(![[CoredataHelper sharedInstance] hasObject:@"Scene" code:code]){
+                    Scene *scene = [[CoredataHelper sharedInstance] getSceneByCode:code];
+                    
+                    if(scene == nil){
                         [[CoredataHelper sharedInstance] addNewSceneV2:sceneId name:name code:code complete:^(Scene *room) {
                             
                         }];
                         
+                    }else{
+                        scene.name = name;
+                    
                     }
                 }
-            }
-            
+            }//end for
+            [[CoredataHelper sharedInstance] save];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"kFirebasedidFinishSynScene" object:nil userInfo:nil];
         }
     }];
     [[[[self.ref child:@"users"] child:_user.uid] child:@"scene_details"] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
