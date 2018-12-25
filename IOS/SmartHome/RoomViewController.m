@@ -334,9 +334,9 @@
     if (device.type == DeviceTypeLightOnOff) {
         return 100.0;
     }else if (device.type == DeviceTypeCurtain){
-        return 130.0;
+        return 140.0;
     }else if (device.type == DeviceTypeTouchSwitch){
-        return 110 * [device numberofSharedChanel] + 30;
+        return 110 * [device numberofSharedChanel];
     }
     return 100;
 }
@@ -1046,14 +1046,42 @@
     [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         textField.placeholder = @"Nhập tên thiết bị";
     }];
+    if (device.type == DeviceTypeTouchSwitch) {
+        [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            textField.placeholder = @"Nhập tên thiết bị";
+        }];
+        [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            textField.placeholder = @"Nhập tên thiết bị";
+        }];
+    }
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Đồng ý" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //        <#code#>
         UITextField *tf = alert.textFields.firstObject;
         NSString *roomName = tf.text;
-        if (roomName && roomName.length > 0) {
+        BOOL isInputDeviceName = true;
+        for (UITextView *textfield in alert.textFields) {
+            NSString *inputText = textfield.text;
+            if (inputText == nil || inputText.length == 0) {
+                isInputDeviceName = false;
+                break;
+            }
+        }
+        if (isInputDeviceName) {
             //            Device *newDevice = [[CoredataHelper sharedInstance] getDeviceBycode:device.requestId];
             //
-            device.name = roomName;
+            if (device.type == DeviceTypeTouchSwitch) {
+                for (int i = 0; i < [device numberOfSwitchChannel]; i++) {
+                    if (i < alert.textFields.count) {
+                        NSString *inputText = [alert.textFields objectAtIndex:i].text;
+                        int chanelIndex = i + 1;
+                        [device updateNameForChanel:chanelIndex name:inputText];
+
+                    }
+                }
+            }else{
+                device.name = roomName;
+
+            }
             [[FirebaseHelper sharedInstance] updateDevice:device roomId:self.room.id];
             [[CoredataHelper sharedInstance] save];
             NSSortDescriptor *imageSort = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:NO];
@@ -1101,8 +1129,8 @@
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Đồng ý" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //        <#code#>
         UITextField *tf = alert.textFields.firstObject;
-        NSString *roomName = tf.text;
-        if(roomName && roomName.length > 0){
+        NSString *deviceName = tf.text;
+        if(deviceName && deviceName.length > 0){
             if ([device numberOfSwitchChannel] > 0) {
                 NSString *nameKey = [NSString stringWithFormat:@"name%ld",self.chanel];
                 NSMutableDictionary *info  = [NSMutableDictionary new];
@@ -1120,7 +1148,7 @@
                     }
                     
                 }
-                [info setObject:roomName forKey:nameKey];
+                [info setObject:deviceName forKey:nameKey];
                 NSError *error;
                 NSData *jsonData = [NSJSONSerialization dataWithJSONObject:info
                                                                    options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
@@ -1135,7 +1163,7 @@
                 
                 
             }else{
-                device.name = roomName;
+                device.name = deviceName;
             }
             
             [[CoredataHelper sharedInstance] save];

@@ -850,7 +850,7 @@ static MQTTService *instance = nil;
         Device *device = userInfo[@"device"];
         int index = [userInfo[@"index"] intValue];
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(index * 0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(index * 0.35 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self publicRequestStatus:device];
             
         });

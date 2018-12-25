@@ -242,6 +242,7 @@
     }
 }
 -(void)updateNameForChanel:(int)chanel name:(NSString *)name{
+    //1,2,3
     NSMutableDictionary *info  = [NSMutableDictionary new];
     
     NSString *jsonString = self.chanelInfo;

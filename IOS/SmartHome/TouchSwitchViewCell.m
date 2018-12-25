@@ -55,7 +55,7 @@
 -(void)setContentValue:(Device *)device{
     self.requestIds = [NSMutableArray new];
     self.device = device;
-    self.deviceNameLabel.text = self.device.name;
+    //self.deviceNameLabel.text = self.device.name;
     [self.tableView reloadData];
     for (int i = 0; i < [self.device numberOfSwitchChannel]; i++) {
         int chanelIndex = i + 1;

@@ -92,7 +92,7 @@
     }else if (device.type == DeviceTypeCurtain){
         return 140.0;
     }else if (device.type == DeviceTypeTouchSwitch){
-        return 110 * [detail numberOfChanel] + 30;
+        return 110 * [detail numberOfChanel];
     }
     return 100.0;
 }

@@ -25,7 +25,7 @@
 @property(strong, nonatomic) UIVisualEffectView *visualEffectView;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UILabel *deviceNameLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *deviceNameLabel;
 
 @property (weak, nonatomic) IBOutlet UIView *myBackgroundView;
 -(void)setContentView:(SceneDetail *)detail;
