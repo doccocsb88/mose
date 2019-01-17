@@ -541,6 +541,7 @@ static MQTTService *instance = nil;
      }
      [self resetData];
      */
+    NSLog(@"abc disconect");
 }
 -(void)conect{
     if([[FirebaseHelper sharedInstance] isLogin]){
@@ -816,6 +817,12 @@ static MQTTService *instance = nil;
     
     _isConnect = false;
     _isConnecting = false;
+    for (Device *device in _dataArray) {
+        device.isOnline = true;
+        device.isGetStatus = false;
+        
+    }
+    [self.publishingTopic removeAllObjects];
     
 }
 -(NSString *)getCmdFromMessage:(NSString *)message{

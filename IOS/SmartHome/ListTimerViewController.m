@@ -26,12 +26,16 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    NSArray *tmp = [[CoredataHelper sharedInstance] getListTimerByRequestId:self.device.requestId] ;    // Do any additional setup after loading the view.
+    
+    
+     // Do any additional setup after loading the view.
    // NSArray *allTimer = [[CoredataHelper sharedInstance] getListTimers];
-    for (SHTimer *timer in tmp) {
-        NSLog(@"Timer : %ld -- %@",timer.deviceId,timer.topic);
-    }
+//    for (SHTimer *timer in tmp) {
+//        NSLog(@"Timer : %ld -- %@",timer.deviceId,timer.topic);
+//    }
     if (self.chanel > 0) {
+        NSString *requestID = [NSString stringWithFormat:@"%@/%ld",self.device.requestId,self.chanel];
+         NSArray *tmp = [[CoredataHelper sharedInstance] getListTimerByRequestId:requestID] ;
         dataArray = [NSMutableArray new];
         for (SHTimer *timer in tmp ) {
             NSString *requestId = timer.requestId;
@@ -43,6 +47,7 @@
             }
         }
     }else{
+          NSArray *tmp = [[CoredataHelper sharedInstance] getListTimerByRequestId:self.device.requestId] ;
         dataArray = [tmp mutableCopy];
     }
 

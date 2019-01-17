@@ -433,6 +433,9 @@
                     timer.requestId = [info objectForKey:@"requestId"];
                 }
                 [timer resetRepeat];
+                if ([timer.requestId isEqualToString:@"WT3-0000000090/3"]) {
+                    NSLog(@"hasData");
+                }
                 NSArray *days = [[info objectForKey:@"days"] componentsSeparatedByString:@":"];
                 for (int i = 0; i < days.count;i++) {
                     NSString *day = days[i];
