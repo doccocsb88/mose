@@ -178,7 +178,7 @@
     NSInteger index = 0;
     for (SceneDetail *detail in [scene.sceneDetail allObjects]) {
         Device *device = detail.device;
-        if([[MQTTService sharedInstance] isSubcribeTopic:device] ==false){
+        if(device.isSubcrible == false){
             [[MQTTService sharedInstance] subscribeToTopic:device index:0];
             index++;
         }

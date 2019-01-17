@@ -63,6 +63,6 @@
 -(void)clearPublishDevice;
 -(void)clearPublishTopic:(NSString *)topic;
 -(void)clearRequestStatusDevice;
--(BOOL)isSubcribeTopic:(Device *)device;
+//-(BOOL)isSubcribeTopic:(Device *)device;
 -(void)requestStatus:    (NSArray *)devices;
 @end
