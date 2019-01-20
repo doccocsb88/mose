@@ -50,6 +50,8 @@ typedef enum:NSInteger{
 -(void)updateAutoControlForChanel:(int)chanel status:(Boolean)status;
 -(void)updateNameForChanel:(int)chanel name:(NSString *)name;
 -(NSString *)getChanelName:(int)chanel;
+-(void)updateCurtainValue:(BOOL)status value:(int)value;
+-(void)updateCurtainValue:(int)value;
 
 -(void)reset;
 @end

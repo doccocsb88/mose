@@ -28,7 +28,17 @@
 - (IBAction)sliderChanged:(id)sender {
     [self setupValue];
     if ([self.delegate respondsToSelector:@selector(didChangeValueForKey:)]){
-        [self.delegate didChangeCell:self.slider.tag value:self.slider.value];
+        int value = self.slider.value;
+        if (value <= 10) {
+            value = 0;
+        }else if (value >= 90){
+            value = 100;
+        }else{
+            int tmpInt = value / 10;
+            value = tmpInt * 10;
+        }
+        self.slider.value = value;
+        [self.delegate didChangeCell:self.slider.tag value:value];
     }
 }
 -(void)setContentView:(Device *)device type:(NSInteger)type{

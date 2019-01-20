@@ -74,12 +74,6 @@
     
     
 }
-
--(void)dealloc{
-    [NSNotificationCenter.defaultCenter removeObserver:self name:@"mqttapplicationDidBecomeActive" object:nil];
-    [NSNotificationCenter.defaultCenter removeObserver:self name:@"kFirebaseRemoveDevice" object:nil];
-    
-}
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     NSLog(@"viewDidAppear");
@@ -99,6 +93,12 @@
     });
     [MQTTService sharedInstance].curroomId = self.room.id;
 }
+-(void)dealloc{
+    [NSNotificationCenter.defaultCenter removeObserver:self name:@"mqttapplicationDidBecomeActive" object:nil];
+    [NSNotificationCenter.defaultCenter removeObserver:self name:@"kFirebaseRemoveDevice" object:nil];
+    
+}
+
 
 -(void)loadData{
     _curType = 0;
@@ -653,6 +653,8 @@
         if (device.id == deviceId) {
             device.value = value;
             [self showLoadingView];
+           
+           
             NSString *msg = [NSString stringWithFormat:@"id='%@' cmd='OPEN' value='%d'",device.requestId,(NSInteger)value];
             [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic  message:msg type:device.type count:1 complete:^(BOOL finished) {
                 

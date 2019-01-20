@@ -103,6 +103,7 @@ PODS:
   - Reachability (3.2)
   - STPopup (1.8.2)
   - SVProgressHUD (2.1.2)
+  - UISlider-TrackHeight (1.0.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
@@ -122,6 +123,7 @@ DEPENDENCIES:
   - Reachability (~> 3.2)
   - STPopup (~> 1.8)
   - SVProgressHUD
+  - UISlider-TrackHeight (~> 1.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -153,6 +155,7 @@ SPEC REPOS:
     - Reachability
     - STPopup
     - SVProgressHUD
+    - UISlider-TrackHeight
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -183,7 +186,8 @@ SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   STPopup: b69b3e7484ef7d2baec5f9ab2939f8a7bcdfe218
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  UISlider-TrackHeight: bfb7253866ec75df8504b203d3490d1ed8aa53a1
 
-PODFILE CHECKSUM: f0740500cc2ff1ccc2bd267c35ee8d1251ea7cd7
+PODFILE CHECKSUM: 9dfc0669c0855679f3915631897298d30d4e855e
 
 COCOAPODS: 1.5.3

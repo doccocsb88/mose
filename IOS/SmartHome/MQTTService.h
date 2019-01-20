@@ -65,4 +65,5 @@
 -(void)clearRequestStatusDevice;
 //-(BOOL)isSubcribeTopic:(Device *)device;
 -(void)requestStatus:    (NSArray *)devices;
+
 @end

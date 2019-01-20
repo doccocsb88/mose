@@ -291,16 +291,17 @@ static MQTTService *instance = nil;
             msg = message;
         }
         
-        //        [self cancelCheckPublishTimerByMqttId:requestId];
-        //        [self.publishingTopic addObject:requestId];
-        //
-        //        NSTimer *sucessTimer = [NSTimer scheduledTimerWithTimeInterval:CHECK_PUBLISH_TIME target:self selector:@selector(checkPublishSucess:) userInfo:@{@"mqttId":requestId,@"topic":topic,@"message":message,@"type":[NSString stringWithFormat:@"%ld",type],@"count":[NSString stringWithFormat:@"%d",count]} repeats:NO];
-        //        [_sucessTimerArr setObject:sucessTimer forKey:requestId];
-        //
-        //        [_session publishData:[msg dataUsingEncoding:NSUTF8StringEncoding] onTopic:topic retain:NO qos:MQTTQosLevelAtMostOnce publishHandler:^(NSError *error) {
-        //            complete(true);
-        //
-        //        }];
+        [self cancelCheckPublishTimerByMqttId:requestId];
+        [self.publishingTopic addObject:requestId];
+        
+        NSTimer *sucessTimer = [NSTimer scheduledTimerWithTimeInterval:CHECK_PUBLISH_TIME target:self selector:@selector(checkPublishSucess:) userInfo:@{@"mqttId":requestId,@"topic":topic,@"message":message,@"type":[NSString stringWithFormat:@"%ld",type],@"count":[NSString stringWithFormat:@"%d",count]} repeats:NO];
+        [_sucessTimerArr setObject:sucessTimer forKey:requestId];
+        
+        [_session publishData:[msg dataUsingEncoding:NSUTF8StringEncoding] onTopic:topic retain:NO qos:MQTTQosLevelAtMostOnce publishHandler:^(NSError *error) {
+            complete(true);
+            
+        }];
+        return;
     }else if (type == DeviceTypeTouchSwitch){
         NSArray *info = [message componentsSeparatedByString:@"'"];
         mqttId = info[1];
@@ -532,6 +533,7 @@ static MQTTService *instance = nil;
 }
 -(BOOL)isConnected{
     return _isConnect;
+    //return _session.status == MQTTSessionStatusConnected;
 }
 -(void)disconect{
     /*
@@ -557,6 +559,7 @@ static MQTTService *instance = nil;
 -(void)connected:(MQTTSession *)session{
     NSLog(@"connected");
     //    [self handleMQTTConnectionSucess];
+    _isConnect = true;
 }
 
 -(void)connectionClosed:(MQTTSession *)session{
@@ -726,7 +729,9 @@ static MQTTService *instance = nil;
                         if (getStatusDevice) {
                             getStatusDevice.isGetStatus = true;
                             getStatusDevice.isOnline = true;
-                            getStatusDevice.value = [value floatValue];
+                            
+                            //getStatusDevice.value = [value floatValue];
+                            [getStatusDevice updateCurtainValue:[value floatValue]];
                             [[CoredataHelper sharedInstance] save];
                             [self cancelCheckPublishTimerByMqttId:mqttId];
                         }
@@ -863,6 +868,7 @@ static MQTTService *instance = nil;
         });
     }
 }
+
 @end
 
 

@@ -228,7 +228,7 @@
         
         [info setObject:[NSNumber  numberWithBool:![[json objectForKey:autoKey] boolValue]] forKey:autoKey];
     }else{
-        [info setObject:[NSNumber  numberWithBool:status] forKey:autoKey];
+        [info setObject:[NSNumber  numberWithBool:true] forKey:autoKey];
     }
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:info
@@ -282,6 +282,18 @@
         return [json objectForKey:nameKey];
     }
     return [NSString stringWithFormat:@"Kênh %d",chanel];
+}
+-(void)updateCurtainValue:(BOOL)status value:(int)value{
+    self.state = status;
+    [self updateCurtainValue:value];
+}
+-(void)updateCurtainValue:(int)value{
+    if (value <= 10) {
+        value = 0;
+    }else if (value >= 90){
+        value = 100;
+    }
+    self.value = value;
 }
 -(void)reset{
 //    isOnline = true;

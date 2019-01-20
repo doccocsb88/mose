@@ -10,6 +10,8 @@
 #import "BaseViewCell.h"
 #import "Device.h"
 #import "SceneDetail.h"
+#import "UISlider+VDTrackHeight.h"
+
 @interface RemViewCell : BaseViewCell
 @property(strong, nonatomic) UIVisualEffectView *visualEffectView;
 

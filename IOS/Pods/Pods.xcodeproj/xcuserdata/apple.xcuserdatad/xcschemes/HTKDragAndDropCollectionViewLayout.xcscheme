@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "25F17C33EAA5CEF9312EC52789CF782F"
+               BlueprintIdentifier = "59433078AA0892879CFAB0D9866B8B8D"
                BlueprintName = "HTKDragAndDropCollectionViewLayout"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libHTKDragAndDropCollectionViewLayout.a">

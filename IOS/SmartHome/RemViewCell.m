@@ -13,10 +13,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    //    UIImage *sliderLeftTrackImage = [[UIImage imageNamed: @"ic_slider_thumb"] stretchableImageWithLeftCapWidth: 9 topCapHeight: 0];
-    //    UIImage *sliderRightTrackImage = [[UIImage imageNamed: @"ic_slider_thumb"] stretchableImageWithLeftCapWidth: 9 topCapHeight: 0];
-    //    [self.slider setMinimumTrackImage: sliderLeftTrackImage forState: UIControlStateNormal];
-    //    [self.slider setMaximumTrackImage: sliderRightTrackImage forState: UIControlStateNormal];
+    self.slider.vd_trackHeight = 8.0f;
+
     self._backgroundView.layer.cornerRadius = 10.0;
     self._backgroundView.layer.masksToBounds = YES;
     [self.slider setThumbImage:[UIImage imageNamed: @"ic_slider_thumb"] forState:UIControlStateNormal];
@@ -79,7 +77,16 @@
 -(void)setContentView:(SceneDetail *)detail{
     self.isScene = true;
     self.device = detail.device;
-    self.slider.value = detail.value;
+    NSInteger value = detail.value;
+    if (value <= 10) {
+        value = 0;
+    }else if (value >= 90){
+        value = 100;
+    }else{
+        NSInteger tmpInt = value / 10;
+        value = tmpInt * 10;
+    }
+    self.slider.value = value;
     self.slider.tag = detail.id;
     self.nameLabel.text  = detail.device.name;
 //    BOOL isEnable = self.device.isOnline;
@@ -120,7 +127,16 @@
 }
 -(void)setContentView:(Device *)device type:(NSInteger)type{
     self.device = device;
-    self.slider.value = device.value;
+    NSInteger value = device.value;
+    if (value <= 10) {
+        value = 0;
+    }else if (value >= 90){
+        value = 100;
+    }else{
+        NSInteger tmpInt = value / 10;
+        value = tmpInt * 10;
+    }
+    self.slider.value = value;
     self.slider.tag = device.id;
     BOOL isEnable = (type == 0) && device.isOnline;
     self.slider.userInteractionEnabled = isEnable;
@@ -171,13 +187,30 @@
     NSString *name = [NSString stringWithFormat:@"icon_curtain2_%ld0ldpi",value];
     //    NSLog(@"name ____ : %@",name);
     self.thumbnail.image = [UIImage imageNamed:name];
-    
-    
+//    if (value <= 10) {
+//        value = 0;
+//    }else if (value >= 90){
+//        value = 100;
+//    }else{
+//        NSInteger tmpInt = value / 10;
+//        value = tmpInt * 10;
+//    }
+//    self.slider.value = value;
 }
 
 -(void)touchEnded:(UISlider *)sender{
     if([self.delegate respondsToSelector:@selector(didChangeValueForKey:)]){
-        [self.delegate didChangeCell:self.slider.tag value:self.slider.value];
+        int value = self.slider.value;
+        if (value <= 10) {
+            value = 0;
+        }else if (value >= 90){
+            value = 100;
+        }else{
+            int tmpInt = value / 10;
+            value = tmpInt * 10;
+        }
+        self.slider.value = value;
+        [self.delegate didChangeCell:self.slider.tag value:value];
     }
 }
 @end

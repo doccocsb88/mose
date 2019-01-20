@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B211FA10234656BC8836D01151A9EEF1"
+               BlueprintIdentifier = "74C3BFE786777128F8CF7D9F736E0834"
                BlueprintName = "HPReorderTableView"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libHPReorderTableView.a">

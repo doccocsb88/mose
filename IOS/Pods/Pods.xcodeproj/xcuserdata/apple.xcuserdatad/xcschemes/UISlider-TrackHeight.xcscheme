@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0E48E11CE65814E1DDCB770BB7810594"
-               BlueprintName = "QRCodeReaderViewController"
+               BlueprintIdentifier = "0F927E11B2CC0459555D84190C36D685"
+               BlueprintName = "UISlider-TrackHeight"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libQRCodeReaderViewController.a">
+               BuildableName = "libUISlider-TrackHeight.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
