@@ -21,4 +21,46 @@
     }
     return NULL;
 }
+
++(BOOL)isTouchSwitchQrCodeValidate:(NSString *)qrcode{
+    if ([qrcode containsString:@";"]) {
+        NSArray *info = [qrcode componentsSeparatedByString:@";"];
+        NSString *cmdPrefix = info[0];
+        if ([cmdPrefix isEqualToString:@"controller"]) {
+            return true;
+        }else if([cmdPrefix isNumber]){
+            if([cmdPrefix integerValue] >= 1 && [cmdPrefix integerValue] <= 4){
+                NSInteger deviceType = [cmdPrefix integerValue];
+                NSString *topic = [info[1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                
+                if (deviceType == DeviceTypeTouchSwitch){
+                    if ([topic containsString:@"-"]){
+                        NSString *touchswitchPrefix = [topic componentsSeparatedByString:@"-"][0];
+                        if(touchswitchPrefix.length == 3 && [touchswitchPrefix containsString:@"WT"]){
+                            NSString *lastChar = [touchswitchPrefix substringFromIndex:touchswitchPrefix.length - 1];
+                            if ([lastChar isNumber]) {
+                                NSInteger touchswitchNumber = [lastChar integerValue];
+                                if(touchswitchNumber >=1 && touchswitchNumber <= 4){
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                    
+                    
+                }else if (deviceType == DeviceTypeCurtain){
+                    if ([topic containsString:@"-"]) {
+                        NSString *curtainPrefix = [topic componentsSeparatedByString:@"-"][0];
+                        if ([curtainPrefix isEqualToString:@"WC"]) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    return false;
+
+}
 @end

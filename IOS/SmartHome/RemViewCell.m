@@ -78,9 +78,9 @@
     self.isScene = true;
     self.device = detail.device;
     NSInteger value = detail.value;
-    if (value <= 10) {
+    if (value < 5) {
         value = 0;
-    }else if (value >= 90){
+    }else if (value >= 95){
         value = 100;
     }else{
         NSInteger tmpInt = value / 10;
@@ -128,9 +128,9 @@
 -(void)setContentView:(Device *)device type:(NSInteger)type{
     self.device = device;
     NSInteger value = device.value;
-    if (value <= 10) {
+    if (value < 5) {
         value = 0;
-    }else if (value >= 90){
+    }else if (value >= 95){
         value = 100;
     }else{
         NSInteger tmpInt = value / 10;
@@ -201,14 +201,17 @@
 -(void)touchEnded:(UISlider *)sender{
     if([self.delegate respondsToSelector:@selector(didChangeValueForKey:)]){
         int value = self.slider.value;
-        if (value <= 10) {
+        NSLog(@"slider value 1 %d",value);
+        if (value < 5) {
             value = 0;
-        }else if (value >= 90){
+        }else if (value >= 95){
             value = 100;
         }else{
             int tmpInt = value / 10;
             value = tmpInt * 10;
         }
+        NSLog(@"slider value 2 %d",value);
+
         self.slider.value = value;
         [self.delegate didChangeCell:self.slider.tag value:value];
     }

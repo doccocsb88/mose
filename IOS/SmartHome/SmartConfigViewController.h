@@ -15,6 +15,8 @@
 
 @interface SmartConfigViewController : UIViewController<UITextFieldDelegate>
 @property (strong, nonatomic)  void(^handleAddControl)(NSString *);
+@property (strong, nonatomic)  void(^cancelAddControl)(void);
+
 @property (weak, nonatomic) IBOutlet UILabel *ssidLabel;
 @property (strong, nonatomic) NSString *bssid;
 @property (weak, nonatomic) IBOutlet UIView *memberView;

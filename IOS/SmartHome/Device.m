@@ -288,11 +288,12 @@
     [self updateCurtainValue:value];
 }
 -(void)updateCurtainValue:(int)value{
-    if (value <= 10) {
+    if (value < 5) {
         value = 0;
-    }else if (value >= 90){
+    }else if (value >= 95){
         value = 100;
     }
+    NSLog(@"slider value 3 %d",value);
     self.value = value;
 }
 -(void)reset{

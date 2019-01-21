@@ -26,7 +26,11 @@
     [self initData];
     [self setupUI];
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.marginTop.constant = (screenSize.height - CELL_HIGHT * dataArray.count - HEADER_HIGHT - FOOTER_HIGHT)/2 - 20;
+    [self.view updateFocusIfNeeded];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -65,10 +69,11 @@
     self.tableView.layer.masksToBounds = true;
     self.tableView.alwaysBounceVertical = true;
     self.tableView.scrollEnabled = false;
-    self.marginTop.constant = (screenSize.height - CELL_HIGHT * dataArray.count - HEADER_HIGHT - FOOTER_HIGHT)/2 - 20;
-    [self.view updateFocusIfNeeded];
+    
 
 }
+
+
 /*
 #pragma mark - Navigation
 

@@ -133,7 +133,7 @@
         NSLog(@"before %ld",dataArray .count);
 
     }else{
-        NSLog(@"before %ld",0);
+        NSLog(@"before 0");
 
     }
 //    if (_roomname == 0){

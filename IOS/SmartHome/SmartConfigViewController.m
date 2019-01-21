@@ -438,6 +438,9 @@
     }
 }
 -(void)pressedLeft:(UIButton *)button{
+    if (self.cancelAddControl) {
+        self.cancelAddControl();
+    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 

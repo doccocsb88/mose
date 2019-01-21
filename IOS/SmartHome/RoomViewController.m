@@ -44,7 +44,7 @@
 //@property (strong, nonatomic) MQTTSession *session;
 @property (strong, nonatomic) KLCPopup *controlPopup;
 @property (strong, nonatomic) ListControlViewController *popupContent;
-@property (strong, nonatomic) SmartConfigViewController *smartconfigViewController;
+//@property (strong, nonatomic) SmartConfigViewController *smartconfigViewController;
 @end
 
 @implementation RoomViewController
@@ -993,28 +993,39 @@
     }
 }
 -(void)readTopicFromQRcode:(NSString *)qrcode{
-    NSArray *info = [qrcode componentsSeparatedByString:@";"];
+   // NSArray *info = [qrcode componentsSeparatedByString:@";"];
     __weak RoomViewController *wSelf = self;
-    
-    if (info && info.count == 2 && [info[0] isEqualToString:@"controller"]){
-        //    [Utils setTopic:qrcode];
+    if ([MessagesUtils isTouchSwitchQrCodeValidate:qrcode]) {
         [self showSmartConfig:qrcode];
-        
-        
+
     }else{
         wSelf.lastQRCode = nil;
         
-        [wSelf showMessageView:@"" message:@"QRCode không hợp lệ" autoHide:YES complete:^(NSInteger index) {
+        [wSelf showMessageView:@"" message:@"QRCode không hợp lệ" autoHide:false complete:^(NSInteger index) {
             
         }];
     }
+//    if (info && info.count == 2 && [info[0] isEqualToString:@"controller"]){
+//        //    [Utils setTopic:qrcode];
+//
+//        [self showSmartConfig:qrcode];
+//
+//    }else{
+//        wSelf.lastQRCode = nil;
+//
+//        [wSelf showMessageView:@"" message:@"QRCode không hợp lệ" autoHide:YES complete:^(NSInteger index) {
+//
+//        }];
+//    }
     
 }
 -(void)showQRResult:(NSString *)message{
     NSArray * result =  [message componentsSeparatedByString:@";"];
     __weak RoomViewController *wSelf = self;
-    if (result && result.count >= 1) {
-        if ([result[0] isNumber]) {
+//    if (result && result.count >= 1) {
+//        if ([result[0] isNumber]) {
+    if ([MessagesUtils isTouchSwitchQrCodeValidate:message]) {
+
             self.lastQRCode =  message;
             
             NSInteger type = [result[0] integerValue];
@@ -1048,7 +1059,15 @@
             }
             //end if (type == DeviceTypeLightOnOff) {
             
-        }
+        
+    }else{
+
+            wSelf.lastQRCode = nil;
+            
+            [wSelf showMessageView:@"" message:@"QRCode không hợp lệ" autoHide:false complete:^(NSInteger index) {
+                
+            }];
+      
     }
 }
 
@@ -1192,12 +1211,15 @@
 
 
 -(void)showSmartConfig:(NSString *)qrcodeString{
+
     __weak RoomViewController *wSelf = self;
-    if(!self.smartconfigViewController){
-        self.smartconfigViewController = [[SmartConfigViewController alloc] initWithNibName:@"SmartConfigViewController" bundle:nil];
-    }
-    self.smartconfigViewController.qrCodeString = qrcodeString;
-    self.smartconfigViewController.handleAddControl = ^(NSString *qrcode) {
+   SmartConfigViewController *smartconfigViewController = [[SmartConfigViewController alloc] initWithNibName:@"SmartConfigViewController" bundle:nil];
+    
+   smartconfigViewController.qrCodeString = qrcodeString;
+    smartconfigViewController.cancelAddControl = ^{
+        self.lastQRCode = nil;
+    };
+   smartconfigViewController.handleAddControl = ^(NSString *qrcode) {
         NSArray *info = [qrcode componentsSeparatedByString:@";"];
         if ([info[0] isEqualToString:@"controller"]) {
             NSString *topic = info[1];
@@ -1222,9 +1244,10 @@
         }else if([info[0] isNumber]){
             NSInteger type = [info[0] integerValue];
             NSString *topic = [info[1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            
             if (type == DeviceTypeTouchSwitch){
                 [wSelf addNewDevice:topic topic:topic type:type];
-                
+              
             }else if (type == DeviceTypeCurtain){
                 NSString *mqttId = [topic componentsSeparatedByString:@"-"][1];
                 [wSelf addNewDevice:mqttId topic:topic type:type];
@@ -1233,7 +1256,7 @@
         }
         
     };
-    [self.navigationController pushViewController:self.smartconfigViewController                                                                                                                                    animated:YES];
+    [self.navigationController pushViewController:smartconfigViewController                                                                                                                                    animated:YES];
 }
 - (IBAction)longPressGestureRecognized:(id)sender {
     
@@ -1455,11 +1478,7 @@
         vc.isDenie = true;
         vc.completion = ^(BOOL finished) {
             
-            [[FirebaseHelper sharedInstance] clearData:^(BOOL exist) {
-                
-            }];
-            [[CoredataHelper sharedInstance] clearData];
-            [[User sharedInstance] clearData];
+
             [AVCaptureDevice requestAccessForMediaType:mediaType completionHandler:^(BOOL granted) {
                 if(granted){
                     NSLog(@"Granted access to %@", mediaType);
@@ -1483,11 +1502,7 @@
         vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         vc.completion = ^(BOOL finished) {
             
-            [[FirebaseHelper sharedInstance] clearData:^(BOOL exist) {
-                
-            }];
-            [[CoredataHelper sharedInstance] clearData];
-            [[User sharedInstance] clearData];
+           
             [AVCaptureDevice requestAccessForMediaType:mediaType completionHandler:^(BOOL granted) {
                 if(granted){
                     NSLog(@"Granted access to %@", mediaType);
