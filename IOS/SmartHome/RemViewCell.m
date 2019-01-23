@@ -104,17 +104,17 @@
 //        self.cButton.userInteractionEnabled = isEnable;
     
     NSLog(@"RemViewCell %ld",detail.status);
-    if (detail.status == ButtonTypeStop) {
-        self.closeButton.selected = NO;
-        self.stopButton.selected = YES;
+    if (detail.status == ButtonTypeOpen) {
+        self.closeButton.selected = YES;
+        self.stopButton.selected = NO;
         self.openButton.selected = NO;
-    }else if (detail.status == ButtonTypeOpen) {
+    }else if (detail.status == ButtonTypeClose) {
         self.closeButton.selected = NO;
         self.stopButton.selected = NO;
         self.openButton.selected = YES;
     }else{
-        self.closeButton.selected = YES;
-        self.stopButton.selected = NO;
+        self.closeButton.selected = NO;
+        self.stopButton.selected = YES;
         self.openButton.selected = NO;
     }
     [self setupValue];

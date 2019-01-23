@@ -41,7 +41,7 @@
     }
     if (self.timer) {
         
-        [self layoutCurtainView:self.timer.status value:self.timer.value];
+        [self layoutCurtainView:!self.timer.status value:self.timer.value];
  
         
         self.statusButton.selected = !self.timer.status;
@@ -244,7 +244,8 @@
         self.timer.status = !self.statusButton.selected;
 
     }else if (self.device.type == DeviceTypeCurtain){
-        self.timer.status = self.curtainOpenButton.selected;
+        BOOL status = self.curtainOpenButton.selected;
+        self.timer.status = !status;
     }
     self.timer.timer = [self getTimer];
     self.timer.deviceId = self.device.id;

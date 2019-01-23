@@ -27,7 +27,7 @@
     self.onOffButton.selected = !timer.enable;
     
     if (timer.type == DeviceTypeCurtain) {
-        self.timeLabel.text = [NSString stringWithFormat:@"%@ : %@",timer.timer,timer.status ? @"Mở Rèm" : @"Đóng Rèm"];
+        self.timeLabel.text = [NSString stringWithFormat:@"%@ : %@",timer.timer,!timer.status ? @"Mở Rèm" : @"Đóng Rèm"];
     }else{
         self.timeLabel.text = [NSString stringWithFormat:@"%@ : %@",timer.timer,timer.status ? @"On" : @"Off"];
     }

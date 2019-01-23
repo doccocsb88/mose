@@ -666,7 +666,7 @@
             [self showLoadingView];
            
            
-            NSString *msg = [NSString stringWithFormat:@"id='%@' cmd='OPEN' value='%f'",device.requestId,value];
+            NSString *msg = [NSString stringWithFormat:@"id='%@' cmd='OPEN' value='%d'",device.requestId,(int)value];
             [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic  message:msg type:device.type count:1 complete:^(BOOL finished) {
                 
             }];
