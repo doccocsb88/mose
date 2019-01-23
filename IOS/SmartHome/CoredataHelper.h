@@ -43,7 +43,8 @@
 -(NSArray *)getListTimers;
 -(NSArray *)getListTimerByRequestId:(NSString *)requestId;
 
--(NSInteger )countDevice;
+-(NSInteger)countDevice;
+-(NSInteger)getLastOrder;
 -(void)deleteDevice:(Device *)device;
 -(void)deleteDetail:(SceneDetail *)detail;
 -(Device *)getDeviceByTopic:(NSString *)topic;

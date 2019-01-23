@@ -36,7 +36,7 @@
 @property (assign, nonatomic) BOOL firstTime;
 //@property (strong, nonatomic) Device *addDevice;
 @property (strong, nonatomic) Device *delDevice;
-@property (assign, nonatomic) NSInteger chanel;
+@property (assign, nonatomic) int chanel;
 
 @property (strong, nonatomic) NSString *lastQRCode;
 //@property (nonatomic, strong)  SCSkypeActivityIndicatorView *activityIndicatorView;
@@ -74,7 +74,7 @@
     [super viewWillAppear:animated];
     [MQTTService sharedInstance].delegate = self;
     
-    
+    //[self showEditDeviceMenu];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -107,8 +107,8 @@
     _retry = 0;
     dataArray = [NSMutableArray new];
     
-    NSSortDescriptor *imageSort = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:NO];
-    NSArray *allDevices =  [[[self.room.devices allObjects] sortedArrayUsingDescriptors:@[imageSort]] mutableCopy];
+    NSSortDescriptor *deviveOrder = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:NO];
+    NSArray *allDevices =  [[[self.room.devices allObjects] sortedArrayUsingDescriptors:@[deviveOrder]] mutableCopy];
     if ([[User sharedInstance] isAdmin]) {
         dataArray = [allDevices mutableCopy];
     }else{
@@ -396,7 +396,7 @@
         __weak RoomViewController *wself = self;
         __weak TouchSwitchViewCell *wCell = cell;
         cell.isLoading = self.isProcessing;
-        cell.completionHandler = ^(NSString *value, NSInteger chanel) {
+        cell.completionHandler = ^(NSString *value, int chanel) {
             wself.chanel = chanel;
             [wself didPressedControl:device.id];
         };
@@ -666,7 +666,7 @@
             [self showLoadingView];
            
            
-            NSString *msg = [NSString stringWithFormat:@"id='%@' cmd='OPEN' value='%d'",device.requestId,(NSInteger)value];
+            NSString *msg = [NSString stringWithFormat:@"id='%@' cmd='OPEN' value='%f'",device.requestId,value];
             [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic  message:msg type:device.type count:1 complete:^(BOOL finished) {
                 
             }];
@@ -677,21 +677,21 @@
     //    [self.tableView reloadData];
 }
 
--(void)didPressedButton:(NSInteger)deviceId value:(ButtonType)value{
+-(void)didPressedButton:(NSInteger)deviceId value:(ButtonType)cmdType{
     if (self.isProcessing) {
         return;
     }
     for (int i = 0; i < displayArray.count; i++) {
         Device *device = [displayArray objectAtIndex:i];
         if (device.id == deviceId) {
-            if (value == ButtonTypeClose) {
+            if (cmdType == ButtonTypeClose) {
                 [self showLoadingView];
                 self.isProcessing = true;
                 
                 [[MQTTService sharedInstance] publishControl:device.requestId topic:device.topic message:@"CLOSE" type:device.type count:1 complete:^(BOOL finished) {
                     
                 }];
-            }else if (value == ButtonTypeStop){
+            }else if (cmdType == ButtonTypeStop){
                 [self showLoadingView];
                 self.isProcessing = true;
                 
@@ -700,7 +700,7 @@
                     
                 }];
                 
-            }else if (value == ButtonTypeOpen){
+            }else if (cmdType == ButtonTypeOpen){
                 [self showLoadingView];
                 self.isProcessing = true;
                 
@@ -747,7 +747,6 @@
     switch (index) {
         case 0:
             //heng io
-            //            UIStoryboard *storyboard = [UIStoryboard st]
             [self showAddTimeViewController];
             break;
         case 1:
@@ -1433,7 +1432,9 @@
                         }
                     }];
                 }
-                Device *newDevice = [[CoredataHelper sharedInstance] addNewDevice:@"" name:@"" deviceId:deviceId topic:topic control:false state:false value:0 mqttId:mqttID type:type order:deviceId complete:^(Device *device) {
+                NSInteger order = [[CoredataHelper sharedInstance] getLastOrder];
+                
+                Device *newDevice = [[CoredataHelper sharedInstance] addNewDevice:@"" name:@"" deviceId:deviceId topic:topic control:false state:false value:0 mqttId:mqttID type:type order:order complete:^(Device *device) {
                     if (device) {
                         [[FirebaseHelper sharedInstance] addDeviceToSystem:device.requestId];
                         [[FirebaseHelper sharedInstance] addDevice:device roomId:self.room.id];

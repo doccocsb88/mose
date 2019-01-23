@@ -563,6 +563,18 @@
     }
     return max + 1;
 }
+-(NSInteger )getLastOrder{
+    NSArray * arr = [self getListDevice];
+    NSInteger max =  0;
+    if (arr) {
+        for (Device *dv in arr) {
+            if (dv.order > max) {
+                max =  dv.order;
+            }
+        }
+    }
+    return max + 1;
+}
 -(Device *)getDeviceByTopic:(NSString *)topic type:(NSInteger)type{
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Device" inManagedObjectContext:self.context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];

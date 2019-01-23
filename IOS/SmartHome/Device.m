@@ -294,7 +294,7 @@
         value = 100;
     }
     NSLog(@"slider value 3 %d",value);
-    self.value = value;
+    self.value = (100 - value);
 }
 -(void)reset{
 //    isOnline = true;

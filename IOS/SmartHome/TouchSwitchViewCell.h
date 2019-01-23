@@ -12,7 +12,7 @@
 #import "MQTTService.h"
 #import "SceneDetail.h"
 @interface TouchSwitchViewCell : UITableViewCell <UITableViewDelegate, UITableViewDataSource>
-@property (strong, nonatomic)  void(^completionHandler)(NSString *, NSInteger);
+@property (strong, nonatomic)  void(^completionHandler)(NSString *, int);
 @property (strong, nonatomic)  void(^controlHandler)(void);
 @property (strong, nonatomic)  void(^handleSelectChanel)(NSInteger);
 

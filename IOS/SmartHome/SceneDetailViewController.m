@@ -152,7 +152,7 @@
         cell.isEdit = true;
         [cell setContentView:detail];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.completionHandler = ^(NSString *value, NSInteger chanel) {
+        cell.completionHandler = ^(NSString *value, int chanel) {
             detail.value = [value floatValue];
             [[CoredataHelper sharedInstance] save];
             [self.tableView reloadData];

@@ -36,6 +36,7 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)initData{
+    BOOL debug = true;
     dataArray = [[NSMutableArray alloc] init];
     
     [dataArray addObject:@"Hẹn giờ"];

@@ -417,7 +417,7 @@
         __weak TouchSwitchViewCell *wCell = cell;
         if (self.scene) {
             [cell setContentView:detail];
-            cell.completionHandler = ^(NSString *value, NSInteger chanel) {
+            cell.completionHandler = ^(NSString *value, int chanel) {
                 detail.value = [value floatValue];
                 [[CoredataHelper sharedInstance] save];
                 [wSelf.tableView reloadData];
