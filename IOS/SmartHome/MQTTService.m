@@ -402,8 +402,11 @@ static MQTTService *instance = nil;
     //    id='WT3-0000000004/1' cmd='SETTIMER' value='0,1,13:39,0,01111100'
     //    id='WT3-0000000004/1' cmd='SETTIMER' value='1,1,13:41,0,01111110'
     //    id='WT3-0000000004/3' cmd='SETTIMER' value='1,1,13:47,1,01110110'
-    
-    
+    //open
+    //id='0000000026' cmd='SETTIMER' value='7,UNABLE, 22:13/CLOSE, 01111111'
+    //close
+    //id='0000000026' cmd='SETTIMER' value='8,UNABLE, 22:15/OPEN, 01111111'
+
 }
 
 -(void)addMQTTDevice:(Device *)device{

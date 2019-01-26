@@ -46,6 +46,7 @@ typedef void (^FirebaseCallback)(BOOL exist);
 -(void)deleteRoom:(NSString *)code;
 //
 -(void)addScene:(Scene *)scene;
+-(void)updateScene:(Scene *)scene;
 -(void)deleteScene:(NSString *)code;
 //
 -(void)addSceneDetail:(SceneDetail *)sceneDetail sceneId:(NSInteger )sceneId;

@@ -659,6 +659,15 @@
     NSString *key = [[[[self.ref child:@"users"] child:self.user.uid] child:@"scenes"] childByAutoId].key;
     NSDictionary *dic = @{@"id":[NSString stringWithFormat:@"%ld",scene.id],@"scene_code":scene.code,@"scene_name":scene.name,@"scene_order":[NSString stringWithFormat:@"%ld",scene.order]};
     NSDictionary *childUpdates = @{[NSString stringWithFormat:@"/users/%@/scenes/%@", self.user.uid, key]: dic};
+    scene.key = key;
+    [_ref updateChildValues:childUpdates];
+    
+}
+
+-(void)updateScene:(Scene *)scene{
+
+    NSDictionary *dic = @{@"id":[NSString stringWithFormat:@"%ld",scene.id],@"scene_code":scene.code,@"scene_name":scene.name,@"scene_order":[NSString stringWithFormat:@"%ld",scene.order]};
+    NSDictionary *childUpdates = @{[NSString stringWithFormat:@"/users/%@/scenes/%@", self.user.uid, scene.key]: dic};
     [_ref updateChildValues:childUpdates];
     
 }

@@ -363,6 +363,7 @@
         }else{
             Scene *scene = [dataArray objectAtIndex:self.selectedIndex];
             scene.name = roomName;
+            [[FirebaseHelper sharedInstance] updateScene:scene];
         }
         [self loadData];
         self.selectedIndex = NSNotFound;
@@ -481,8 +482,8 @@
 -(NSInteger)getMaxScenceId{
     NSInteger max = dataArray.count;
     for (Scene *scene in dataArray) {
-        if (scene.id > max) {
-            max = scene.id;
+        if (scene.order > max) {
+            max = scene.order;
         }
     }
     return max + 1;
