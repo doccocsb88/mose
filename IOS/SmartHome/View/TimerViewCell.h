@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic)  void(^pressedEnableHandle)(void);
 
 -(void)updateContent:(SHTimer *)timer;
+-(void)updateContent:(SHTimer *)timer deviceType:(DeviceType)type;
+
 @end
 
 NS_ASSUME_NONNULL_END

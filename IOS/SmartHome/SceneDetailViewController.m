@@ -158,6 +158,31 @@
             [self.tableView reloadData];
             
         };
+        __weak SceneDetailViewController *wself = self;
+        cell.handleDeleteChanel = ^(NSInteger chanel) {
+            if ([detail numberOfChanel] > 0) {
+                [[FirebaseHelper sharedInstance] updateSceneDetail:detail sceneId:self.scene.id];
+                [[CoredataHelper sharedInstance] save];
+                
+                [self.tableView reloadData];
+            }else{
+             
+               
+                [[FirebaseHelper sharedInstance] deleteSceneDetailByKey:detail.key complete:^(BOOL finished) {
+                    [[CoredataHelper sharedInstance] save];
+                    [wself.scene removeDetail:detail];
+                    [[CoredataHelper sharedInstance] deleteDetail:detail];
+                    [wself.dataArray removeObject:detail];
+                    [wself.tableView reloadData];
+                    if (wself.didUpdateDetail) {
+                        wself.didUpdateDetail();
+                    }
+                }];
+            }
+           
+            
+            
+        };
         return cell;
     }
     return [UITableViewCell new];
@@ -172,6 +197,29 @@
 //        [self.navigationController popViewControllerAnimated:true];
 //    }
     
+}
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    SceneDetail *detail = [dataArray objectAtIndex:indexPath.row];
+    if (detail.device.type != DeviceTypeTouchSwitch){
+        return true;
+    }
+    return false;
+}
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    SceneDetail *detail = [dataArray objectAtIndex:indexPath.row];
+
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //add code here for when you hit delete
+        __weak SceneDetailViewController *wself = self;
+        [[FirebaseHelper sharedInstance] deleteSceneDetailByKey:detail.key complete:^(BOOL finished) {
+            if (finished) {
+                [[CoredataHelper sharedInstance] deleteDetail:detail];
+                [dataArray removeObject:detail];
+                [wself.tableView reloadData];
+            }
+        }];
+       
+    }
 }
 -(void)didChangeCell:(NSInteger )deviceId value:(CGFloat )value{
     int index  = 0;

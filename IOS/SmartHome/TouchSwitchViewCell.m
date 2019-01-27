@@ -45,11 +45,7 @@
     self.isScene = true;
     self.detail = detail;
     [self setContentValue:detail.device];
-//    if (detail.isSelected) {
-//        self.myBackgroundView.backgroundColor = [UIColor redColor];
-//    }else{
-//        self.myBackgroundView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
-//    }
+
     self.myBackgroundView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
 }
 -(void)setContentValue:(Device *)device{
@@ -186,6 +182,28 @@
 
         self.handleSelectChanel(indexPath.row + 1);
         [self.tableView reloadData];
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.detail != nil) {
+        return true;
+    }
+    
+    return false;
+    
+}
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //add code here for when you hit delete
+        if ([self.detail getChanelIndex:indexPath.row] != NSNotFound){
+            NSInteger chandleIndex = [self.detail getChanelIndex:indexPath.row];
+            [self.detail removeSlectedChanel:chandleIndex];
+            if (self.handleDeleteChanel) {
+                self.handleDeleteChanel(chandleIndex);
+            }
+        }
+       
     }
 }
 /**/

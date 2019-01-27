@@ -30,6 +30,12 @@
     return arr;
 }
 
+-(void)removeDetail:(SceneDetail *)detail{
+    NSMutableSet *mutableSet = [self.sceneDetail mutableCopy];
+    [mutableSet removeObject:detail];
+    self.sceneDetail = [mutableSet copy];
+}
+
 -(SceneDetail *)getDetailByRequestId:(NSString *)requestId{
     for (SceneDetail *detail in [self.sceneDetail allObjects]) {
         if (detail.device && [detail.device.requestId isEqualToString:requestId]) {

@@ -52,6 +52,8 @@ typedef void (^FirebaseCallback)(BOOL exist);
 -(void)addSceneDetail:(SceneDetail *)sceneDetail sceneId:(NSInteger )sceneId;
 -(void)updateSceneDetail:(SceneDetail *)sceneDetail sceneId:(NSInteger )sceneId;
 -(void)deleteSceneDetail:(NSString *)code;
+-(void)deleteSceneDetailByKey:(NSString *)key complete:(void (^)(BOOL))complete;
+
 -(void)deleteSceneDetailByDeviceId:(NSInteger )deviceId;
 //
 -(void)addDevice:(Device *)device roomId:(NSInteger)roomId;

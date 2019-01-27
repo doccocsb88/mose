@@ -15,6 +15,7 @@
 @property (strong, nonatomic)  void(^completionHandler)(NSString *, int);
 @property (strong, nonatomic)  void(^controlHandler)(void);
 @property (strong, nonatomic)  void(^handleSelectChanel)(NSInteger);
+@property (strong, nonatomic)  void(^handleDeleteChanel)(NSInteger);
 
 @property (strong, nonatomic) Device *device;
 @property (strong, nonatomic) SceneDetail *detail;

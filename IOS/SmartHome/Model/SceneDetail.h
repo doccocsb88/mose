@@ -24,6 +24,7 @@
 
 -(BOOL)isChanelOn:(NSInteger)chanel;
 -(void)addSelectedChanel:(NSInteger)chenel;
+-(void)removeSlectedChanel:(NSInteger)chanel;
 -(void)setSelectedChanel:(NSInteger)chanel;
 -(BOOL)isChanelSelected:(NSInteger)chanel;
 -(BOOL)hasSelectedDevicel;

@@ -731,7 +731,16 @@
         }
     }];
 }
+-(void)deleteSceneDetailByKey:(NSString *)key complete:(void (^)(BOOL))complete{
+    NSString *keyPath = [NSString stringWithFormat:@"users/%@/scene_details/%@",self.user.uid,key];
 
+    [[self.ref child:keyPath] removeValueWithCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+        if (complete) {
+            complete(true);
+
+        }
+    }];
+}
 -(void)deleteSceneDetailByDeviceId:(NSInteger)deviceId{
     NSString *keyPath = [NSString stringWithFormat:@"users/%@/scene_details",self.user.uid];
     [[[[self.ref child:keyPath] queryOrderedByChild:@"device_id"] queryEqualToValue:@(deviceId)] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {

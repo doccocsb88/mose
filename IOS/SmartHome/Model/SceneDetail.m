@@ -66,6 +66,25 @@
     }
     NSLog(@"chanel : %@",self.chanels);
 }
+-(void)removeSlectedChanel:(NSInteger)chanel{
+    NSMutableArray *arrs = [[self.chanels componentsSeparatedByString:@";"] mutableCopy];
+    if (arrs ) {
+        NSArray  *tmp = [arrs copy];
+        for (NSString * strChanel in tmp) {
+            if ([strChanel integerValue] == chanel) {
+                [arrs removeObject:strChanel];
+            }
+        }
+    }
+    self.chanels = @"";
+    for (NSString *value in arrs){
+        if (self.chanels.length == 0) {
+            self.chanels = [NSString stringWithFormat:@"%@",value];
+        }else{
+            self.chanels = [NSString stringWithFormat:@"%@;%@",self.chanels,value];
+        }
+    }
+}
 -(void)setSelectedChanel:(NSInteger)chanel{
     if (!self.chanelSelected){
         self.chanelSelected = [NSMutableArray new];

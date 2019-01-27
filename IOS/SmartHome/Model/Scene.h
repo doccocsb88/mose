@@ -16,6 +16,7 @@
 -(CGFloat)getLoadingTime;
 -(NSArray *)getListSceneDetail;
 -(SceneDetail *)getDetailByRequestId:(NSString *)requestId;
+-(void)removeDetail:(SceneDetail *)detail;
 @end
 @interface Scene (CoreDataGeneratedAccessors)
 

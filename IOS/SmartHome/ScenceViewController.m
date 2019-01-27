@@ -98,6 +98,9 @@
         vc.dataArray = [[scene getListSceneDetail] mutableCopy];
         vc.title = scene.name ? scene.name : @"";
         vc.scene = scene;
+        vc.didUpdateDetail = ^{
+            [self loadData];
+        };
         NSLog(@"detail: %ld",vc.dataArray.count);
     }
 }

@@ -140,7 +140,7 @@
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    [cell updateContent:timer];
+    [cell updateContent:timer deviceType:self.device.type];
     __weak TimerViewCell *wCell = cell;
     cell.pressedEnableHandle = ^{
         if (timer.topic == nil || timer.topic.length == 0) {
@@ -150,7 +150,7 @@
             timer.enable = !timer.enable;
             [[CoredataHelper sharedInstance] save];
             [[MQTTService sharedInstance] setTimer:timer];
-            [wCell updateContent:timer];
+            [wCell updateContent:timer deviceType:self.device.type];
 
         }
     };
