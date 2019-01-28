@@ -169,10 +169,11 @@
              
                
                 [[FirebaseHelper sharedInstance] deleteSceneDetailByKey:detail.key complete:^(BOOL finished) {
-                    [[CoredataHelper sharedInstance] save];
                     [wself.scene removeDetail:detail];
                     [[CoredataHelper sharedInstance] deleteDetail:detail];
                     [wself.dataArray removeObject:detail];
+                    [[CoredataHelper sharedInstance] save];
+
                     [wself.tableView reloadData];
                     if (wself.didUpdateDetail) {
                         wself.didUpdateDetail();
