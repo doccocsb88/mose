@@ -432,6 +432,9 @@
                 if ([info objectForKey:@"requestId"]) {
                     timer.requestId = [info objectForKey:@"requestId"];
                 }
+                if ([info objectForKey:@"order"]) {
+                    timer.order = [[info objectForKey:@"order"] integerValue];
+                }
                 [timer resetRepeat];
                 if ([timer.requestId isEqualToString:@"WT3-0000000090/3"]) {
                     NSLog(@"hasData");
@@ -821,7 +824,8 @@
                           @"time":timer.timer,
                           @"days":[timer getDays],
                           @"requestId":timer.requestId,
-                          @"timer_code":timer.code
+                          @"timer_code":timer.code,
+                          @"order":[NSNumber numberWithInteger:timer.order]
                           };
     NSDictionary *childUpdates = @{[NSString stringWithFormat:@"/users/%@/timers/%@", [self getAccessNode], key]: dic};
     [_ref updateChildValues:childUpdates withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {

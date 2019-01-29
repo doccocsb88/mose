@@ -200,15 +200,17 @@
     
 }
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    SceneDetail *detail = [dataArray objectAtIndex:indexPath.row];
-    if (detail.device.type != DeviceTypeTouchSwitch){
-        return true;
-    }
-    return false;
+//    SceneDetail *detail = [dataArray objectAtIndex:indexPath.row];
+//    if (detail.device.type != DeviceTypeTouchSwitch){
+//        return true;
+//    }
+//    return false;
+    
+    return true;
 }
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     SceneDetail *detail = [dataArray objectAtIndex:indexPath.row];
-
+//    dataArray.objectAtIndex(indexPath.row)
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //add code here for when you hit delete
         __weak SceneDetailViewController *wself = self;

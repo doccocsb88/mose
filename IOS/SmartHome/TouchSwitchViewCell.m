@@ -186,10 +186,10 @@
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (self.detail != nil) {
-        return true;
-    }
-    
+//    if (self.detail != nil) {
+//        return true;
+//    }
+//    
     return false;
     
 }

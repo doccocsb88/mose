@@ -164,7 +164,8 @@
         AddTimerViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"AddTimerViewController"];
         vc.device = self.device;
         vc.timer = timer;
-        vc.timer.order = indexPath.row;
+        //vc.timer.order = indexPath.row;
+        NSLog(@"timerOrder %ld",timer.order);
         vc.order = indexPath.row;
         vc.chanel = self.chanel;
         [self.navigationController pushViewController:vc animated:YES];
