@@ -551,12 +551,13 @@
                     Scene *scene = [[CoredataHelper sharedInstance] getSceneByCode:code];
                     
                     if(scene == nil){
-                        [[CoredataHelper sharedInstance] addNewSceneV2:sceneId name:name code:code complete:^(Scene *room) {
+                        [[CoredataHelper sharedInstance] addNewSceneV2:sceneId name:name code:code key:data.key complete:^(Scene *room) {
                             
                         }];
                         
                     }else{
                         scene.name = name;
+                        scene.key = data.key;
                     
                     }
                 }

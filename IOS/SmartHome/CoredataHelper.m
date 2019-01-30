@@ -276,11 +276,12 @@
     }
     complete(scene);
 }
--(void)addNewSceneV2:(NSInteger)_id name:(NSString *)name code:(NSString *)code complete:(void(^)(Scene * scene))complete{
+-(void)addNewSceneV2:(NSInteger)_id name:(NSString *)name code:(NSString *)code key:(NSString *)key complete:(void(^)(Scene * scene))complete{
     Scene *scene = (Scene *)[NSEntityDescription insertNewObjectForEntityForName:@"Scene" inManagedObjectContext:self.context];
     scene.id = _id;
     scene.name = name;
     scene.code = code;
+    scene.key = key;
     NSError *error;
     if (![self.context save:&error]) {
         // Something's gone seriously wrong

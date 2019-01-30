@@ -59,7 +59,7 @@
 -(Scene *)getSceneById:(NSInteger )id;
 
 -(void)addNewScene:(NSInteger)_id name:(NSString *)name complete:(void(^)(Scene * room))complete;
--(void)addNewSceneV2:(NSInteger)_id name:(NSString *)name code:(NSString *)code complete:(void(^)(Scene * room))complete;
+-(void)addNewSceneV2:(NSInteger)_id name:(NSString *)name code:(NSString *)code key:(NSString *)key complete:(void(^)(Scene * room))complete;
 
 -(NSArray *)getAllSceneDetail;
 -(SceneDetail *)addSceneDetail:(NSInteger)_id value:(NSInteger) value status:(BOOL)status device:(Device *)device complete:(void(^)(SceneDetail * detail))complete;
