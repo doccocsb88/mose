@@ -216,7 +216,7 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Scene" inManagedObjectContext:self.context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entity];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:YES];
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     [request setSortDescriptors:sortDescriptors];
     // Fetch the records and handle an error
@@ -263,11 +263,12 @@
     return [arr firstObject];
     
 }
--(void)addNewScene:(NSInteger)_id name:(NSString *)name complete:(void(^)(Scene * scene))complete{
+-(void)addNewScene:(NSInteger)_id name:(NSString *)name order:(NSInteger)order complete:(void(^)(Scene * scene))complete{
     Scene *scene = (Scene *)[NSEntityDescription insertNewObjectForEntityForName:@"Scene" inManagedObjectContext:self.context];
     scene.id = _id;
     scene.name = name;
     scene.code = [@"" randomStringWithLength:32];
+    scene.order = order;
     NSError *error;
     if (![self.context save:&error]) {
         // Something's gone seriously wrong
@@ -276,12 +277,13 @@
     }
     complete(scene);
 }
--(void)addNewSceneV2:(NSInteger)_id name:(NSString *)name code:(NSString *)code key:(NSString *)key complete:(void(^)(Scene * scene))complete{
+-(void)addNewSceneV2:(NSInteger)_id name:(NSString *)name order:(NSInteger)order code:(NSString *)code key:(NSString *)key complete:(void(^)(Scene * scene))complete{
     Scene *scene = (Scene *)[NSEntityDescription insertNewObjectForEntityForName:@"Scene" inManagedObjectContext:self.context];
     scene.id = _id;
     scene.name = name;
     scene.code = code;
     scene.key = key;
+    scene.order = order;
     NSError *error;
     if (![self.context save:&error]) {
         // Something's gone seriously wrong

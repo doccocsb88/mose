@@ -155,16 +155,19 @@
         cell.completionHandler = ^(NSString *value, int chanel) {
             detail.value = [value floatValue];
             [[CoredataHelper sharedInstance] save];
+            [[FirebaseHelper sharedInstance] updateSceneDetail:detail sceneId:self.scene.id];
             [self.tableView reloadData];
             
         };
         __weak SceneDetailViewController *wself = self;
         cell.handleDeleteChanel = ^(NSInteger chanel) {
             if ([detail numberOfChanel] > 0) {
-                [[FirebaseHelper sharedInstance] updateSceneDetail:detail sceneId:self.scene.id];
-                [[CoredataHelper sharedInstance] save];
+                [[FirebaseHelper sharedInstance] deleteSceneDetailByKey:detail.key complete:^(BOOL finsihed) {
+                    [[CoredataHelper sharedInstance] save];
+                    
+                    [self.tableView reloadData];
+                }];
                 
-                [self.tableView reloadData];
             }else{
              
                

@@ -93,8 +93,8 @@
             if (snapshot && snapshot.value) {
                 NSLog(@"initObserver : %@",snapshot.value);
                 NSDictionary *dict = snapshot.value;
-                if ([dict objectForKey:@"scene_details_code"]) {
-                    NSString *code = [dict objectForKey:@"scene_details_code"];
+                if ([dict objectForKey:@"scene_detail_code"]) {
+                    NSString *code = [dict objectForKey:@"scene_detail_code"];
                     [[CoredataHelper sharedInstance] deleteSceneDetailByCode:code];
                     [[NSNotificationCenter defaultCenter] postNotificationName:@"kFirebaseRemoveSceneDetail" object:nil userInfo:nil];
 
@@ -545,20 +545,24 @@
                     if([info objectForKey:@"scene_name"]){
                         name = [info objectForKey:@"scene_name"];
                     }
-                    if([info objectForKey:@"id"]){
-                        sceneId = [[info objectForKey:@"id"] integerValue];
+                    if([info objectForKey:@"scene_id"]){
+                        sceneId = [[info objectForKey:@"scene_id"] integerValue];
+                    }
+                    NSInteger order = 0;
+                    if ([info objectForKey:@"scene_order"]) {
+                        order = [[info objectForKey:@"scene_order"] integerValue];
                     }
                     Scene *scene = [[CoredataHelper sharedInstance] getSceneByCode:code];
                     
                     if(scene == nil){
-                        [[CoredataHelper sharedInstance] addNewSceneV2:sceneId name:name code:code key:data.key complete:^(Scene *room) {
+                        [[CoredataHelper sharedInstance] addNewSceneV2:sceneId name:name order:order code:code key:data.key complete:^(Scene *room) {
                             
                         }];
                         
                     }else{
                         scene.name = name;
                         scene.key = data.key;
-                    
+                        scene.order = order;
                     }
                 }
             }//end for
@@ -661,7 +665,8 @@
 }
 -(void)addScene:(Scene *)scene{
     NSString *key = [[[[self.ref child:@"users"] child:self.user.uid] child:@"scenes"] childByAutoId].key;
-    NSDictionary *dic = @{@"id":[NSString stringWithFormat:@"%ld",scene.id],@"scene_code":scene.code,@"scene_name":scene.name,@"scene_order":[NSString stringWithFormat:@"%ld",scene.order]};
+    NSString *sceneId = [NSString stringWithFormat:@"%ld",(long)scene.id];
+    NSDictionary *dic = @{@"id":sceneId,@"scene_code":scene.code,@"scene_name":scene.name,@"scene_order":[NSString stringWithFormat:@"%d",scene.order],@"scene_id":sceneId};
     NSDictionary *childUpdates = @{[NSString stringWithFormat:@"/users/%@/scenes/%@", self.user.uid, key]: dic};
     scene.key = key;
     [_ref updateChildValues:childUpdates];
@@ -670,7 +675,9 @@
 
 -(void)updateScene:(Scene *)scene{
 
-    NSDictionary *dic = @{@"id":[NSString stringWithFormat:@"%ld",scene.id],@"scene_code":scene.code,@"scene_name":scene.name,@"scene_order":[NSString stringWithFormat:@"%ld",scene.order]};
+    NSString *sceneId = [NSString stringWithFormat:@"%ld",(long)scene.id];
+
+    NSDictionary *dic = @{@"id":sceneId,@"scene_code":scene.code,@"scene_name":scene.name,@"scene_order":[NSString stringWithFormat:@"%d",scene.order],@"scene_id":sceneId};
     NSDictionary *childUpdates = @{[NSString stringWithFormat:@"/users/%@/scenes/%@", self.user.uid, scene.key]: dic};
     [_ref updateChildValues:childUpdates];
     

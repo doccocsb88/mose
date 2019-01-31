@@ -358,7 +358,8 @@
         UITextField *tf = alert.textFields.firstObject;
         NSString *roomName = tf.text;
         if (self.selectedIndex == NSNotFound) {
-            [[CoredataHelper sharedInstance] addNewScene:[self getMaxScenceId] name:roomName complete:^(Scene *scene) {
+            NSInteger order = dataArray.count;
+            [[CoredataHelper sharedInstance] addNewScene:[self getMaxScenceId] name:roomName order:order  complete:^(Scene *scene) {
                 if (scene) {
                     [[FirebaseHelper sharedInstance] addScene:scene];
                 }
