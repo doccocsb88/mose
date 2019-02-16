@@ -1272,6 +1272,8 @@
     switch (state) {
         case UIGestureRecognizerStateBegan: {
             if (indexPath) {
+                NSLog(@"move begin");
+
                 sourceIndexPath = indexPath;
                 
                 UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
@@ -1308,7 +1310,8 @@
             CGPoint center = snapshot.center;
             center.y = location.y;
             snapshot.center = center;
-            
+            NSLog(@"move change");
+
             // Is destination valid and is it different from source?
             if (indexPath && ![indexPath isEqual:sourceIndexPath]) {
                 
@@ -1336,6 +1339,7 @@
             // More coming soon...
         default: {
             // Clean up.
+            NSLog(@"move end");
             UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:sourceIndexPath];
             cell.hidden = NO;
             cell.alpha = 0.0;
@@ -1353,7 +1357,9 @@
                 sourceIndexPath = nil;
                 [snapshot removeFromSuperview];
                 snapshot = nil;
-                
+                cell.alpha = 1.0;
+                cell.hidden = NO;
+
             }];
             break;
         }

@@ -126,7 +126,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.451221"
+            timestampString = "571983440.896798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "505"
@@ -152,7 +152,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.451889"
+            timestampString = "571983440.897296"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "537"
@@ -168,7 +168,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.452157"
+            timestampString = "571983440.897597"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "550"
@@ -184,7 +184,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.452444"
+            timestampString = "571983440.897893"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "651"
@@ -200,7 +200,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.452706"
+            timestampString = "571983440.898169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "661"
@@ -216,7 +216,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.45296"
+            timestampString = "571983440.898446"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "803"
@@ -456,7 +456,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/main.m"
-            timestampString = "570636280.7169631"
+            timestampString = "571983440.8988791"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "9"
@@ -648,12 +648,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/ListDeviceViewController.m"
-                  timestampString = "570636526.868978"
+                  timestampString = "571981466.0344549"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "703"
                   endingLineNumber = "703"
-                  offsetFromSymbolStart = "260">
+                  offsetFromSymbolStart = "231">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -663,12 +663,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/ListDeviceViewController.m"
-                  timestampString = "570636526.8713191"
+                  timestampString = "571981466.03784"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "703"
                   endingLineNumber = "703"
-                  offsetFromSymbolStart = "316">
+                  offsetFromSymbolStart = "290">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -680,7 +680,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.453488"
+            timestampString = "571983440.899055"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "583"
@@ -696,12 +696,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/RoomViewController.m"
-                  timestampString = "570636526.87648"
+                  timestampString = "571981466.046492"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "583"
                   endingLineNumber = "583"
-                  offsetFromSymbolStart = "120">
+                  offsetFromSymbolStart = "110">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -711,12 +711,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/RoomViewController.m"
-                  timestampString = "570636526.878474"
+                  timestampString = "571981466.048884"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "583"
                   endingLineNumber = "583"
-                  offsetFromSymbolStart = "140">
+                  offsetFromSymbolStart = "125">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -728,7 +728,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.453748"
+            timestampString = "571983440.899459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "630"
@@ -872,7 +872,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.454299"
+            timestampString = "571983440.899899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "378"
@@ -904,7 +904,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.454601"
+            timestampString = "571983440.900323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1083"
@@ -920,7 +920,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.454867"
+            timestampString = "571983440.900653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1078"
@@ -936,12 +936,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/RoomViewController.m"
-                  timestampString = "570636526.944297"
+                  timestampString = "571981466.1701159"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1078"
                   endingLineNumber = "1078"
-                  offsetFromSymbolStart = "176">
+                  offsetFromSymbolStart = "157">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -951,12 +951,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/RoomViewController.m"
-                  timestampString = "570636526.946618"
+                  timestampString = "571981466.1722831"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1079"
                   endingLineNumber = "1079"
-                  offsetFromSymbolStart = "64">
+                  offsetFromSymbolStart = "51">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1192,7 +1192,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.455261"
+            timestampString = "571983440.90116"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "843"
@@ -1560,7 +1560,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.455969"
+            timestampString = "571983440.9017349"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "883"
@@ -1576,11 +1576,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.456284"
+            timestampString = "571983440.902091"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1358"
-            endingLineNumber = "1358"
+            startingLineNumber = "1364"
+            endingLineNumber = "1364"
             landmarkName = "-longPressGestureRecognized:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1592,11 +1592,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.456578"
+            timestampString = "571983440.902404"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1352"
-            endingLineNumber = "1352"
+            startingLineNumber = "1356"
+            endingLineNumber = "1356"
             landmarkName = "-longPressGestureRecognized:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1832,12 +1832,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/SmartConfigViewController.m"
-                  timestampString = "570636527.091863"
+                  timestampString = "571981466.357852"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "143"
                   endingLineNumber = "143"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "19">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -1847,12 +1847,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/SmartConfigViewController.m"
-                  timestampString = "570636527.093932"
+                  timestampString = "571981466.36076"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "144"
                   endingLineNumber = "144"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "16">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -1862,12 +1862,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/SmartConfigViewController.m"
-                  timestampString = "570636527.095794"
+                  timestampString = "571981466.362801"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "143"
                   endingLineNumber = "143"
-                  offsetFromSymbolStart = "16">
+                  offsetFromSymbolStart = "12">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1879,7 +1879,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.457001"
+            timestampString = "571983440.903358"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1182"
@@ -1911,7 +1911,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.457283"
+            timestampString = "571983440.9037941"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1186"
@@ -2023,12 +2023,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/APPChildViewController.m"
-                  timestampString = "570636527.136191"
+                  timestampString = "571981466.410525"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "350"
                   endingLineNumber = "350"
-                  offsetFromSymbolStart = "1072">
+                  offsetFromSymbolStart = "1208">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2038,12 +2038,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/APPChildViewController.m"
-                  timestampString = "570636527.1398979"
+                  timestampString = "571981466.413664"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "350"
                   endingLineNumber = "350"
-                  offsetFromSymbolStart = "32">
+                  offsetFromSymbolStart = "12">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2053,12 +2053,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/APPChildViewController.m"
-                  timestampString = "570636527.1426719"
+                  timestampString = "571981466.4161299"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "350"
                   endingLineNumber = "350"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2070,7 +2070,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.457603"
+            timestampString = "571983440.904484"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "694"
@@ -2118,7 +2118,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.4578919"
+            timestampString = "571983440.9049881"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "938"
@@ -2278,7 +2278,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.458256"
+            timestampString = "571983440.905539"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "832"
@@ -2342,12 +2342,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/ScenceViewController.m"
-                  timestampString = "570636527.236873"
+                  timestampString = "571981466.511307"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "182"
                   endingLineNumber = "182"
-                  offsetFromSymbolStart = "452">
+                  offsetFromSymbolStart = "502">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2357,12 +2357,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/ScenceViewController.m"
-                  timestampString = "570636527.23887"
+                  timestampString = "571981466.513276"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "182"
                   endingLineNumber = "182"
-                  offsetFromSymbolStart = "468">
+                  offsetFromSymbolStart = "510">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2406,7 +2406,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.458591"
+            timestampString = "571983440.906049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "669"
@@ -2630,7 +2630,7 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/FirebaseHelper.m"
-                  timestampString = "570636527.311641"
+                  timestampString = "571981466.58786"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "233"
@@ -2645,12 +2645,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/FirebaseHelper.m"
-                  timestampString = "570636527.313688"
+                  timestampString = "571981466.589563"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "235"
                   endingLineNumber = "235"
-                  offsetFromSymbolStart = "88">
+                  offsetFromSymbolStart = "84">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2678,7 +2678,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.458976"
+            timestampString = "571983440.906538"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1215"
@@ -2694,7 +2694,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.459236"
+            timestampString = "571983440.9068609"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1248"
@@ -2726,7 +2726,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartHome/RoomViewController.m"
-            timestampString = "569947198.459514"
+            timestampString = "571983440.907199"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "670"
@@ -2742,12 +2742,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/RoomViewController.m"
-                  timestampString = "570636527.3411551"
+                  timestampString = "571981466.612311"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "670"
                   endingLineNumber = "670"
-                  offsetFromSymbolStart = "392">
+                  offsetFromSymbolStart = "346">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2757,12 +2757,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/RoomViewController.m"
-                  timestampString = "570636527.343382"
+                  timestampString = "571981466.614247"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "672"
                   endingLineNumber = "672"
-                  offsetFromSymbolStart = "16">
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2790,12 +2790,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/MQTTService.m"
-                  timestampString = "570636527.354385"
+                  timestampString = "571981466.6190881"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "300"
                   endingLineNumber = "300"
-                  offsetFromSymbolStart = "1148">
+                  offsetFromSymbolStart = "1224">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2805,12 +2805,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/MQTTService.m"
-                  timestampString = "570636527.35662"
+                  timestampString = "571981466.620762"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "300"
                   endingLineNumber = "300"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "16">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2820,12 +2820,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/MQTTService.m"
-                  timestampString = "570636527.358796"
+                  timestampString = "571981466.622569"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "300"
                   endingLineNumber = "300"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2869,12 +2869,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/MQTTService.m"
-                  timestampString = "570636527.371918"
+                  timestampString = "571981466.634075"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "393"
                   endingLineNumber = "393"
-                  offsetFromSymbolStart = "172">
+                  offsetFromSymbolStart = "163">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2884,12 +2884,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/MQTTService.m"
-                  timestampString = "570636527.37411"
+                  timestampString = "571981466.635754"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "395"
                   endingLineNumber = "395"
-                  offsetFromSymbolStart = "48">
+                  offsetFromSymbolStart = "44">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2899,12 +2899,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/MQTTService.m"
-                  timestampString = "570636527.376273"
+                  timestampString = "571981466.638669"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "393"
                   endingLineNumber = "393"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -3044,12 +3044,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/ScenceViewController.m"
-                  timestampString = "570636527.418761"
+                  timestampString = "571981466.6775399"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "253"
                   endingLineNumber = "253"
-                  offsetFromSymbolStart = "2212">
+                  offsetFromSymbolStart = "2740">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -3059,12 +3059,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/ScenceViewController.m"
-                  timestampString = "570636527.421223"
+                  timestampString = "571981466.67988"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "255"
                   endingLineNumber = "255"
-                  offsetFromSymbolStart = "16">
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -3092,12 +3092,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/ScenceViewController.m"
-                  timestampString = "570636527.428383"
+                  timestampString = "571981466.684938"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "238"
                   endingLineNumber = "238"
-                  offsetFromSymbolStart = "1716">
+                  offsetFromSymbolStart = "2050">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -3107,12 +3107,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/ScenceViewController.m"
-                  timestampString = "570636527.430607"
+                  timestampString = "571981466.686806"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "240"
                   endingLineNumber = "240"
-                  offsetFromSymbolStart = "16">
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -3220,12 +3220,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/FirebaseHelper.m"
-                  timestampString = "570636527.462877"
+                  timestampString = "571981466.719211"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "744"
-                  endingLineNumber = "744"
-                  offsetFromSymbolStart = "252">
+                  startingLineNumber = "748"
+                  endingLineNumber = "748"
+                  offsetFromSymbolStart = "228">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -3235,12 +3235,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/FirebaseHelper.m"
-                  timestampString = "570636527.465211"
+                  timestampString = "571981466.721207"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "744"
-                  endingLineNumber = "744"
-                  offsetFromSymbolStart = "24">
+                  startingLineNumber = "748"
+                  endingLineNumber = "748"
+                  offsetFromSymbolStart = "16">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -3250,12 +3250,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/FirebaseHelper.m"
-                  timestampString = "570636527.4675471"
+                  timestampString = "571981466.722878"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "744"
-                  endingLineNumber = "744"
-                  offsetFromSymbolStart = "20">
+                  startingLineNumber = "748"
+                  endingLineNumber = "748"
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -3331,12 +3331,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/SceneDetailViewController.m"
-                  timestampString = "570636527.493703"
+                  timestampString = "571981466.742093"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "165"
                   endingLineNumber = "165"
-                  offsetFromSymbolStart = "84">
+                  offsetFromSymbolStart = "81">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -3346,12 +3346,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/SceneDetailViewController.m"
-                  timestampString = "570636527.496591"
+                  timestampString = "571981466.744817"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "165"
                   endingLineNumber = "165"
-                  offsetFromSymbolStart = "32">
+                  offsetFromSymbolStart = "15">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -3361,12 +3361,12 @@
                   moduleName = "SmartHome"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/SceneDetailViewController.m"
-                  timestampString = "570636527.499305"
+                  timestampString = "571981466.7474591"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "165"
                   endingLineNumber = "165"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -3384,6 +3384,101 @@
             startingLineNumber = "733"
             endingLineNumber = "733"
             landmarkName = "-updateSceneDetail:sceneId:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartHome/RoomViewController.m"
+            timestampString = "571983440.907776"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "465"
+            endingLineNumber = "465"
+            landmarkName = "-tableView:moveRowAtIndexPath:toIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartHome/RoomViewController.m"
+            timestampString = "571983440.908077"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1346"
+            endingLineNumber = "1346"
+            landmarkName = "-longPressGestureRecognized:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[RoomViewController longPressGestureRecognized:]"
+                  moduleName = "SmartHome"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/RoomViewController.m"
+                  timestampString = "571981466.761127"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1352"
+                  endingLineNumber = "1352"
+                  offsetFromSymbolStart = "2413">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__49-[RoomViewController longPressGestureRecognized:]_block_invoke.916"
+                  moduleName = "SmartHome"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/RoomViewController.m"
+                  timestampString = "571981466.763679"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1352"
+                  endingLineNumber = "1352"
+                  offsetFromSymbolStart = "15">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.918"
+                  moduleName = "SmartHome"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Documents/Project/Mose/IOS/SmartHome/RoomViewController.m"
+                  timestampString = "571981466.765619"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1352"
+                  endingLineNumber = "1352"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartHome/RoomViewController.m"
+            timestampString = "571983440.908371"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1286"
+            endingLineNumber = "1286"
+            landmarkName = "-longPressGestureRecognized:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
