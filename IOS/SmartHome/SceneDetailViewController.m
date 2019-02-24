@@ -9,7 +9,9 @@
 #import "SceneDetailViewController.h"
 
 @interface SceneDetailViewController () <UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate,DeviceCellDelegate>
-@property (strong, nonatomic) UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+
 @property (assign, nonatomic) NSInteger selectedIndex;
 @end
 
@@ -62,9 +64,13 @@
 
 }
 -(void)setupUI{
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 114)];
-    self.tableView .delegate = self;
-    self.tableView.dataSource = self;
+
+
+    
+    self.tableView.estimatedRowHeight = 0;
+    self.tableView.estimatedSectionHeaderHeight = 0;
+    self.tableView.estimatedSectionFooterHeight = 0;
+    //
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone       ;
     [self.tableView registerNib:[UINib nibWithNibName:@"LightViewCell" bundle:nil] forCellReuseIdentifier:@"lightViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"LightOnOffViewCell" bundle:nil] forCellReuseIdentifier:@"lightOnOffViewCell"];

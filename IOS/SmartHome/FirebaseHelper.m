@@ -188,7 +188,7 @@
                 if ([[User sharedInstance] isAuthentication]) {
                     [wself synData];
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        [wself synSceneData];
+                        [wself loadSceneData];
                     });
                     completion(_user,false);
 
@@ -528,6 +528,135 @@
             }
             completion(members);
         }
+    }];
+}
+-(void)loadSceneData{
+    __weak FirebaseHelper *wself = self;
+    [[[[self.ref child:@"users"] child:_user.uid] child:@"scenes"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        if(snapshot && snapshot.value){
+            NSMutableArray *sceneArray = [[NSMutableArray alloc] init];
+            for(FIRDataSnapshot *data in [snapshot children]){
+                NSLog(@"synSceneData : %@",data.value);
+                NSDictionary *info = data.value;
+                NSString *code = @"";
+                
+                if([info objectForKey:@"scene_code"]){
+                    code = [info objectForKey:@"scene_code"];
+                    NSString *name = @"";
+                    NSInteger sceneId = NSIntegerMax;
+                    if([info objectForKey:@"scene_name"]){
+                        name = [info objectForKey:@"scene_name"];
+                    }
+                    if([info objectForKey:@"scene_id"]){
+                        sceneId = [[info objectForKey:@"scene_id"] integerValue];
+                    }
+                    NSInteger order = 0;
+                    if ([info objectForKey:@"scene_order"]) {
+                        order = [[info objectForKey:@"scene_order"] integerValue];
+                    }
+                    Scene *scene = [[CoredataHelper sharedInstance] getSceneByCode:code];
+                    
+                    if(scene == nil){
+                        [[CoredataHelper sharedInstance] addNewSceneV2:sceneId name:name order:order code:code key:data.key complete:^(Scene *room) {
+                            
+                        }];
+                        
+                    }else{
+                        scene.name = name;
+                        scene.key = data.key;
+                        scene.order = order;
+                    }
+                    [sceneArray addObject:scene];
+                }
+            }//end for
+            NSMutableArray *localScenceArray = [[[CoredataHelper sharedInstance] getListScene] mutableCopy];
+            NSArray *localSceneCopy = [localScenceArray copy];
+            for (Scene *localscene in localSceneCopy) {
+                for (Scene *scene in sceneArray ) {
+                    if ([localscene.code isEqualToString:scene.code]) {
+                        [localScenceArray removeObject:localscene];
+                    }
+                }
+            }
+            for (Scene *localscene in localScenceArray) {
+                [[CoredataHelper sharedInstance] deleteSceneCode:localscene.code];
+            }
+            [[CoredataHelper sharedInstance] save];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"kFirebasedidFinishSynScene" object:nil userInfo:nil];
+        }
+    }];
+    NSMutableArray *sceneDetailArray = [[NSMutableArray alloc] init];
+
+    [[[[self.ref child:@"users"] child:_user.uid] child:@"scene_details"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        if(snapshot && snapshot.value){
+            for(FIRDataSnapshot *data in [snapshot children]){
+                NSLog(@"synSceneData scene_details: %@",data.value);
+                NSDictionary *info = data.value;
+                NSString *code = @"";
+                //
+                //                    "device_id" = 5;
+                //                    "device_order" = 1;
+                //                    "device_status" = 0;
+                //                    "device_value" = 0;
+                //                    id = 1;
+                //                    sceneId = 2;
+                //                    "scene_detail_code" = pj7it2ehmqkswls029p2zrjwqpmo7ea8;
+                if([info objectForKey:@"scene_detail_code"]){
+                    code = [info objectForKey:@"scene_detail_code"];
+                    NSInteger deviceId = [[info objectForKey:@"device_id"] integerValue];
+                    NSInteger detailId = [[info objectForKey:@"id"] integerValue];
+                    NSInteger deviceStatus = [[info objectForKey:@"device_status"] integerValue];
+                    NSInteger deviceValue = [[info objectForKey:@"device_value"] integerValue];
+                    NSInteger sceneId = [[info objectForKey:@"sceneId"] integerValue];
+                    NSString *chanels = [info objectForKey:@"chanels"];
+                    //                    @"chanels":sceneDetail.chanels ? sceneDetail.chanels : @""
+                    
+                    Device *device  = [[CoredataHelper sharedInstance] getDeviceById:deviceId];
+                    SceneDetail *sceneDetail = [[CoredataHelper sharedInstance] getSceneDetailByCode:code];
+                    
+                    if(sceneDetail == nil){
+                        sceneDetail = [[CoredataHelper sharedInstance] addSceneDetailV2:detailId key:data.key value:deviceValue status:deviceStatus device:device code:code complete:^(SceneDetail *detail) {
+                            if (detail) {
+                                
+                            }
+                        }];
+                        
+                    }else{
+                        sceneDetail.status = deviceStatus;
+                        sceneDetail.value = deviceValue;
+                        
+                        
+                    }
+                    Scene *scene =  [[CoredataHelper sharedInstance] getSceneById:sceneId];
+                    if(scene){
+                        if (sceneDetail != nil) {
+                            sceneDetail.chanels = chanels ? chanels :  @"";
+                            [scene addSceneDetailObject:sceneDetail];
+                        }
+                        
+                    }
+                    [sceneDetailArray addObject:sceneDetail];
+                }
+                
+                
+            }
+            
+        }
+        NSMutableArray *localScenceArray = [[[CoredataHelper sharedInstance] getAllSceneDetail] mutableCopy];
+        NSArray *localSceneCopy = [localScenceArray copy];
+        for (SceneDetail *localscene in localSceneCopy) {
+            for (SceneDetail *scene in sceneDetailArray ) {
+                if ([localscene.code isEqualToString:scene.code]) {
+                    [localScenceArray removeObject:localscene];
+                }
+            }
+        }
+        for (SceneDetail *localscene in localScenceArray) {
+            [[CoredataHelper sharedInstance] deleteSceneDetailByCode:localscene.code];
+        }
+        [[CoredataHelper sharedInstance] save];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"kFirebasedidFinishSynScene" object:nil userInfo:nil];
+        [wself synSceneData];
     }];
 }
 -(void)synSceneData{
