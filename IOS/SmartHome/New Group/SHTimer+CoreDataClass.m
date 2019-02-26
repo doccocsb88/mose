@@ -36,8 +36,9 @@
     }
     return str;
 }
--(NSString *)getCommandString:(DeviceType)typezzz goto:(BOOL)gto{
-    if(self.type == DeviceTypeCurtain){
+-(NSString *)getCommandString:(DeviceType)deviceType goto:(BOOL)gto{
+    NSLog(@"getCommandString timer type : %ld",self.type);
+    if(deviceType == DeviceTypeCurtain){
         if (self.enable) {
             NSString *cmd = @"";
             if (gto) {
@@ -48,7 +49,7 @@
             return [NSString stringWithFormat:@"id='%@' cmd='SETTIMER' value='%ld,UNABLE, %@/%@, %@'",self.requestId,self.order + 1,self.timer,cmd,[self getRepeatString]];
         }
         return [NSString stringWithFormat:@"id='%@' cmd='SETTIMER' value='%ld,DISABLE'",self.requestId,self.order + 1];
-    }else if(self.type == DeviceTypeTouchSwitch){
+    }else if(deviceType == DeviceTypeTouchSwitch){
         NSInteger chanel = 0;
         if([self.requestId containsString:@"/"]){
             chanel =  [[self.requestId componentsSeparatedByString:@"/"][1] intValue];

@@ -370,25 +370,29 @@ static MQTTService *instance = nil;
     NSInteger index = 0;
     for (SHTimer *timer in arrTimer) {
         double delayInSeconds = index * 0.5;
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            NSString *msg = [timer getStatusCommandString];
-            [_session publishData:[msg dataUsingEncoding:NSUTF8StringEncoding] onTopic:timer.topic retain:NO qos:MQTTQosLevelAtMostOnce publishHandler:^(NSError *error) {
-                
-                if (error) {
-                    NSLog(@"publish failed");
-                    if (self.delegate && [self.delegate respondsToSelector:@selector(mqttPublishFail:)]) {
-                        [self.delegate mqttPublishFail:timer.topic];
+        if ( timer.topic != nil && timer.topic.length > 0 ) {
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                NSString *msg = [timer getStatusCommandString];
+                NSLog(@"requestStatusTimer msg %@ --- %@",msg, timer.topic);
+                [_session publishData:[msg dataUsingEncoding:NSUTF8StringEncoding] onTopic:timer.topic retain:NO qos:MQTTQosLevelExactlyOnce publishHandler:^(NSError *error) {
+                    
+                    if (error) {
+                        NSLog(@"requestStatusTimer publish failed %@",error.localizedDescription);
+                        if (self.delegate && [self.delegate respondsToSelector:@selector(mqttPublishFail:)]) {
+                            [self.delegate mqttPublishFail:timer.topic];
+                        }
                     }
-                }
-            }];
-        });
-        index ++;
+                }];
+            });
+            index ++;
+        }
+        
     }
     
 }
--(void) setTimer:(SHTimer *)timer{
-    NSString *msg = [timer getCommandString:DeviceTypeUnknow goto:timer.isSlide];
+-(void) setTimer:(SHTimer *)timer deviceType:(DeviceType)deviceType{
+    NSString *msg = [timer getCommandString:deviceType goto:timer.isSlide];
     NSLog(@"setTimer : %@",msg);
     [_session publishData:[msg dataUsingEncoding:NSUTF8StringEncoding] onTopic:timer.topic retain:NO qos:MQTTQosLevelAtMostOnce publishHandler:^(NSError *error) {
         

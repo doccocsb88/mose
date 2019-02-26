@@ -252,6 +252,7 @@
     self.timer.order = self.order;
     self.timer.value = self.curtainValueSlider.value;
     self.timer.isSlide = self.isSlide;
+    self.timer.type = self.device.type;
     [self.timer resetRepeat];
     for (NSIndexPath *indexPath in self.selectedDate) {
         
@@ -290,7 +291,7 @@
     [[CoredataHelper sharedInstance] save];
     [[FirebaseHelper sharedInstance] addTimer:self.timer deviceId:self.device.id complete:^(NSString *key) {
         self.timer.key = key;
-        [[MQTTService sharedInstance] setTimer:self.timer];
+        [[MQTTService sharedInstance] setTimer:self.timer deviceType:self.device.type];
         [self.navigationController popViewControllerAnimated:YES];
 
     }];

@@ -554,19 +554,25 @@
                     if ([info objectForKey:@"scene_order"]) {
                         order = [[info objectForKey:@"scene_order"] integerValue];
                     }
-                    Scene *scene = [[CoredataHelper sharedInstance] getSceneByCode:code];
+                    __block Scene *scene = [[CoredataHelper sharedInstance] getSceneByCode:code];
                     
                     if(scene == nil){
-                        [[CoredataHelper sharedInstance] addNewSceneV2:sceneId name:name order:order code:code key:data.key complete:^(Scene *room) {
-                            
+                        [[CoredataHelper sharedInstance] addNewSceneV2:sceneId name:name order:order code:code key:data.key complete:^(Scene *ascene) {
+                            if (ascene != nil) {
+                                scene = ascene;
+                                [sceneArray addObject:scene];
+
+                            }
+                           
                         }];
                         
                     }else{
                         scene.name = name;
                         scene.key = data.key;
                         scene.order = order;
+                        [sceneArray addObject:scene];
+
                     }
-                    [sceneArray addObject:scene];
                 }
             }//end for
             NSMutableArray *localScenceArray = [[[CoredataHelper sharedInstance] getListScene] mutableCopy];
@@ -962,7 +968,9 @@
                           @"days":[timer getDays],
                           @"requestId":timer.requestId,
                           @"timer_code":timer.code,
-                          @"order":[NSNumber numberWithInteger:timer.order]
+                          @"order":[NSNumber numberWithInteger:timer.order],
+                          @"type":[NSNumber numberWithInteger:timer.type]
+
                           };
     NSDictionary *childUpdates = @{[NSString stringWithFormat:@"/users/%@/timers/%@", [self getAccessNode], key]: dic};
     [_ref updateChildValues:childUpdates withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {

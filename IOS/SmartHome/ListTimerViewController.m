@@ -149,7 +149,7 @@
         if (timer) {
             timer.enable = !timer.enable;
             [[CoredataHelper sharedInstance] save];
-            [[MQTTService sharedInstance] setTimer:timer];
+            [[MQTTService sharedInstance] setTimer:timer deviceType:self.device.type];
             [wCell updateContent:timer deviceType:self.device.type];
 
         }
@@ -191,7 +191,7 @@
     if (timer) {
         timer.enable = !button.selected;
         [[CoredataHelper sharedInstance] save];
-        [[MQTTService sharedInstance] setTimer:timer];
+        [[MQTTService sharedInstance] setTimer:timer deviceType:self.device.type];
 
     }
 }
