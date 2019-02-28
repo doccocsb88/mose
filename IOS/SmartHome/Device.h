@@ -26,8 +26,9 @@ typedef enum:NSInteger{
 @property (nonatomic, strong) NSString *image;
 @property (nonatomic, assign) NSInteger type;
 @property (nonatomic, assign) NSInteger order;
-@property (nonatomic, assign) BOOL state;
+@property (nonatomic, assign) NSInteger roomId;
 
+@property (nonatomic, assign) BOOL state;
 @property (nonatomic, assign) BOOL control;
 @property (nonatomic, assign) float value;
 @property (nonatomic, assign) BOOL isSubcrible;

@@ -47,14 +47,14 @@
             }
         }
     }else{
-          NSArray *tmp = [[CoredataHelper sharedInstance] getListTimerByRequestId:self.device.requestId] ;
+        NSArray *tmp = [[CoredataHelper sharedInstance] getListTimerByRequestId:self.device.requestId] ;
         dataArray = [tmp mutableCopy];
     }
 
     [self.tableView reloadData];
     [self setupUI];
     
-    [[MQTTService sharedInstance] requestStatusTimer:dataArray];
+    [[MQTTService sharedInstance] requestStatusTimer:dataArray topic:self.device.topic];
     if (self.device) {
         self.navigationItem.title = self.device.name;
     }

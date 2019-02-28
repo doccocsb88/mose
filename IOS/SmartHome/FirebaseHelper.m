@@ -321,20 +321,21 @@
                                 
                             }];
                         }
-                        [[CoredataHelper sharedInstance] addNewDevice:topic name:name deviceId:deviceId topic:topic control:control state:status value:value mqttId:mqttId type:type order:order complete:^(Device *device) {
+                        [[CoredataHelper sharedInstance] addNewDevice:topic name:name deviceId:deviceId roomId:roomId topic:topic control:control state:status value:value mqttId:mqttId type:type order:order complete:^(Device *device) {
                             if (device) {
                                 NSLog(@"AddDeviceFromFireBase : %@",device.name);
                                 device.key = data.key;
                                 device.chanelInfo = chanelInfo?chanelInfo:@"";
                                 if (room && device) {
                                     [room addDevicesObject:device];
+                                    
                                 }
                             }
                         }];
                        
                     }else{
 
-                        Device *device = [[CoredataHelper sharedInstance] getDeviceBycode:mqttId];
+                        Device *device = [[CoredataHelper sharedInstance] getDeviceByMqttId:mqttId];
                         NSLog(@"updateDeviceFromFireBase : %@ --- %@",device.name,name);
 
                         if (device) {
@@ -347,10 +348,11 @@
                             [room addDevicesObject:device];
                         }
 //                        room add
-                        [[CoredataHelper sharedInstance] save];
 
                     }
                 }
+                [[CoredataHelper sharedInstance] save];
+
                 //                    deviceId = 1;
                 //                    "device_control" = 1;
                 //                    "device_mqtt_id" = B00026A1;
@@ -368,6 +370,8 @@
                 //                    Device
                 
             }
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"kFirebasedidFinishLoadDevices" object:nil userInfo:nil];
+
         }
     }];
     [[[[self.ref child:@"users"] child:accessNode] child:@"timers"] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
@@ -967,6 +971,7 @@
                           @"time":timer.timer,
                           @"days":[timer getDays],
                           @"requestId":timer.requestId,
+                          @"topic":timer.topic != nil ? timer.topic :  @"",
                           @"timer_code":timer.code,
                           @"order":[NSNumber numberWithInteger:timer.order],
                           @"type":[NSNumber numberWithInteger:timer.type]

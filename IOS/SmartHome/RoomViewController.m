@@ -64,6 +64,8 @@
     // [MQTTService sharedInstance].delegate = self;
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(mqttBecomeActive) name:@"mqttapplicationDidBecomeActive" object:nil];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(loadData) name:@"kFirebaseRemoveDevice" object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(loadData) name:@"kFirebasedidFinishLoadDevices" object:nil];
+
     
 }
 - (void)didReceiveMemoryWarning {
@@ -98,7 +100,8 @@
 -(void)dealloc{
     [NSNotificationCenter.defaultCenter removeObserver:self name:@"mqttapplicationDidBecomeActive" object:nil];
     [NSNotificationCenter.defaultCenter removeObserver:self name:@"kFirebaseRemoveDevice" object:nil];
-    
+    [NSNotificationCenter.defaultCenter removeObserver:self name:@"kFirebasedidFinishLoadDevices" object:nil];
+
 }
 
 
@@ -108,7 +111,11 @@
     dataArray = [NSMutableArray new];
     
     NSSortDescriptor *deviveOrder = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:NO];
-    NSArray *allDevices =  [[[self.room.devices allObjects] sortedArrayUsingDescriptors:@[deviveOrder]] mutableCopy];
+    NSArray *allDevices =  [[CoredataHelper sharedInstance] getListDeviceByRoom:self.room.id];//[[[self.room.devices allObjects] sortedArrayUsingDescriptors:@[deviveOrder]] mutableCopy];
+    
+    Room *newRoom = [[CoredataHelper sharedInstance] getRoomByid:self.room.id];
+    
+    NSLog(@"room :::: %ld", [newRoom.devices allObjects].count);
     if ([[User sharedInstance] isAdmin]) {
         dataArray = [allDevices mutableCopy];
     }else{
@@ -1116,8 +1123,8 @@
             }
             [[FirebaseHelper sharedInstance] updateDevice:device roomId:self.room.id];
             [[CoredataHelper sharedInstance] save];
-            NSSortDescriptor *imageSort = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:NO];
-            NSArray *allDevices =  [[[self.room.devices allObjects] sortedArrayUsingDescriptors:@[imageSort]] mutableCopy];
+            NSSortDescriptor *deviveOrder = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:NO];
+            NSArray *allDevices =  [[CoredataHelper sharedInstance] getListDeviceByRoom:self.room.id];//[[[self.room.devices allObjects] sortedArrayUsingDescriptors:@[deviveOrder]] mutableCopy];
             dataArray = [NSMutableArray new];
             
             if ([[User sharedInstance] isAdmin]) {
@@ -1440,7 +1447,7 @@
                 }
                 NSInteger order = [[CoredataHelper sharedInstance] getLastOrder];
                 
-                Device *newDevice = [[CoredataHelper sharedInstance] addNewDevice:@"" name:@"" deviceId:deviceId topic:topic control:false state:false value:0 mqttId:mqttID type:type order:order complete:^(Device *device) {
+                Device *newDevice = [[CoredataHelper sharedInstance] addNewDevice:@"" name:@"" deviceId:deviceId roomId:self.room.id topic:topic control:false state:false value:0 mqttId:mqttID type:type order:order complete:^(Device *device) {
                     if (device) {
                         [[FirebaseHelper sharedInstance] addDeviceToSystem:device.requestId];
                         [[FirebaseHelper sharedInstance] addDevice:device roomId:self.room.id];

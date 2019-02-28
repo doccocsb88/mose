@@ -20,6 +20,7 @@
 @dynamic topic;
 @dynamic image;
 @dynamic order;
+@dynamic roomId;
 @dynamic control;
 @synthesize isSubcrible;
 @synthesize isGetStatus;

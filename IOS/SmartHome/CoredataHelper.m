@@ -381,7 +381,7 @@
     }
 }
 #pragma mark
--(Device *)addNewDevice:(NSString *)token name:(NSString *) name deviceId:(NSInteger )_id state:(BOOL)state value:(NSInteger)value requestId:(NSString *)requestId topic:(NSString *)topic type:(NSInteger)type complete:(void(^)(Device * device))complete{
+-(Device *)addNewDevice:(NSString *)token name:(NSString *) name deviceId:(NSInteger )_id roomId:(NSInteger)roomId state:(BOOL)state value:(NSInteger)value requestId:(NSString *)requestId topic:(NSString *)topic type:(NSInteger)type complete:(void(^)(Device * device))complete{
     Device *device = (Device *)[NSEntityDescription insertNewObjectForEntityForName:@"Device" inManagedObjectContext:self.context];
     device.name = name;
     device.token = token;
@@ -390,7 +390,7 @@
     device.value = value;
     device.requestId = requestId;
     device.order = _id;
-    
+    device.roomId = roomId;
 //    if (type == DeviceTypeCurtain) {
 //        device.topic = [NSString stringWithFormat:@"QA_CC_%@",requestId];
 //    }else if(type == DeviceTypeTouchSwitch){
@@ -405,7 +405,7 @@
     complete(device);
     return device;
 }
--(Device *)addNewDevice:(NSString *)token name:(NSString *) name deviceId:(NSInteger )_id topic:(NSString *)topic control:(BOOL)control state:(BOOL)state value:(NSInteger)value mqttId:(NSString *)mqttId type:(NSInteger)type order:(NSInteger)order complete:(void(^)(Device * device))complete{
+-(Device *)addNewDevice:(NSString *)token name:(NSString *) name deviceId:(NSInteger )_id roomId:(NSInteger)roomId topic:(NSString *)topic control:(BOOL)control state:(BOOL)state value:(NSInteger)value mqttId:(NSString *)mqttId type:(NSInteger)type order:(NSInteger)order complete:(void(^)(Device * device))complete{
     Device *device = (Device *)[NSEntityDescription insertNewObjectForEntityForName:@"Device" inManagedObjectContext:self.context];
     device.name = name;
     device.token = token;
@@ -417,6 +417,7 @@
     device.topic = topic;
     device.type = type;
     device.order = order;
+    device.roomId = roomId;
     device.isOnline = true;
     device.image = [NSString stringWithFormat:@"ic_room_%ld",_id - 1];
     [self save];
@@ -444,8 +445,10 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Device" inManagedObjectContext:self.context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"roomId == %ld", roomId];
+    [request setPredicate:predicate];
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:NO];
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     [request setSortDescriptors:sortDescriptors];
     // Fetch the records and handle an error

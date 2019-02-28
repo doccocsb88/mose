@@ -58,7 +58,7 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[_thumbView]-15-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_thumbView)]];
     // create label
     self.numberLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    self.numberLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    //self.numberLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.numberLabel.textAlignment = NSTextAlignmentCenter;
     self.numberLabel.textColor = [UIColor whiteColor];
     self.numberLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:17];
@@ -76,5 +76,9 @@
     CGRect frameThumbView = self.thumbView.frame;
     frameThumbView.size = CGSizeMake(size.width - 10, size.height - 30);
     self.thumbView.frame = frameThumbView;
+    
+    //
+    CGRect nameLabelFrame = CGRectMake(0, size.height - 30,size.width, 30);
+    self.numberLabel.frame = nameLabelFrame;
 }
 @end

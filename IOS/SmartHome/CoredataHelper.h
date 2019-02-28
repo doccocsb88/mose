@@ -29,8 +29,8 @@
 - (Room *)addNewRoom:(NSString *)_id name:(NSString *)name parentId:(NSString *)parentId complete:(void(^)(BOOL complete, Room * room))complete;
 - (Room *)addNewRoomV2:(NSString *)_id key:(NSString *)key name:(NSString *)name code:(NSString *)code order:(NSInteger)order complete:(void(^)(BOOL))complete;
 
--(Device *)addNewDevice:(NSString *)token name:(NSString *) name deviceId:(NSInteger )_id state:(BOOL)value value:(NSInteger)value requestId:(NSString *)requestId topic:(NSString *)topic  type:(NSInteger)type complete:(void(^)(Device * device))complete;
--(Device *)addNewDevice:(NSString *)token name:(NSString *) name deviceId:(NSInteger )_id topic:(NSString *)topic control:(BOOL)control state:(BOOL)state value:(NSInteger)value mqttId:(NSString *)mqttId type:(NSInteger)type order:(NSInteger)order complete:(void(^)(Device * device))complete;
+-(Device *)addNewDevice:(NSString *)token name:(NSString *) name deviceId:(NSInteger )_id roomId:(NSInteger)roomId state:(BOOL)value value:(NSInteger)value requestId:(NSString *)requestId topic:(NSString *)topic  type:(NSInteger)type complete:(void(^)(Device * device))complete;
+-(Device *)addNewDevice:(NSString *)token name:(NSString *) name deviceId:(NSInteger )_id roomId:(NSInteger)roomId topic:(NSString *)topic control:(BOOL)control state:(BOOL)state value:(NSInteger)value mqttId:(NSString *)mqttId type:(NSInteger)type order:(NSInteger)order complete:(void(^)(Device * device))complete;
 -(SHTimer *)addTimer;
 -(SHTimer *)getTimerByCode:(NSString *)code;
 -(NSArray *)getListRoom;

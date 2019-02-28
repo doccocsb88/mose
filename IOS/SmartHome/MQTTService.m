@@ -366,21 +366,21 @@ static MQTTService *instance = nil;
         }
     }];
 }
--(void)requestStatusTimer:(NSArray *)arrTimer{
+-(void)requestStatusTimer:(NSArray *)arrTimer  topic:(NSString *)topic{
     NSInteger index = 0;
     for (SHTimer *timer in arrTimer) {
         double delayInSeconds = index * 0.5;
-        if ( timer.topic != nil && timer.topic.length > 0 ) {
+        if ( topic != nil && topic > 0 ) {
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                 NSString *msg = [timer getStatusCommandString];
-                NSLog(@"requestStatusTimer msg %@ --- %@",msg, timer.topic);
-                [_session publishData:[msg dataUsingEncoding:NSUTF8StringEncoding] onTopic:timer.topic retain:NO qos:MQTTQosLevelExactlyOnce publishHandler:^(NSError *error) {
+                NSLog(@"requestStatusTimer msg %@ --- %@",msg, topic);
+                [_session publishData:[msg dataUsingEncoding:NSUTF8StringEncoding] onTopic:topic retain:NO qos:MQTTQosLevelAtMostOnce publishHandler:^(NSError *error) {
                     
                     if (error) {
                         NSLog(@"requestStatusTimer publish failed %@",error.localizedDescription);
                         if (self.delegate && [self.delegate respondsToSelector:@selector(mqttPublishFail:)]) {
-                            [self.delegate mqttPublishFail:timer.topic];
+                            [self.delegate mqttPublishFail:topic];
                         }
                     }
                 }];
