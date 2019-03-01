@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SHTimer : NSManagedObject
 @property (nonatomic, assign) BOOL isSlide;
+@property (nonatomic, assign) BOOL isGetStatus;
 
 -(void)resetRepeat;
 

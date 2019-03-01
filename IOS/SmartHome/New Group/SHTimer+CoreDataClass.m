@@ -11,6 +11,7 @@
 
 @implementation SHTimer
 @synthesize isSlide;
+@synthesize isGetStatus;
 
 -(void)resetRepeat{
     self.t2 = NO;

@@ -979,7 +979,9 @@
                           };
     NSDictionary *childUpdates = @{[NSString stringWithFormat:@"/users/%@/timers/%@", [self getAccessNode], key]: dic};
     [_ref updateChildValues:childUpdates withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
-        complete(key);
+        if (complete != nil) {
+            complete(key);
+        }
     }];
 }
 

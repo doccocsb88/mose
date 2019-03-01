@@ -150,6 +150,7 @@
             timer.enable = !timer.enable;
             [[CoredataHelper sharedInstance] save];
             [[MQTTService sharedInstance] setTimer:timer deviceType:self.device.type];
+            [[FirebaseHelper sharedInstance] addTimer:timer deviceId:self.device.id complete:nil];
             [wCell updateContent:timer deviceType:self.device.type];
 
         }
@@ -176,9 +177,9 @@
 #pragma mark
 
 -(void)mqttSetStateValueForTimer:(NSString *)message{
-    NSArray *arrs = [message componentsSeparatedByString:@"'"];
-    
-    NSLog(@"----- %@",arrs);
+//    NSArray *arrs = [message componentsSeparatedByString:@"'"];
+//    
+//    NSLog(@"----- %@",arrs);
 }
 - (IBAction)pressedEnableTimer:(id)sender {
     

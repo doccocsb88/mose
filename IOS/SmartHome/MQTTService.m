@@ -370,7 +370,7 @@ static MQTTService *instance = nil;
     NSInteger index = 0;
     for (SHTimer *timer in arrTimer) {
         double delayInSeconds = index * 0.5;
-        if ( topic != nil && topic > 0 ) {
+        if ( timer.isGetStatus == false &&  topic != nil && topic > 0 ) {
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                 NSString *msg = [timer getStatusCommandString];
@@ -382,6 +382,8 @@ static MQTTService *instance = nil;
                         if (self.delegate && [self.delegate respondsToSelector:@selector(mqttPublishFail:)]) {
                             [self.delegate mqttPublishFail:topic];
                         }
+                    }else{
+                        timer.isGetStatus = true;
                     }
                 }];
             });
